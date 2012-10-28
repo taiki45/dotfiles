@@ -61,9 +61,19 @@ colors
 
 case ${UID} in
 0)
+    DEFAULT=$'%{\e[1;0m%}'
+    RESET="%{${reset_color}%}"
+    GREEN="%{${fg[green]}%}"
+    BLUE="%{${fg[blue]}%}"
+    RED="%{${fg[red]}%}"
+    YELLOW="%{${fg[yellow]}%"
+    CYAN="%{${fg[cyan]}%}"
+    MAGENTA="%{$fg[magenta]%}"
+    WHITE="%{${fg[white]}%}"
+
     PROMPT="%B%{[31m%}%/#%{[m%}%b "
     PROMPT2="%B%{[31m%}%_#%{[m%}%b "
-    SPROMPT="%B%{[31m%}%r is correct? [n,y,a,e]:%{[m%}%b "
+    SPROMPT="${YELLOW} correct:${GREEN} %R ${CYAN}=> ${YELLOW} %r? ${CYAN}[y,n,a,e]:${RESET} "
     [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
         PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
     ;;
@@ -75,13 +85,14 @@ case ${UID} in
     RED="%{${fg[red]}%}"
     YELLOW="%{${fg[yellow]}%"
     CYAN="%{${fg[cyan]}%}"
+    MAGENTA="%{$fg[magenta]%}"
     WHITE="%{${fg[white]}%}"
     PR_BASE="%{${fg[cyan]}%}"
     PR_DIR="%{${fg[yellow]}%}"
 
     PROMPT='${PR_BASE}[${USER}@%m:${PR_DIR}%(5~,%-2~/.../%2~,%~)% ${PR_BASE}] ${RESET}${WHITE}$ ${RESET}'
     PROMPT2="%{[36m%}[%_%%]%{[m%} $ "
-    SPROMPT="%{[36m%}%r is correct? [n,y,a,e]:%{[m%} "
+    SPROMPT="${YELLOW} correct:${GREEN} %R ${CYAN}=> ${YELLOW} %r? ${CYAN}[y,n,a,e]:${RESET} "
     [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
         PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
     ;;
@@ -136,7 +147,7 @@ setopt auto_pushd
 setopt pushd_ignore_dups
 
 # Enable command spell checks
-#setopt correct
+setopt correct
 #setopt correct_all
 
 # Restrict overwritting redirect
