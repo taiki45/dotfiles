@@ -107,8 +107,8 @@ function cwaf() {
 zstyle ':completion:*' list-colors di=34 fi=0
 
 
-## Alias
-source ~/.dotfiles/.aliasrc
+## Ailias
+source ~/.dotfiles/ailias
 
 
 ## Movig
