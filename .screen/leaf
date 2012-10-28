@@ -1,0 +1,51 @@
+source default
+
+caption always "leaf"
+
+zombie ^[
+
+#encoding option
+defutf8 on
+defencoding utf-8
+defkanji utf-8
+encoding utf-8 utf-8
+setenv LANG ja_JP.UTF-8
+
+# unicode
+cjkwidth on
+
+defescape ^Tt
+escape ^Tt
+
+bind h prev
+bind l next
+
+# Use altenative screen
+altscreen on
+
+# default shell to invoke with ^T-c
+shell /bin/bash
+
+#attempt for mac os terminal
+termcapinfo xterm* ti@:te@
+
+
+# The scroll buffer
+defscrollback 8195
+markkeys h=^B:l=^F:$=^E:^U=^Z:^D=^V
+
+
+# Messages
+msgwait 3
+msgminwait 2
+
+hardstatus string "%?%h%:%t (screen #%n on %H)%?"
+
+caption always "%{= kw}%-Lw%40L>%?%F%{= mk}%:[%? %n%f %t %?%F%{-}%:]%?%+Lw %?%F%-07=%{= yk}current%:%=%?"
+
+#sorendition "+rb wb"
+sorendition "= Bk"
+
+# default screens
+chdir
+shell -$SHELL

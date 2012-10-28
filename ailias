@@ -1,0 +1,4 @@
+alias ls='ls -G'
+alias be='bundle exec'
+alias bi='bundle install'
+alias biwp='bundle install --without production'
