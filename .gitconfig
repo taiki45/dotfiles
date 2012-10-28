@@ -11,6 +11,9 @@
   st = status
   co = checkout
   b = branch
+  vcommit = commit -v
+  acommit = commit -av
+  up = pull --rebase
   diffcolor = diff --color-words
   graph = log --oneline --decorate --graph --all
   pgraph = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s'
