@@ -119,7 +119,7 @@ zstyle ':completion:*' list-colors di=34 fi=0
 
 
 ## Ailias
-source ~/.dotfiles/ailias
+source ~/.dotfiles/alias.sh
 
 
 ## Movig
