@@ -54,5 +54,4 @@ autonuke on
 defscrollback 0
  
 # chdir is useful for invoking scripts there.
-#chdir /Users/taiki/.screen
 chdir $HOME/.screen
