@@ -160,7 +160,7 @@ setopt magic_equal_subst
 setopt auto_param_keys
 
 # Auto add suffix slash
-setopt auto_param_slash
+#setopt auto_param_slash
 
 # Enable expantion
 setopt brace_ccl
@@ -175,7 +175,7 @@ setopt auto_menu
 setopt multios
 
 # Disable auto remove last slash
-setopt noautoremoveslash
+#setopt noautoremoveslash
 
 # No beeps
 setopt nolistbeep
