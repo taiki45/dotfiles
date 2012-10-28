@@ -1,6 +1,6 @@
 # Dotfiles
 
-# Setup
+## Setup
 ```sh
 cd
 git clone git://github.com/taiki45/dotfiles.git .dotfiles
