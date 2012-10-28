@@ -148,7 +148,7 @@ setopt pushd_ignore_dups
 
 # Enable command spell checks
 setopt correct
-#setopt correct_all
+setopt correct_all
 
 # Restrict overwritting redirect
 setopt no_clobber
