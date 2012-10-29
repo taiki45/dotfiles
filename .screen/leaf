@@ -24,7 +24,7 @@ bind l next
 altscreen on
 
 # default shell to invoke with ^T-c
-shell /bin/bash
+shell /opt/local/bin/zsh
 
 #attempt for mac os terminal
 termcapinfo xterm* ti@:te@
