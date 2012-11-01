@@ -12,6 +12,7 @@
   co = checkout
   b = branch
   vcommit = commit -v
+  com = commit -v
   acommit = commit -av
   up = pull --rebase
   diffcolor = diff --color-words
