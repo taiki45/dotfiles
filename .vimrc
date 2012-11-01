@@ -51,6 +51,11 @@ endif
 
 "auto reload when overwitten in other
 set autoread
+augroup vimrc-checktime
+  autocmd!
+  autocmd WinEnter * checktime
+augroup END
+
 
 "open other file if did not save current file
 set hidden
@@ -66,8 +71,8 @@ set backup
 set backupdir=~/.vim/backups/
 
 "set swap file dir
-set swapfile
-set directory=~/.vim/tmp
+set noswapfile
+"set directory=~/.vim/tmp
 
 "enable backspace in specific case
 set backspace=indent,eol,start
