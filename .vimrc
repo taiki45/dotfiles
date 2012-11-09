@@ -106,7 +106,7 @@ set shiftwidth=4
 set expandtab
 
 "auto indent
-set autoindent
+"set autoindent
 
 "新しい行を作ったときに高度な自動インデントを行う。
 set smartindent
