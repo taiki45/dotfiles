@@ -13,3 +13,5 @@ export TERM=xterm-color
 
 export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
 export HISTCONTROL=ignoreboth
+
+source ~/.bashrc
