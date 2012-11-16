@@ -26,6 +26,7 @@ NeoBundle 'git://github.com/Shougo/neocomplcache.git'
 "NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
 NeoBundle 'Shougo/neocomplcache-snippets-complete'
 NeoBundle 'git://github.com/Shougo/unite.vim.git'
+NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'git://github.com/Shougo/vim-vcs.git'
 NeoBundle 'git://github.com/Shougo/vimfiler.git'
 NeoBundle 'git://github.com/Shougo/vimshell.git'
@@ -33,6 +34,7 @@ NeoBundle 'git://github.com/Shougo/vinarise.git'
 NeoBundle 'git://github.com/vim-scripts/sudo.vim.git'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'tpope/vim-endwise'
+NeoBundle 'thinca/vim-ref'
 
 filetype plugin on
 filetype indent on
