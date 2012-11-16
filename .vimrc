@@ -111,12 +111,11 @@ set expandtab
 "auto indent
 "set autoindent
 
-"新しい行を作ったときに高度な自動インデントを行う。
 set smartindent
 set cindent
 set cinkeys-=0#
 
-"Insertモードで: <Tab> を挿入するのに、適切な数の空白を使う。
+"use easy tab
 set et
 
 
@@ -137,7 +136,7 @@ set ruler
 "show inbisible chars
 set list
 
-"補完候補を表示する
+"show complete
 set wildmenu
 set wildmode=list:full
 
@@ -168,10 +167,10 @@ set incsearch
 
 
 "move fast with shift key
-noremap H 3h
-noremap J 3j
-noremap K 3k
-noremap L 3l
+"noremap H 3h
+"noremap J 3j
+"noremap K 3k
+"noremap L 3l
 
 "search result as middle of scren
 
@@ -183,6 +182,18 @@ nmap g* g*zz
 nmap g# g#zz
 nmap G Gzz
 
+
+""Remap
+
+"show recent open files
+noremap :um :Unite file_mru -buffer-name=file_mru
+
+"show buffer
+noremap :ub :Unite file buffer -buffer-name=buffer
+
+"show current dir files
+noremap :uf :Unite file -buffer-name=file
+noremap :ufr :Unite file_rec -buffer-name=file_rec
 
 "#General settings
 
