@@ -37,7 +37,7 @@ NeoBundle 'git://github.com/Shougo/vinarise.git'
 NeoBundle 'git://github.com/vim-scripts/sudo.vim.git'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'tpope/vim-endwise'
-NeoBundle 'taq/vim-rspec'
+NeoBundle 'git://github.com/skwp/vim-rspec.git'
 NeoBundle 'taka84u9/vim-ref-ri'
 NeoBundle 'thinca/vim-ref'
 
