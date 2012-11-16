@@ -123,9 +123,6 @@ source ~/.dotfiles/alias.sh
 
 
 ## Movig
-# Move word and backword
-bindkey "^W" forward-word
-bindkey "^B" backward-word
 # Set backword
 autoload -Uz select-word-style
 select-word-style default

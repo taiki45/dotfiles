@@ -31,7 +31,7 @@ NeoBundle 'git://github.com/Shougo/vimfiler.git'
 NeoBundle 'git://github.com/Shougo/vimshell.git'
 NeoBundle 'git://github.com/Shougo/vinarise.git'
 NeoBundle 'git://github.com/vim-scripts/sudo.vim.git'
-"NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'vim-ruby/vim-ruby'
 
 filetype plugin on
 filetype indent on
@@ -302,4 +302,4 @@ let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 "
 "#Other settings
 syntax on
-filetype on
+"filetype on
