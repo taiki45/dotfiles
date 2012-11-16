@@ -298,8 +298,12 @@ let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 
 
 "END
-"
-"
+
+
+"" ruby and html bracket match
+source $VIMRUNTIME/macros/matchit.vim
+
+
 "#Other settings
 syntax on
 "filetype on
