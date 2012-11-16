@@ -1,6 +1,9 @@
 "set no vi compatible
 set nocompatible
 
+" quickrun setting
+let g:quickrun_config = {}
+
 "Neobundle setup
 filetype off
 
@@ -34,6 +37,8 @@ NeoBundle 'git://github.com/Shougo/vinarise.git'
 NeoBundle 'git://github.com/vim-scripts/sudo.vim.git'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'tpope/vim-endwise'
+NeoBundle 'taq/vim-rspec'
+NeoBundle 'taka84u9/vim-ref-ri'
 NeoBundle 'thinca/vim-ref'
 
 filetype plugin on
@@ -309,6 +314,15 @@ let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
 let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 
+
+
+"" RSpec and quickrun setting
+let g:quickrun_config['ruby.rspec'] = {'command': 'rspec'}
+
+augroup UjihisaRSpec
+    autocmd!
+    autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
+augroup END
 
 
 "END
