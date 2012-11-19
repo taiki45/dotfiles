@@ -200,6 +200,13 @@ noremap :ub :Unite file buffer -buffer-name=buffer
 noremap :uf :Unite file -buffer-name=file
 noremap :ufr :Unite file_rec -buffer-name=file_rec
 
+
+"buffer
+nmap bb :ls<CR>:buf 
+nmap bv :ls<CR>:vs #
+nmap bs :ls<CR>:sp #
+
+
 "#General settings
 
 "Set utf8
