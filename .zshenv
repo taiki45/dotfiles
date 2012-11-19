@@ -5,7 +5,7 @@ export LESSCHARSET=utf-8
 # ENV
 export SHELL=/opt/local/bin/zsh
 
-export PATH=$HOME/.local/bin:/opt/local/bin:/usr/local/bin:/opt/local/sbin/:$PATH
+export PATH=$HOME/.local/bin:/opt/local/bin:/opt/local/share/mysql5/mysql:/usr/local/bin:/opt/local/sbin/:$PATH
 export MANPATH=/opt/local/man:$MANPATH
 export RSENSE_HOME=~/.rsense-0.3
 
