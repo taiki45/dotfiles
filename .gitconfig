@@ -20,10 +20,11 @@
   pgraph = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s'
   logall = log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d%Creset'
   logdiff = log -p
+  difflog = log -p
   logstat = log --stat
   logpretty = log --pretty=\"format:%ad %h (%an): %s\" --date=short
   oneline = log --pretty=oneline
-  diffbranch = "!f() { git cherry -v "$@" | awk '{ if($1 == \"+\"){ color = \"green\" } if($1 == \"-\"){ color = \"red\" } cmd = \"git show --date=short --no-notes --pretty=format:\\047%C\" color $1 \" %h %Cgreen%cd %Cblue%cn%x09%Creset%s\\047 --summary \" $2; cmd | getline t; close(cmd); print t }' ;}; f"
+  branchdiff = "!f() { git cherry -v "$@" | awk '{ if($1 == \"+\"){ color = \"green\" } if($1 == \"-\"){ color = \"red\" } cmd = \"git show --date=short --no-notes --pretty=format:\\047%C\" color $1 \" %h %Cgreen%cd %Cblue%cn%x09%Creset%s\\047 --summary \" $2; cmd | getline t; close(cmd); print t }' ;}; f"
 [core]
   pager = lv -c
   excludesfile = ~/.gitignore
