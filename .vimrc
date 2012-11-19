@@ -40,6 +40,7 @@ NeoBundle 'tpope/vim-endwise'
 NeoBundle 'git://github.com/skwp/vim-rspec.git'
 NeoBundle 'taka84u9/vim-ref-ri'
 NeoBundle 'thinca/vim-ref'
+NeoBundle 'tpope/vim-fugitive'
 
 filetype plugin on
 filetype indent on
@@ -190,21 +191,16 @@ nmap G Gzz
 
 ""Remap
 
+""unite
 "show recent open files
-noremap :um :Unite file_mru -buffer-name=file_mru
+noremap :uh :Unite file_mru -buffer-name=file_mru
 
-"show buffer
-noremap :ub :Unite file buffer -buffer-name=buffer
+"show buffer and files
+noremap :ub :Unite buffer file -buffer-name=buffer
 
 "show current dir files
 noremap :uf :Unite file -buffer-name=file
-noremap :ufr :Unite file_rec -buffer-name=file_rec
-
-
-"buffer
-nmap bb :ls<CR>:buf 
-nmap bv :ls<CR>:vs #
-nmap bs :ls<CR>:sp #
+noremap :ufa :Unite file_rec -buffer-name=file_rec
 
 
 "#General settings
