@@ -11,6 +11,7 @@
     st = status
     co = checkout
     b = branch
+    ba = branch -a
     vcommit = commit -v
     com = commit -v
     acommit = commit -av
