@@ -36,7 +36,7 @@ NeoBundle 'git://github.com/Shougo/vimshell.git'
 NeoBundle 'git://github.com/Shougo/vinarise.git'
 NeoBundle 'git://github.com/vim-scripts/sudo.vim.git'
 NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'tpope/vim-endwise'
+"NeoBundle 'tpope/vim-endwise'
 NeoBundle 'git://github.com/skwp/vim-rspec.git'
 NeoBundle 'taka84u9/vim-ref-ri'
 NeoBundle 'thinca/vim-ref'
@@ -338,4 +338,7 @@ source $VIMRUNTIME/macros/matchit.vim
 
 "#Other settings
 syntax on
+
+set tags=~/.tags
+
 "filetype on
