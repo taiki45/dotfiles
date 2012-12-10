@@ -41,6 +41,7 @@ NeoBundle 'git://github.com/skwp/vim-rspec.git'
 NeoBundle 'taka84u9/vim-ref-ri'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'kchmck/vim-coffee-script'
 
 filetype plugin on
 filetype indent on
@@ -103,6 +104,8 @@ hi StatusLineNC ctermfg=black ctermbg=grey cterm=none
 hi WarningMsg ctermfg=black ctermbg=red cterm=none
 
 hi VertSplit  ctermfg=black ctermbg=blue cterm=none
+
+set cursorline
 
 
 
@@ -337,6 +340,10 @@ augroup END
 
 "" ruby and html bracket match
 source $VIMRUNTIME/macros/matchit.vim
+
+
+"" coffe script
+autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow | redraw!
 
 
 "#Other settings
