@@ -19,6 +19,9 @@ setopt list_packed
 # Show file kind like `ls -F`
 setopt list_types
 
+# Select completions via emacs key-binds
+zstyle ':completion:*:default' menu select=1
+
 # Show list when same suggestion exists
 setopt auto_list
 
