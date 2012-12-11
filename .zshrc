@@ -20,7 +20,7 @@ setopt list_packed
 setopt list_types
 
 # Select completions via emacs key-binds
-zstyle ':completion:*:default' menu select=1
+#zstyle ':completion:*:default' menu select=1
 
 # Show list when same suggestion exists
 setopt auto_list
@@ -93,7 +93,7 @@ case ${UID} in
     PR_BASE="%{${fg[cyan]}%}"
     PR_DIR="%{${fg[yellow]}%}"
 
-    PROMPT='${PR_BASE}[${USER}@%m:${PR_DIR}%(5~,%-2~/.../%2~,%~)% ${PR_BASE}] ${RESET}${WHITE}$ ${RESET}'
+    PROMPT='${PR_BASE}[${USER}:${PR_DIR}%(5~,%-2~/.../%2~,%~)% ${PR_BASE}] ${RESET}${WHITE}$ ${RESET}'
     PROMPT2="%{[36m%}[%_%%]%{[m%} $ "
     SPROMPT="${YELLOW} correct:${GREEN} %R ${CYAN}=> ${YELLOW} %r? ${CYAN}[y,n,a,e]:${RESET} "
     [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
