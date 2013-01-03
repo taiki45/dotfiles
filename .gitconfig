@@ -17,6 +17,7 @@
     acommit = commit -av
     up = pull --rebase
     diffcolor = diff --color-words
+    diffadded = diff --cached
     graph = log --oneline --decorate --graph --all
     pgraph = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s'
     logall = log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d%Creset'
