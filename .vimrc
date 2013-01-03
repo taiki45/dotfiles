@@ -87,6 +87,9 @@ set noswapfile
 "enable backspace in specific case
 set backspace=indent,eol,start
 
+"set yanked text to clipboard
+:set clipboard+=unnamed
+
 
 
 
