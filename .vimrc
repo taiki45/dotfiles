@@ -26,8 +26,7 @@ NeoBundle 'Shougo/vimproc'
 NeoBundle 'rails.vim'
 "NeoBundle 'git://github.com/Shougo/echodoc.git'
 NeoBundle 'git://github.com/Shougo/neocomplcache.git'
-"NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
-NeoBundle 'Shougo/neocomplcache-snippets-complete'
+NeoBundle 'Shougo/neosnippet'
 NeoBundle 'git://github.com/Shougo/unite.vim.git'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'git://github.com/Shougo/vim-vcs.git'
@@ -316,6 +315,7 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType php setlocal omnifunc=phpcomplete#CompletePhp
 
 " Enable heavy omni completion.
 if !exists('g:neocomplcache_omni_patterns')
@@ -323,9 +323,14 @@ if !exists('g:neocomplcache_omni_patterns')
 endif
 let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
 let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+let g:neocomplcache_omni_patterns.php = ''
+
+if !exists('g:neocomplcache_member_prefix_patterns')
+  let g:neocomplcache_member_prefix_patterns = {}
+endif
+let g:neocomplcache_member_prefix_patterns['php'] = ''
 
 
 
@@ -347,6 +352,9 @@ source $VIMRUNTIME/macros/matchit.vim
 
 "" coffe script
 autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow | redraw!
+
+"" Gauche
+autocmd FileType scheme :let is_gauche=1
 
 
 "#Other settings
