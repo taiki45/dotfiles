@@ -27,6 +27,7 @@ NeoBundle 'rails.vim'
 "NeoBundle 'git://github.com/Shougo/echodoc.git'
 NeoBundle 'git://github.com/Shougo/neocomplcache.git'
 NeoBundle 'Shougo/neosnippet'
+
 NeoBundle 'git://github.com/Shougo/unite.vim.git'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'git://github.com/Shougo/vim-vcs.git'
