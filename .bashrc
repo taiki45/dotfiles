@@ -10,3 +10,6 @@ source ~/.bash/git-prompt.sh
 source ~/.bash/git-completion.bash
 
 source ~/.bash/itunes_completion.sh
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

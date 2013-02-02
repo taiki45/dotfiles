@@ -44,6 +44,8 @@ NeoBundle 'taka84u9/vim-ref-ri'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'groenewege/vim-less'
 
 filetype plugin on
 filetype indent on

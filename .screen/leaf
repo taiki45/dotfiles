@@ -10,6 +10,7 @@ defencoding utf-8
 defkanji utf-8
 encoding utf-8 utf-8
 setenv LANG ja_JP.UTF-8
+setenv SHELL /opt/local/bin/zsh
 
 # unicode
 cjkwidth on
@@ -48,4 +49,4 @@ sorendition "= Bk"
 
 # default screens
 chdir
-shell -$SHELL
+shell /opt/local/bin/zsh
