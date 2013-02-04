@@ -1,13 +1,14 @@
 "set no vi compatible
 set nocompatible
 
+
 " quickrun setting
 let g:quickrun_config = {}
 
+
+
 "Neobundle setup
 filetype off
-
-
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
@@ -57,7 +58,6 @@ if neobundle#exists_not_installed_bundles()
 endif
 
 
-"END neobundle setup
 
 
 
@@ -92,6 +92,8 @@ set backspace=indent,eol,start
 "set yanked text to clipboard
 :set clipboard+=unnamed
 
+" no auto resizing
+set noequalalways
 
 
 
