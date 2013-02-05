@@ -31,6 +31,10 @@
     pager = lv -c
     excludesfile = ~/.gitignore
     autocrlf = input
+[merge]
+    ff = false
+[pull]
+    rebase = true
 [tig "bind"]
     generic = g move-first-line
     generic = G move-last-line
