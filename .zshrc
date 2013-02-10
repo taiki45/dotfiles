@@ -193,6 +193,8 @@ autoload zed
 # Show background changes
 setopt notify
 
+# Set min report time
+REPORTTIME=3
 
 # AutoJump setting
 #export FPATH="$FPATH:/opt/local/share/zsh/site-functions/"
