@@ -37,6 +37,8 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'groenewege/vim-less'
+NeoBundle 'dag/vim2hs.git'
+NeoBundle 'ujihisa/neco-ghc'
 
 filetype plugin on
 filetype indent on
