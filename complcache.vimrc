@@ -60,17 +60,6 @@ inoremap <expr><C-e>  neocomplcache#cancel_popup()
 "inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
 
 
-" Rsense settings
-if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns = {}
-endif
-let g:rsenseUseOmniFunc = 1
-if filereadable(expand('~/.rsense-0.3/bin/rsense'))
-  let g:rsenseHome = expand('~/.rsense-0.3')
-  let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-endif
-
-
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -93,3 +82,14 @@ if !exists('g:neocomplcache_member_prefix_patterns')
   let g:neocomplcache_member_prefix_patterns = {}
 endif
 let g:neocomplcache_member_prefix_patterns['php'] = ''
+
+
+" Rsense settings
+if !exists('g:neocomplcache_omni_patterns')
+  let g:neocomplcache_omni_patterns = {}
+endif
+let g:rsenseUseOmniFunc = 1
+if filereadable(expand('~/.rsense-0.3/bin/rsense'))
+  let g:rsenseHome = expand('~/.rsense-0.3')
+  let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+endif
