@@ -19,6 +19,10 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 source ~/.pyenv/completions/pyenv.zsh
 
+if [ -f ~/.local/bin/hub ]; then
+    eval "$(hub alias -s)"
+fi
+
 export TERM=xterm-color
 
 # Editor
