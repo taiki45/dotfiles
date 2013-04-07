@@ -33,7 +33,3 @@ if [ -d ~/.pyenv ]; then
     eval "$(pyenv init -)"
     source ~/.pyenv/completions/pyenv.zsh
 fi
-
-if [ -f ~/.local/bin/hub ]; then
-    eval "$(hub alias -s)"
-fi
