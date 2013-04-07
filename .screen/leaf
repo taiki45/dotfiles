@@ -18,8 +18,8 @@ cjkwidth on
 defescape ^Tt
 escape ^Tt
 
-bind h prev
-bind l next
+bind h focus
+bind l focus
 
 # Use altenative screen
 altscreen on
