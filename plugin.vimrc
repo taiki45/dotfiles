@@ -4,7 +4,7 @@
 source $VIMRUNTIME/macros/matchit.vim
 
 "" coffe script
-autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow | redraw!
+"autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow | redraw!
 
 "" Gauche
 autocmd FileType scheme :let is_gauche=1
