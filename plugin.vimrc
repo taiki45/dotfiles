@@ -19,3 +19,7 @@ augroup UjihisaRSpec
     autocmd!
     autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
 augroup END
+
+
+"" neko-ghc
+let $PATH = $PATH . ':' . expand("~/.cabal/bin")
