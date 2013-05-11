@@ -26,8 +26,8 @@ setopt list_types
 setopt auto_list
 
 # Auto completion
-if [ -d "$HOME/.zsh" ]; then
-  source "$HOME/.zsh/auto-fu.zsh"
+if [ -d "$HOME/.zsh/auto-fu" ]; then
+  source "$HOME/.zsh/auto-fu/auto-fu.zsh"
   function zle-line-init ()
   {
     auto-fu-init
