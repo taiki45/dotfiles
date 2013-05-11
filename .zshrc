@@ -120,6 +120,11 @@ function cwaf() {
 # Color complettion
 zstyle ':completion:*' list-colors di=34 fi=0
 
+# syntax hilighting
+if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+    source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
 
 ## Ailias
 source ~/.dotfiles/alias.sh
