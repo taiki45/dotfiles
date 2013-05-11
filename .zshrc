@@ -28,6 +28,7 @@ setopt auto_list
 # Auto completion
 if [ -d "$HOME/.zsh/auto-fu" ]; then
   source "$HOME/.zsh/auto-fu/auto-fu.zsh"
+  zstyle ':auto-fu:var' postdisplay $'\n(;>_<)'
   function zle-line-init ()
   {
     auto-fu-init
