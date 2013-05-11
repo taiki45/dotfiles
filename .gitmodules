@@ -4,3 +4,6 @@
 [submodule ".zsh/zsh-syntax-highlighting"]
 	path = .zsh/zsh-syntax-highlighting
 	url = git://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule ".zsh/auto-fu"]
+	path = .zsh/auto-fu
+	url = git://github.com/hchbaw/auto-fu.zsh.git
