@@ -40,6 +40,7 @@ NeoBundle 'dag/vim2hs.git'
 NeoBundle 'ujihisa/neco-ghc'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'Lokaltog/vim-powerline'
 
 filetype plugin on
 filetype indent on

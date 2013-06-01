@@ -32,3 +32,7 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * : highlight IndentGuidesOdd  ctermbg=236
 autocmd VimEnter,Colorscheme * : highlight IndentGuidesEven ctermbg=234
+
+
+"" Vim Powerline
+let g:Powerline_symbols = 'fancy'
