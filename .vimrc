@@ -1,6 +1,7 @@
 "set no vi compatible
 set nocompatible
 
+set t_Co=256
 
 source ~/.dotfiles/basic.vimrc
 source ~/.dotfiles/color.vimrc

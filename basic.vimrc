@@ -76,7 +76,8 @@ set title
 set ruler
 
 "show inbisible chars
-set list
+"set list
+"set listchars=tab:\ \ ,eol:¬,trail:_
 
 "show complete
 set wildmenu

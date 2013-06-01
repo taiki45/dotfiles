@@ -38,6 +38,8 @@ NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'dag/vim2hs.git'
 NeoBundle 'ujihisa/neco-ghc'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 
 filetype plugin on
 filetype indent on

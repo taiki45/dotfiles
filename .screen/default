@@ -15,10 +15,15 @@ termcapinfo xterm*|kterm*|screen* Z0=\E[?3h:Z1=\E[?3l
 # To use hardware status line
 termcapinfo xterm*|kterm*|screen* hs:ts=\E]0;:fs=\007:ds=\E]0;\007
 hardstatus on
- 
+
+# for linux
 # To use 256 colors. AB/AF are also screen specific.
 termcapinfo xterm*|kterm*|screen* Co#256:pa#32767:AB=\E[48;5;%dm:AF=\E[38;5;%dm
 defbce on
+
+# for Mac
+#term xterm-256color
+#termcapinfo xterm-256color 'is=^[r^[mJ^[H^[?7h^[?1;4;6l'
  
 # To use resize-window
 termcapinfo xterm*|kterm*|screen* is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l
