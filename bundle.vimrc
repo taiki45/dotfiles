@@ -43,6 +43,7 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'b4winckler/vim-objc'
 NeoBundle 'vim-scripts/cocoa.vim'
+NeoBundle 'rking/ag.vim'
 
 filetype plugin on
 filetype indent on
