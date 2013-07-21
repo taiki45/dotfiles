@@ -3,6 +3,9 @@
 bindkey -e
 
 ## Complettion
+# Set fpath
+[ -d $HOME/.zsh/zsh-completions/src ] && fpath=($HOME/.zsh/zsh-completions/src $fpath)
+
 # Enable completions
 autoload -U compinit && compinit
 
