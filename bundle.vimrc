@@ -41,6 +41,8 @@ NeoBundle 'ujihisa/neco-ghc'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'b4winckler/vim-objc'
+NeoBundle 'vim-scripts/cocoa.vim'
 
 filetype plugin on
 filetype indent on
