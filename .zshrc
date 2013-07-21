@@ -1,10 +1,6 @@
 ## General
-# ENV
-export SHELL=/opt/local/bin/zsh
-
 # Emacs like key bind
 bindkey -e
-
 
 ## Complettion
 # Enable completions
