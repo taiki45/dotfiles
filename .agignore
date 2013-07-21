@@ -1,0 +1,12 @@
+.git
+.bzr
+
+tmp
+cache
+data
+vendor
+log
+
+coverage
+doc
+spec
