@@ -10,7 +10,6 @@ defencoding utf-8
 defkanji utf-8
 encoding utf-8 utf-8
 setenv LANG ja_JP.UTF-8
-setenv SHELL /opt/local/bin/zsh
 
 # unicode
 cjkwidth on
@@ -23,9 +22,6 @@ bind l focus
 
 # Use altenative screen
 altscreen on
-
-# default shell to invoke with ^T-c
-shell /opt/local/bin/zsh
 
 #attempt for mac os terminal
 termcapinfo xterm* ti@:te@
