@@ -23,7 +23,7 @@ if [ -d ~/.rsense-0.3 ]; then
 fi
 
 if [ -d ~/.rbenv ]; then
-    export PATH="$HOME/.rbenv/bin:$PATH"
+    export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
     eval "$(rbenv init -)"
     source ~/.rbenv/completions/rbenv.zsh
 fi
