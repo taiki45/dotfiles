@@ -38,7 +38,7 @@ set noswapfile
 set backspace=indent,eol,start
 
 "set yanked text to clipboard
-:set clipboard+=unnamed
+set clipboard+=unnamed
 
 " no auto resizing
 set noequalalways
