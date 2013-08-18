@@ -22,7 +22,9 @@ augroup END
 
 
 "" neko-ghc
-let $PATH = $PATH . ':' . expand("~/.cabal/bin")
+let g:haskell_conceal = 0
+let g:haskell_conceal_enumerations = 0
+
 
 "" indent-guides
 let g:indent_guides_enable_on_vim_startup=1

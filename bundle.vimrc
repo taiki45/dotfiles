@@ -36,7 +36,7 @@ NeoBundle 'thinca/vim-ref'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'groenewege/vim-less'
-NeoBundle 'dag/vim2hs.git'
+NeoBundle 'dag/vim2hs'
 NeoBundle 'ujihisa/neco-ghc'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'nathanaelkane/vim-indent-guides'
@@ -45,6 +45,7 @@ NeoBundle 'b4winckler/vim-objc'
 NeoBundle 'vim-scripts/cocoa.vim'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'guns/xterm-color-table.vim'
+NeoBundle 'ujihisa/unite-haskellimport'
 
 filetype plugin on
 filetype indent on
