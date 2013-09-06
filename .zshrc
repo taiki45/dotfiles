@@ -145,8 +145,11 @@ function cwaf() {
     LANG=C command ./waf "$@" 2>&1 | sed -e "s@[Ee]rror:.*@$e_RED&$e_normal@g" -e "s@cannot¥sfind.*@$e_RED&$e_normal@g" -e "s@[Ww]arning:.*@$e_BLUE&$e_normal@g"
 }
 
-# Color complettion
-zstyle ':completion:*' list-colors di=34 fi=0
+# Use same colors for autocompletion
+zmodload -a colors
+zmodload -a autocomplete
+zmodload -a complist
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 # syntax hilighting
 if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
