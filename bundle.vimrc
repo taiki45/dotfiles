@@ -48,6 +48,7 @@ NeoBundle 'guns/xterm-color-table.vim'
 NeoBundle 'ujihisa/unite-haskellimport'
 NeoBundle 'avakhov/vim-yaml'
 NeoBundle 'elzr/vim-json'
+NeoBundle 'tpope/vim-cucumber'
 
 filetype plugin on
 filetype indent on
