@@ -39,3 +39,6 @@ autocmd VimEnter,Colorscheme * : highlight IndentGuidesEven ctermbg=234
 "" Vim Powerline
 let g:Powerline_symbols = 'fancy'
 set ambiwidth=double
+
+"" Align.vim
+let g:Align_xstrlen=3

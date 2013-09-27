@@ -49,6 +49,7 @@ NeoBundle 'ujihisa/unite-haskellimport'
 NeoBundle 'avakhov/vim-yaml'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'tpope/vim-cucumber'
+NeoBundle 'vim-scripts/Align'
 
 filetype plugin on
 filetype indent on
