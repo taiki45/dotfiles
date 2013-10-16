@@ -216,7 +216,7 @@ setopt correct
 #setopt correct_all
 
 # Restrict overwritting redirect
-setopt no_clobber
+#setopt no_clobber
 
 # Complemet after '='
 setopt magic_equal_subst
