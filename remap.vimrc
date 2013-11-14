@@ -15,6 +15,12 @@ nnoremap <Space>/ *
 imap <C-b> <Left>
 imap <C-f> <Right>
 
+" Tab
+" prev tab
+noremap [ gT
+" next tab
+noremap ] gt
+
 "Tags
 noremap  
 
