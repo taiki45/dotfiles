@@ -105,8 +105,8 @@ if is-at-least 4.3.10; then
   zstyle ':vcs_info:git:*' stagedstr "+"
   zstyle ':vcs_info:git:*' unstagedstr "-"
   #zstyle ':vcs_info:git:*' formats '(%s)-[%b] %c%u'
-  zstyle ':vcs_info:git:*' formats '(%b)'
-  zstyle ':vcs_info:git:*' actionformats '(%b|%a)'
+  zstyle ':vcs_info:git:*' formats '%b'
+  zstyle ':vcs_info:git:*' actionformats '%b %a'
 fi
 
 function _update_vcs_info_msg() {
@@ -176,7 +176,10 @@ case ${UID} in
     #PROMPT='${PR_BASE}[${USER}:${PR_DIR}%(5~,%-2~/.../%2~,%~)% ${PR_BASE}]${RESET}%1(v|%F{blue}%1v%f|)${RESET}
 #    PROMPT='${PR_BASE}[${USER}:${PR_DIR}%(10~,%-2~/.../%2~,%~)% ${PR_BASE}]${RESET}%1(v|%F{blue}%1v%f|)${RESET}
 #${WHITE}$ ${RESET}'
-    PROMPT='${PR_BASE}[${USER}:${PR_DIR}%(10~,%-2~/.../%2~,%~)% ${PR_BASE}]${RESET}%1(v|%F{blue}%1v%f|)${RESET}
+#    PROMPT='${PR_BASE}[${USER}:${PR_DIR}%(10~,%-2~/.../%2~,%~)% ${PR_BASE}]${RESET}%1(v|%F{blue}%1v%f|)${RESET}
+#%(?,${GREEN}✔,${RED}✗) ${RESET}'
+
+    PROMPT='%F{22}%K{70} ${USER} %k%f%F{70}%K{238}⮀⮁ %k%f%F{238}%K{208}⮀  %k%f%F{208}%K{236}⮀%k%f%F{214}%K{236} %(10~,%-2~/.../%2~,%~)%  %k%f%F{236}%K{208}⮀ %k%f%F{208}%K{237}⮀ %k%f%F{237}%K{45}⮀%F{45}%K{240}⮀%F{240}%K{45}⮀%F{25}%K{45} %1(v|%1v|) %F{45}%K{240}⮀ %F{240}%K{197}⮀%F{53} $(rbenv_version) %F{197}%K{238}⮀%k%f%F{238}%K{197}⮀ %F{197}%K{236}⮀%F{236}%K{197}⮀%F{197}%K{0}⮀ %f%k
 %(?,${GREEN}✔,${RED}✗) ${RESET}'
     PROMPT2="%{[36m%}[%_%%]%{[m%} $ "
     RPROMPT="%{$fg[cyan]%}$(rbenv_version) %{$reset_color%}%{$fg[red]%}❤%{$reset_color%} ${CYAN}%*-%W${RESET}"
