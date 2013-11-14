@@ -1,8 +1,8 @@
 "" Color setting
 
-set background=dark
+"set background=dark
 colorscheme molokai
-let g:solarized_termcolors=256
+"let g:solarized_termcolors=256
 
 set cursorline
 autocmd VimEnter,ColorScheme * : highlight CursorLine cterm=underline ctermbg=234
