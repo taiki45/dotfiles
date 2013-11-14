@@ -174,10 +174,12 @@ case ${UID} in
     PR_DIR="%{${fg[yellow]}%}"
 
     #PROMPT='${PR_BASE}[${USER}:${PR_DIR}%(5~,%-2~/.../%2~,%~)% ${PR_BASE}]${RESET}%1(v|%F{blue}%1v%f|)${RESET}
+#    PROMPT='${PR_BASE}[${USER}:${PR_DIR}%(10~,%-2~/.../%2~,%~)% ${PR_BASE}]${RESET}%1(v|%F{blue}%1v%f|)${RESET}
+#${WHITE}$ ${RESET}'
     PROMPT='${PR_BASE}[${USER}:${PR_DIR}%(10~,%-2~/.../%2~,%~)% ${PR_BASE}]${RESET}%1(v|%F{blue}%1v%f|)${RESET}
-${WHITE}$ ${RESET}'
+%(?,${GREEN}✔,${RED}✗) ${RESET}'
     PROMPT2="%{[36m%}[%_%%]%{[m%} $ "
-    RPROMPT="%{$fg[cyan]%}$(rbenv_version) %{$reset_color%}%{$fg[red]%}❤%{$reset_color%} ${CYAN}%D %*${RESET}"
+    RPROMPT="%{$fg[cyan]%}$(rbenv_version) %{$reset_color%}%{$fg[red]%}❤%{$reset_color%} ${CYAN}%* %D${RESET}"
     SPROMPT="${YELLOW} correct:${GREEN} %R ${CYAN}=> ${YELLOW} %r? ${CYAN}[y,n,a,e]:${RESET} "
     [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
         PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
