@@ -30,17 +30,47 @@ NeoBundle 'git://github.com/Shougo/vimshell.git'
 NeoBundle 'git://github.com/Shougo/vinarise.git'
 NeoBundle 'git://github.com/vim-scripts/sudo.vim.git'
 NeoBundle 'vim-ruby/vim-ruby'
+
 NeoBundle 'git://github.com/skwp/vim-rspec.git'
+"" RSpec and quickrun setting
+let g:quickrun_config = {}
+let g:quickrun_config['ruby.rspec'] = {'command': 'rspec'}
+
+augroup UjihisaRSpec
+    autocmd!
+    autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
+augroup END
+
 NeoBundle 'taka84u9/vim-ref-ri'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'dag/vim2hs'
+
 NeoBundle 'ujihisa/neco-ghc'
+let g:haskell_conceal = 0
+let g:haskell_conceal_enumerations = 0
+
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'Lokaltog/vim-powerline'
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * : highlight IndentGuidesOdd  ctermbg=236
+autocmd VimEnter,Colorscheme * : highlight IndentGuidesEven ctermbg=234
+
+"NeoBundle 'Lokaltog/vim-powerline'
+"let g:Powerline_symbols = 'fancy'
+
+NeoBundle 'bling/vim-airline'
+let g:airline_theme= "powerlineish"
+"let g:airline_theme= "molokai"
+let g:airline_powerline_fonts = 1
+"set ambiwidth=double
+
 NeoBundle 'b4winckler/vim-objc'
 NeoBundle 'vim-scripts/cocoa.vim'
 NeoBundle 'rking/ag.vim'
@@ -49,7 +79,10 @@ NeoBundle 'ujihisa/unite-haskellimport'
 NeoBundle 'avakhov/vim-yaml'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'tpope/vim-cucumber'
+
 NeoBundle 'vim-scripts/Align'
+let g:Align_xstrlen=3
+
 NeoBundle 'chrisbra/csv.vim'
 
 filetype plugin on
