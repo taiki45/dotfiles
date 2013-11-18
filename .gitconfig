@@ -39,3 +39,5 @@
     generic = G move-last-line
 [diff]
     algorithm = histogram
+[branch]
+    autosetupmerge = true
