@@ -102,6 +102,9 @@ nnoremap <C-X><C-R> :GundoToggle<CR>
 NeoBundle 'scrooloose/nerdtree'
 nnoremap <C-X><C-W> :NERDTreeToggle<CR>
 
+NeoBundle 'kien/ctrlp.vim'
+nnoremap <C-X><C-P> :CtrlP<CR>
+
 filetype plugin on
 filetype indent on
 filetype plugin indent on     " Required!
