@@ -39,7 +39,6 @@ noremap :ufa :Unite file_rec buffer -buffer-name=file_rec
 
 
 NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'git://github.com/Shougo/vim-vcs.git'
 NeoBundle 'git://github.com/Shougo/vimfiler.git'
 NeoBundle 'git://github.com/Shougo/vimshell.git'
 NeoBundle 'git://github.com/Shougo/vinarise.git'
@@ -77,9 +76,6 @@ let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * : highlight IndentGuidesOdd  ctermbg=236
 autocmd VimEnter,Colorscheme * : highlight IndentGuidesEven ctermbg=234
 
-"NeoBundle 'Lokaltog/vim-powerline'
-"let g:Powerline_symbols = 'fancy'
-
 NeoBundle 'bling/vim-airline'
 let g:airline_theme= "powerlineish"
 "let g:airline_theme= "molokai"
@@ -102,6 +98,9 @@ NeoBundle 'chrisbra/csv.vim'
 
 NeoBundle 'sjl/gundo.vim'
 nnoremap <C-X><C-R> :GundoToggle<CR>
+
+NeoBundle 'scrooloose/nerdtree'
+nnoremap <C-X><C-W> :NERDTreeToggle<CR>
 
 filetype plugin on
 filetype indent on
