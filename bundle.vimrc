@@ -23,6 +23,21 @@ NeoBundle 'git://github.com/Shougo/neocomplcache.git'
 NeoBundle 'Shougo/neosnippet'
 
 NeoBundle 'git://github.com/Shougo/unite.vim.git'
+"show recent open files
+noremap :uh :Unite file_mru -buffer-name=file_mru
+nnoremap <C-X><C-H> :Unite file_mru -buffer-name=file_mru<CR>
+
+"show buffer and files
+noremap :ub :Unite buffer -buffer-name=buffer
+nnoremap <C-X><C-B> :Unite buffer -buffer-name=buffer<CR>
+noremap :uba :Unite buffer file file_mru -buffer-name=all_stuff
+
+"show current dir files
+noremap :uf :Unite file -buffer-name=file
+nnoremap <C-X><C-F> :Unite file -buffer-name=file<CR>
+noremap :ufa :Unite file_rec buffer -buffer-name=file_rec
+
+
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'git://github.com/Shougo/vim-vcs.git'
 NeoBundle 'git://github.com/Shougo/vimfiler.git'
@@ -84,6 +99,9 @@ NeoBundle 'vim-scripts/Align'
 let g:Align_xstrlen=3
 
 NeoBundle 'chrisbra/csv.vim'
+
+NeoBundle 'sjl/gundo.vim'
+nnoremap <C-X><C-R> :GundoToggle<CR>
 
 filetype plugin on
 filetype indent on
