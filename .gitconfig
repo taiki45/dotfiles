@@ -30,6 +30,8 @@
     oneline = log --pretty=oneline
     branchdiff = "!f() { git cherry -v "$@" | awk '{ if($1 == \"+\"){ color = \"green\" } if($1 == \"-\"){ color = \"red\" } cmd = \"git show --date=short --no-notes --pretty=format:\\047%C\" color $1 \" %h %Cgreen%cd %Cblue%cn%x09%Creset%s\\047 --summary \" $2; cmd | getline t; close(cmd); print t }' ;}; f"
     diffnospace = diff --ignore-space-change
+    diffword = diff --word-diff
+    logworddiff = log -p --word-diff
 [core]
     pager = lv -c
     excludesfile = ~/.gitignore
@@ -41,3 +43,8 @@
     algorithm = histogram
 [branch]
     autosetupmerge = true
+    autosetuprebase = always
+[push]
+    default = tracking
+[pull]
+    rebase = true
