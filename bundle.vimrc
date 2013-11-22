@@ -62,8 +62,11 @@ NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'groenewege/vim-less'
 
 NeoBundle 'dag/vim2hs'
+let g:haskell_conceal_wide = 0
 let g:haskell_conceal = 0
 let g:haskell_conceal_enumerations = 0
+
+NeoBundle 'godlygeek/tabular'
 
 NeoBundle 'ujihisa/neco-ghc'
 let g:necoghc_enable_detailed_browse = 1
