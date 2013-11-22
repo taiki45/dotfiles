@@ -60,11 +60,16 @@ NeoBundle 'thinca/vim-ref'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'groenewege/vim-less'
-NeoBundle 'dag/vim2hs'
 
-NeoBundle 'ujihisa/neco-ghc'
+NeoBundle 'dag/vim2hs'
 let g:haskell_conceal = 0
 let g:haskell_conceal_enumerations = 0
+
+NeoBundle 'ujihisa/neco-ghc'
+let g:necoghc_enable_detailed_browse = 1
+
+NeoBundle 'kana/vim-filetype-haskell'
+NeoBundle 'eagletmt/ghcmod-vim'
 
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'nathanaelkane/vim-indent-guides'
