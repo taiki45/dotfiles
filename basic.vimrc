@@ -4,6 +4,11 @@ set enc=utf8
 set termencoding=utf-8
 set fileencoding=utf-8
 
+set history=10000
+
+" auto realead when changed
+set autoread
+
 "open other file if did not save current file
 set hidden
 
@@ -11,13 +16,14 @@ set hidden
 set backspace=indent,eol,start
 
 "ignore upper case when search lower case
+set ignorecase
 set smartcase
 
 "setting for crontab
 set backupskip=/tmp/*,/private/tmp/*
 
 
-"open other file if did not save current file
+"open other" auto realead when changedset autoread file if did not save current file
 set hidden
 
 "set status lines
