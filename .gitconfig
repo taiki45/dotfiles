@@ -49,6 +49,6 @@
 [pull]
     rebase = true
 [pager]
-    log = diff-highlight | less
-    show = diff-highlight | less
-    diff = diff-highlight | less
+    log = diff-highlight | less -R -+X -+F
+    show = diff-highlight | less -R -+F
+    diff = diff-highlight | less -R -+F
