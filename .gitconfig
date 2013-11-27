@@ -48,3 +48,7 @@
     default = tracking
 [pull]
     rebase = true
+[pager]
+    log = diff-highlight | less
+    show = diff-highlight | less
+    diff = diff-highlight | less
