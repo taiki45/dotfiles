@@ -17,9 +17,9 @@ imap <C-f> <Right>
 
 " Tab
 " prev tab
-noremap n gT
+noremap n gt
 " next tab
-noremap p gt
+noremap p gT
 
 "Tags
 noremap  
