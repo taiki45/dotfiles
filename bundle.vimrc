@@ -99,9 +99,6 @@ NeoBundle 'avakhov/vim-yaml'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'tpope/vim-cucumber'
 
-NeoBundle 'vim-scripts/Align'
-let g:Align_xstrlen=3
-
 NeoBundle 'chrisbra/csv.vim'
 
 NeoBundle 'sjl/gundo.vim'
