@@ -70,8 +70,8 @@ augroup END
 NeoBundle 'taka84u9/vim-ref-ri'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'groenewege/vim-less'
+NeoBundleLazy 'kchmck/vim-coffee-script', { 'autoload' : {'filetypes' : 'coffee-script', }}
+NeoBundleLazy 'groenewege/vim-less', { 'autoload' : {'filetypes' : 'less', }}
 
 NeoBundle 'dag/vim2hs'
 let g:haskell_conceal_wide = 0
@@ -80,11 +80,10 @@ let g:haskell_conceal_enumerations = 0
 
 NeoBundle 'godlygeek/tabular'
 
-"NeoBundle 'ujihisa/neco-ghc'
+NeoBundleLazy 'ujihisa/neco-ghc', { 'autoload' : {'filetypes' : 'haskell', }}
 let g:necoghc_enable_detailed_browse = 1
-
-NeoBundle 'kana/vim-filetype-haskell'
-NeoBundle 'eagletmt/ghcmod-vim'
+NeoBundleLazy 'kana/vim-filetype-haskell', { 'autoload' : {'filetypes' : 'haskell', }}
+NeoBundleLazy 'eagletmt/ghcmod-vim', { 'autoload' : {'filetypes' : 'haskell', }}
 
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'nathanaelkane/vim-indent-guides'
