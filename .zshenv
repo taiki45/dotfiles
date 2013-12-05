@@ -16,6 +16,7 @@ fi
 
 export PATH=$HOME/.cabal/bin:$HOME/.nodebrew/current/bin:$HOME/.local/bin:/opt/local/bin:/opt/local/share/mysql5/mysql:/usr/local/bin:/opt/local/sbin/:$PATH
 export PATH=$HOME/.dotfiles/git/contrib/diff-highlight:$PATH
+export PATH=$HOME/Library/Haskell/bin:$PATH
 export MANPATH=/opt/local/man:$MANPATH
 
 
