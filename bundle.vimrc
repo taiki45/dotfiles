@@ -80,7 +80,7 @@ let g:haskell_conceal_enumerations = 0
 
 NeoBundle 'godlygeek/tabular'
 
-NeoBundle 'ujihisa/neco-ghc'
+"NeoBundle 'ujihisa/neco-ghc'
 let g:necoghc_enable_detailed_browse = 1
 
 NeoBundle 'kana/vim-filetype-haskell'
