@@ -110,6 +110,24 @@ nnoremap <C-X><C-W> :NERDTreeToggle<CR>
 NeoBundle 'kien/ctrlp.vim'
 nnoremap <C-X><C-P> :CtrlP<CR>
 
+NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'croaker/mustang-vim'
+NeoBundle 'jeffreyiacono/vim-colors-wombat'
+NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'vim-scripts/Lucius'
+NeoBundle 'vim-scripts/Zenburn'
+NeoBundle 'mrkn/mrkn256.vim'
+NeoBundle 'jpo/vim-railscasts-theme'
+NeoBundle 'therubymug/vim-pyte'
+NeoBundle 'tomasr/molokai'
+
+colorscheme jellybeans
+set cursorline
+autocmd VimEnter,ColorScheme * : highlight CursorLine cterm=underline ctermbg=234
+
+NeoBundle 'ujihisa/unite-colorscheme'
+
 filetype plugin on
 filetype indent on
 filetype plugin indent on     " Required!
