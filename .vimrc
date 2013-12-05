@@ -4,13 +4,7 @@ set nocompatible
 set t_Co=256
 
 source ~/.dotfiles/basic.vimrc
-
-" load neo bundle config
 source ~/.dotfiles/bundle.vimrc
-source ~/.dotfiles/complcache.vimrc
-source ~/.dotfiles/plugin.vimrc
-
-source ~/.dotfiles/color.vimrc
 source ~/.dotfiles/remap.vimrc
 
 "auto reload when overwitten in other
