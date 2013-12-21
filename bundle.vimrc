@@ -51,6 +51,9 @@ noremap :ufa :Unite file_rec buffer -buffer-name=file_rec
 
 
 NeoBundle 'thinca/vim-quickrun'
+let g:quickrun_config = {}
+let g:quickrun_config.haskell = {'command' : 'runghc'}
+
 NeoBundle 'git://github.com/Shougo/vimfiler.git'
 NeoBundle 'git://github.com/Shougo/vimshell.git'
 NeoBundle 'git://github.com/Shougo/vinarise.git'
@@ -85,7 +88,6 @@ let g:necoghc_enable_detailed_browse = 1
 NeoBundleLazy 'kana/vim-filetype-haskell', { 'autoload' : {'filetypes' : 'haskell', }}
 NeoBundleLazy 'eagletmt/ghcmod-vim', { 'autoload' : {'filetypes' : 'haskell', }}
 
-NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_start_level = 2
@@ -135,9 +137,14 @@ NeoBundle 'tomasr/molokai'
 
 colorscheme jellybeans
 set cursorline
-autocmd VimEnter,ColorScheme * : highlight CursorLine cterm=underline ctermbg=234
 
 NeoBundle 'ujihisa/unite-colorscheme'
+"NeoBundle 'lukerandall/haskellmode-vim'
+"let g:ghc="/usr/bin/ghc"
+"let g:haddock_browser="/Applications/Google\ Chrome.app"
+
+
+" NeoBundle setting
 
 filetype plugin on
 filetype indent on

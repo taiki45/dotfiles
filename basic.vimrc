@@ -50,11 +50,13 @@ set backspace=indent,eol,start
 set noequalalways
 
 "-Tab setiings
-set tabstop=4
-set shiftwidth=4
-
-"expand tab
-set expandtab
+set tabstop=4 "A tab is 4 spaces
+set shiftwidth=4 "An indent is 4 spaces
+set expandtab "Always uses spaces instead of tabs
+set softtabstop=4 "Insert 4 spaces when tab is pressed
+set smarttab "Indent instead of tab at start of line
+set shiftround "Round spaces to nearest shiftwidth multiple
+set nojoinspaces "Don't convert spaces to tabs
 
 "auto indent
 "set autoindent
