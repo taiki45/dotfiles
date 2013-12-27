@@ -16,7 +16,8 @@ fi
 
 export PATH=$HOME/.nodebrew/current/bin:$HOME/.local/bin:/opt/local/bin:/opt/local/share/mysql5/mysql:/usr/local/bin:/opt/local/sbin/:$PATH
 export PATH=$HOME/.dotfiles/git/contrib/diff-highlight:$PATH
-export PATH=$HOME/Library/Haskell/bin:$PATH
+export PATH=/Library/Haskell/bin:$PATH
+export PATH=/Library/Frameworks/GHC.framework/Versions/7.6.3-x86_64/usr/bin:$PATH
 export PATH=$HOME/.local/old-ghc/bin:$PATH
 export PATH=$HOME/.local/ghc/bin:$PATH
 export PATH=$HOME/.cabal/bin:$PATH
