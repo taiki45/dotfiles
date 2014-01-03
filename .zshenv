@@ -22,6 +22,11 @@ export PATH=$HOME/Library/Haskell/bin:$PATH
 export PATH=$HOME/.local/old-ghc/bin:$PATH
 export PATH=$HOME/.local/ghc/bin:$PATH
 export PATH=$HOME/.cabal/bin:$PATH
+
+# Hackage bins installed by cabal-dev
+export PATH=$HOME/.yesod/bin:$PATH
+export PATH=$HOME/.pointfree/bin:$PATH
+
 export MANPATH=/opt/local/man:$MANPATH
 
 

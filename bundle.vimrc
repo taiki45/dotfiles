@@ -76,12 +76,15 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundleLazy 'kchmck/vim-coffee-script', { 'autoload' : {'filetypes' : 'coffee-script', }}
 NeoBundleLazy 'groenewege/vim-less', { 'autoload' : {'filetypes' : 'less', }}
 
+NeoBundle 'godlygeek/tabular'
+
 NeoBundle 'dag/vim2hs'
 let g:haskell_conceal_wide = 0
 let g:haskell_conceal = 0
 let g:haskell_conceal_enumerations = 0
-
-NeoBundle 'godlygeek/tabular'
+autocmd FileType haskell
+    \ vnoremap <buffer> <silent> \pf
+    \ :PointFree!<CR>
 
 NeoBundleLazy 'ujihisa/neco-ghc', { 'autoload' : {'filetypes' : 'haskell', }}
 let g:necoghc_enable_detailed_browse = 1
