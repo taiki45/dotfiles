@@ -98,10 +98,20 @@ autocmd VimEnter,Colorscheme * : highlight IndentGuidesOdd  ctermbg=236
 autocmd VimEnter,Colorscheme * : highlight IndentGuidesEven ctermbg=234
 
 NeoBundle 'bling/vim-airline'
-let g:airline_theme= "powerlineish"
-"let g:airline_theme= "molokai"
+let g:airline_theme= "jellybeans"
 let g:airline_powerline_fonts = 1
-"set ambiwidth=double
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+" old vim-powerline symbols
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+let g:airline_symbols.branch = '⭠'
+let g:airline_symbols.readonly = '⭤'
+let g:airline_symbols.linenr = '⭡'
+
 
 NeoBundle 'b4winckler/vim-objc'
 NeoBundle 'vim-scripts/cocoa.vim'
@@ -125,15 +135,8 @@ nnoremap <C-X><C-P> :CtrlP<CR>
 
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'croaker/mustang-vim'
-NeoBundle 'jeffreyiacono/vim-colors-wombat'
-NeoBundle 'nanotech/jellybeans.vim'
-NeoBundle 'vim-scripts/Lucius'
-NeoBundle 'vim-scripts/Zenburn'
-NeoBundle 'mrkn/mrkn256.vim'
-NeoBundle 'jpo/vim-railscasts-theme'
-NeoBundle 'therubymug/vim-pyte'
 NeoBundle 'tomasr/molokai'
+NeoBundle 'w0ng/vim-hybrid'
 
 colorscheme jellybeans
 set cursorline
