@@ -77,6 +77,9 @@ set showmatch
 "display row num
 set number
 
+"display foldcolumn
+set foldcolumn=1
+
 "show title
 set title
 
