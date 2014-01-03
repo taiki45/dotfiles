@@ -91,15 +91,18 @@ let g:necoghc_enable_detailed_browse = 1
 NeoBundleLazy 'kana/vim-filetype-haskell', { 'autoload' : {'filetypes' : 'haskell', }}
 NeoBundleLazy 'eagletmt/ghcmod-vim', { 'autoload' : {'filetypes' : 'haskell', }}
 noremap \t :GhcModType<CR>
-noremap \f :GhcModTypeClear<CR>
-noremap \c :GhcModCheck<CR>
-noremap \l :GhcModLint<CR>
+noremap \c :GhcModTypeClear<CR>
+noremap \j :GhcModTypeInsert<CR>
+noremap \g :GhcModCheckAsync<CR>
+noremap \l :GhcModLintAsync<CR>
+noremap \i :GhcModInfo<CR>
 let g:ghcmod_type_highlight = 'DiffAdd'
 
 NeoBundle 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'haskell']
 
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * : highlight IndentGuidesOdd  ctermbg=236
