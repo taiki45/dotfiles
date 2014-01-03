@@ -87,6 +87,11 @@ NeoBundleLazy 'ujihisa/neco-ghc', { 'autoload' : {'filetypes' : 'haskell', }}
 let g:necoghc_enable_detailed_browse = 1
 NeoBundleLazy 'kana/vim-filetype-haskell', { 'autoload' : {'filetypes' : 'haskell', }}
 NeoBundleLazy 'eagletmt/ghcmod-vim', { 'autoload' : {'filetypes' : 'haskell', }}
+noremap \t :GhcModType<CR>
+noremap \f :GhcModTypeClear<CR>
+noremap \c :GhcModCheck<CR>
+noremap \l :GhcModLint<CR>
+let g:ghcmod_type_highlight = 'DiffAdd'
 
 NeoBundle 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_enable_on_vim_startup=1
