@@ -25,4 +25,10 @@ noremap p gT
 noremap  
 
 "Reload
-noremap <C-L> :checktime<Enter>
+noremap <C-x><C-l> :checktime<Enter>
+
+"window moving
+noremap <C-h> <C-W>h
+noremap <C-j> <C-W>j
+noremap <C-k> <C-W>k
+noremap <C-l> <C-W>l
