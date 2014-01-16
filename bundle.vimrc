@@ -49,6 +49,24 @@ noremap :uf :Unite file -buffer-name=file
 nnoremap <C-X><C-F> :Unite file -buffer-name=file<CR>
 noremap :ufa :Unite file_rec buffer -buffer-name=file_rec
 
+let g:unite_enable_start_insert = 1
+let g:unite_enable_ignore_case = 1
+let g:unite_enable_smart_case = 1
+
+" grep
+nnoremap <silent> ,g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+" grep on cursor word
+nnoremap <silent> ,cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
+" recall result
+nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
+
+" use ag instead of grep
+if executable('ag')
+    let g:unite_source_grep_command = 'ag'
+    let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+    let g:unite_source_grep_recursive_opt = ''
+endif
+
 
 NeoBundle 'thinca/vim-quickrun'
 let g:quickrun_config = {}
