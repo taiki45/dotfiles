@@ -113,7 +113,7 @@ noremap \c :GhcModTypeClear<CR>
 noremap \i :GhcModTypeInsert<CR>
 noremap \g :GhcModCheckAsync<CR>
 noremap \l :GhcModLintAsync<CR>
-noremap \f :GhcModInfo<CR>
+noremap \? :GhcModInfo<CR>
 let g:ghcmod_type_highlight = 'DiffAdd'
 
 NeoBundle 'nathanaelkane/vim-indent-guides'
