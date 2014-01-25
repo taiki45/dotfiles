@@ -175,7 +175,12 @@ NeoBundle 'ujihisa/unite-colorscheme'
 "let g:ghc="/usr/bin/ghc"
 "let g:haddock_browser="/Applications/Google\ Chrome.app"
 
+NeoBundleLazy 'eagletmt/unite-haddock', { 'autoload' : {'filetypes' : 'haskell', }}
+call unite#custom_default_action('haddock', 'browse_remote')
 
+
+
+" =================================================
 " NeoBundle setting
 
 filetype plugin on
