@@ -26,6 +26,7 @@ export PATH=$HOME/.cabal/bin:$PATH
 # Hackage bins installed by cabal-dev
 export PATH=$HOME/.yesod/bin:$PATH
 export PATH=$HOME/.pointfree/bin:$PATH
+export PATH=$HOME/.hsenv/bin:$PATH
 
 export MANPATH=/opt/local/man:$MANPATH
 
