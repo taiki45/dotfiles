@@ -27,6 +27,7 @@ export PATH=$HOME/.cabal/bin:$PATH
 export PATH=$HOME/.yesod/bin:$PATH
 export PATH=$HOME/.pointfree/bin:$PATH
 export PATH=$HOME/.hsenv/bin:$PATH
+export PATH=$HOME/.hoogle/bin:$PATH
 
 export MANPATH=/opt/local/man:$MANPATH
 

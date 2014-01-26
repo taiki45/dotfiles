@@ -177,6 +177,8 @@ NeoBundle 'ujihisa/unite-colorscheme'
 
 NeoBundleLazy 'eagletmt/unite-haddock', { 'autoload' : {'filetypes' : 'haskell', }}
 call unite#custom_default_action('haddock', 'browse_remote')
+noremap :hoogle :Unite hoogle
+noremap :haddock :Unite haddock
 
 
 
