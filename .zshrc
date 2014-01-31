@@ -92,6 +92,25 @@ fpath=( "$HOME/.zfunctions" $fpath )
 autoload -U promptinit && promptinit
 prompt pure
 
+# Show Ruby version
+if `which rbenv >/dev/null 2>&1` && [ -z "$RBENV_ROOT" ]; then
+    export RBENV_ROOT=`rbenv root`
+fi
+rbenv_version() {
+    if [ -n "$RBENV_ROOT" ]; then
+        VERSION=''
+        NOTFOUND=''
+        if [ -r .ruby-version ]; then
+            VERSION=`cat .ruby-version`
+            ls "${RBENV_ROOT}/versions" | egrep "^$VERSION$" >/dev/null 2>&1 || NOTFOUND='{?}'
+        else
+            VERSION=`cat "${RBENV_ROOT}/version"`
+        fi
+        echo "$VERSION$NOTFOUND"
+    fi
+}
+RPROMPT='%F{red}❤%f %F{cyan}$(rbenv_version)%f'
+
 ## Color
 # Coloring errors and normal message
 e_normal=`echo -e "¥033[0;30m"`
