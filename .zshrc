@@ -86,108 +86,11 @@ setopt extended_history
 autoload history-search-end
 
 
-# Show VCS info
-autoload -Uz add-zsh-hook
-autoload -Uz colors
-colors
-autoload -Uz vcs_info
 
-zstyle ':vcs_info:*' enable git svn hg bzr
-#zstyle ':vcs_info:*' formats '(%s)-[%b]'
-zstyle ':vcs_info:*' formats '(%b)'
-zstyle ':vcs_info:*' actionformats '(%b|%a)'
-zstyle ':vcs_info:(svn|bzr):*' branchformat '%b:r%r'
-zstyle ':vcs_info:bzr:*' use-simple true
-
-autoload -Uz is-at-least
-if is-at-least 4.3.10; then
-  zstyle ':vcs_info:git:*' check-for-changes true
-  zstyle ':vcs_info:git:*' stagedstr "+"
-  zstyle ':vcs_info:git:*' unstagedstr "-"
-  #zstyle ':vcs_info:git:*' formats '(%s)-[%b] %c%u'
-  zstyle ':vcs_info:git:*' formats '%b'
-  zstyle ':vcs_info:git:*' actionformats '%b %a'
-fi
-
-function _update_vcs_info_msg() {
-    psvar=()
-    LANG=ja_JP.UTF-8 vcs_info
-    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
-}
-add-zsh-hook precmd _update_vcs_info_msg
-
-
-# Show Ruby version
-if `which rbenv >/dev/null 2>&1` && [ -z "$RBENV_ROOT" ]; then
-    export RBENV_ROOT=`rbenv root`
-fi
-
-rbenv_version() {
-    if [ -n "$RBENV_ROOT" ]; then
-        VERSION=''
-        NOTFOUND=''
-        if [ -r .ruby-version ]; then
-            VERSION=`cat .ruby-version`
-            ls "${RBENV_ROOT}/versions" | egrep "^$VERSION$" >/dev/null 2>&1 || NOTFOUND='{?}'
-        else
-            VERSION=`cat "${RBENV_ROOT}/version"`
-        fi
-        echo "$VERSION$NOTFOUND"
-    fi
-}
-
-
-## Set prompt
-setopt prompt_subst
-autoload -Uz colors
-colors
-
-case ${UID} in
-0)
-    DEFAULT=$'%{\e[1;0m%}'
-    RESET="%{${reset_color}%}"
-    GREEN="%{${fg[green]}%}"
-    BLUE="%{${fg[blue]}%}"
-    RED="%{${fg[red]}%}"
-    YELLOW="%{${fg[yellow]}%"
-    CYAN="%{${fg[cyan]}%}"
-    MAGENTA="%{$fg[magenta]%}"
-    WHITE="%{${fg[white]}%}"
-
-    PROMPT="%B%{[31m%}%/#%{[m%}%b "
-    PROMPT2="%B%{[31m%}%_#%{[m%}%b "
-    SPROMPT="${YELLOW} correct:${GREEN} %R ${CYAN}=> ${YELLOW} %r? ${CYAN}[y,n,a,e]:${RESET} "
-    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-        PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
-    ;;
-*)
-    DEFAULT=$'%{\e[1;0m%}'
-    RESET="%{${reset_color}%}"
-    GREEN="%{${fg[green]}%}"
-    BLUE="%{${fg[blue]}%}"
-    RED="%{${fg[red]}%}"
-    YELLOW="%{${fg[yellow]}%"
-    CYAN="%{${fg[cyan]}%}"
-    MAGENTA="%{$fg[magenta]%}"
-    WHITE="%{${fg[white]}%}"
-    PR_BASE="%{${fg[cyan]}%}"
-    PR_DIR="%{${fg[yellow]}%}"
-
-    #PROMPT='${PR_BASE}[${USER}:${PR_DIR}%(5~,%-2~/.../%2~,%~)% ${PR_BASE}]${RESET}%1(v|%F{blue}%1v%f|)${RESET}
-#    PROMPT='${PR_BASE}[${USER}:${PR_DIR}%(10~,%-2~/.../%2~,%~)% ${PR_BASE}]${RESET}%1(v|%F{blue}%1v%f|)${RESET}
-#${WHITE}$ ${RESET}'
-#    PROMPT='${PR_BASE}[${USER}:${PR_DIR}%(10~,%-2~/.../%2~,%~)% ${PR_BASE}]${RESET}%1(v|%F{blue}%1v%f|)${RESET}
-#%(?,${GREEN}✔,${RED}✗) ${RESET}'
-
-    PROMPT='%F{22}%K{70} ${USER} %k%f%F{70}%K{238}⮀⮁ %k%f%F{238}%K{208}⮀  %k%f%F{208}%K{236}⮀%k%f%F{214}%K{236} %(10~,%-2~/.../%2~,%~)%  %k%f%F{236}%K{208}⮀ %k%f%F{208}%K{240}⮀ %k%f%F{240}%K{39}⮀%F{39}%K{240}⮀%F{240}%K{39}⮀%F{24}%K{39} %1(v|%1v|) %F{39}%K{67}⮀%F{67}%K{239}⮀%F{239}%K{0}⮀ %f%k
-%(?,%F{248}%K{244}⮀%F{244}%K{240}⮀%F{70}%K{240} ✔ %F{240}%K{238}⮀%F{238}%K{0}⮀%f%k,%F{248}%K{244}⮀%F{244}%K{240}⮀%F{197}%K{240} ✗ %F{240}%K{238}⮀%F{238}%K{0}⮀%f%k) ${RESET}'
-    PROMPT2="%{[36m%}[%_%%]%{[m%} $ "
-    RPROMPT='%{$fg[cyan]%}$(rbenv_version) %{$reset_color%}%{$fg[red]%}❤%{$reset_color%} ${CYAN}%*-%W${RESET}'
-    SPROMPT="${YELLOW} correct:${GREEN} %R ${CYAN}=> ${YELLOW} %r? ${CYAN}[y,n,a,e]:${RESET} "
-    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-        PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
-    ;;
-esac
+# === PROMPT
+fpath=( "$HOME/.zfunctions" $fpath )
+autoload -U promptinit && promptinit
+prompt pure
 
 ## Color
 # Coloring errors and normal message
@@ -295,3 +198,113 @@ REPORTTIME=3
 #  . /opt/local/etc/profile.d/autojump.sh
 #fi
 
+
+
+
+
+
+# =========== OLD
+## Show VCS info
+#autoload -Uz add-zsh-hook
+#autoload -Uz colors
+#colors
+#autoload -Uz vcs_info
+#
+#zstyle ':vcs_info:*' enable git svn hg bzr
+##zstyle ':vcs_info:*' formats '(%s)-[%b]'
+#zstyle ':vcs_info:*' formats '(%b)'
+#zstyle ':vcs_info:*' actionformats '(%b|%a)'
+#zstyle ':vcs_info:(svn|bzr):*' branchformat '%b:r%r'
+#zstyle ':vcs_info:bzr:*' use-simple true
+#
+#autoload -Uz is-at-least
+#if is-at-least 4.3.10; then
+#  zstyle ':vcs_info:git:*' check-for-changes true
+#  zstyle ':vcs_info:git:*' stagedstr "+"
+#  zstyle ':vcs_info:git:*' unstagedstr "-"
+#  #zstyle ':vcs_info:git:*' formats '(%s)-[%b] %c%u'
+#  zstyle ':vcs_info:git:*' formats '%b'
+#  zstyle ':vcs_info:git:*' actionformats '%b %a'
+#fi
+#
+#function _update_vcs_info_msg() {
+#    psvar=()
+#    LANG=ja_JP.UTF-8 vcs_info
+#    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+#}
+#add-zsh-hook precmd _update_vcs_info_msg
+#
+#
+## Show Ruby version
+#if `which rbenv >/dev/null 2>&1` && [ -z "$RBENV_ROOT" ]; then
+#    export RBENV_ROOT=`rbenv root`
+#fi
+#
+#rbenv_version() {
+#    if [ -n "$RBENV_ROOT" ]; then
+#        VERSION=''
+#        NOTFOUND=''
+#        if [ -r .ruby-version ]; then
+#            VERSION=`cat .ruby-version`
+#            ls "${RBENV_ROOT}/versions" | egrep "^$VERSION$" >/dev/null 2>&1 || NOTFOUND='{?}'
+#        else
+#            VERSION=`cat "${RBENV_ROOT}/version"`
+#        fi
+#        echo "$VERSION$NOTFOUND"
+#    fi
+#}
+#
+#
+### Set prompt
+#setopt prompt_subst
+#autoload -Uz colors
+#colors
+#
+#case ${UID} in
+#0)
+#    DEFAULT=$'%{\e[1;0m%}'
+#    RESET="%{${reset_color}%}"
+#    GREEN="%{${fg[green]}%}"
+#    BLUE="%{${fg[blue]}%}"
+#    RED="%{${fg[red]}%}"
+#    YELLOW="%{${fg[yellow]}%"
+#    CYAN="%{${fg[cyan]}%}"
+#    MAGENTA="%{$fg[magenta]%}"
+#    WHITE="%{${fg[white]}%}"
+#
+#    PROMPT="%B%{[31m%}%/#%{[m%}%b "
+#    PROMPT2="%B%{[31m%}%_#%{[m%}%b "
+#    SPROMPT="${YELLOW} correct:${GREEN} %R ${CYAN}=> ${YELLOW} %r? ${CYAN}[y,n,a,e]:${RESET} "
+#    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
+#        PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
+#    ;;
+#*)
+#    DEFAULT=$'%{\e[1;0m%}'
+#    RESET="%{${reset_color}%}"
+#    GREEN="%{${fg[green]}%}"
+#    BLUE="%{${fg[blue]}%}"
+#    RED="%{${fg[red]}%}"
+#    YELLOW="%{${fg[yellow]}%"
+#    CYAN="%{${fg[cyan]}%}"
+#    MAGENTA="%{$fg[magenta]%}"
+#    WHITE="%{${fg[white]}%}"
+#    PR_BASE="%{${fg[cyan]}%}"
+#    PR_DIR="%{${fg[yellow]}%}"
+#
+#    #PROMPT='${PR_BASE}[${USER}:${PR_DIR}%(5~,%-2~/.../%2~,%~)% ${PR_BASE}]${RESET}%1(v|%F{blue}%1v%f|)${RESET}
+##    PROMPT='${PR_BASE}[${USER}:${PR_DIR}%(10~,%-2~/.../%2~,%~)% ${PR_BASE}]${RESET}%1(v|%F{blue}%1v%f|)${RESET}
+##${WHITE}$ ${RESET}'
+##    PROMPT='${PR_BASE}[${USER}:${PR_DIR}%(10~,%-2~/.../%2~,%~)% ${PR_BASE}]${RESET}%1(v|%F{blue}%1v%f|)${RESET}
+##%(?,${GREEN}✔,${RED}✗) ${RESET}'
+#
+#    PROMPT='%F{22}%K{70} ${USER} %k%f%F{70}%K{238}⮀⮁ %k%f%F{238}%K{208}⮀  %k%f%F{208}%K{236}⮀%k%f%F{214}%K{236} %(10~,%-2~/.../%2~,%~)%  %k%f%F{236}%K{208}⮀ %k%f%F{208}%K{240}⮀ %k%f%F{240}%K{39}⮀%F{39}%K{240}⮀%F{240}%K{39}⮀%F{24}%K{39} %1(v|%1v|) %F{39}%K{67}⮀%F{67}%K{239}⮀%F{239}%K{0}⮀ %f%k
+#%(?,%F{248}%K{244}⮀%F{244}%K{240}⮀%F{70}%K{240} ✔ %F{240}%K{238}⮀%F{238}%K{0}⮀%f%k,%F{248}%K{244}⮀%F{244}%K{240}⮀%F{197}%K{240} ✗ %F{240}%K{238}⮀%F{238}%K{0}⮀%f%k) ${RESET}'
+#    PROMPT2="%{[36m%}[%_%%]%{[m%} $ "
+#    RPROMPT='%{$fg[cyan]%}$(rbenv_version) %{$reset_color%}%{$fg[red]%}❤%{$reset_color%} ${CYAN}%*-%W${RESET}'
+#    SPROMPT="${YELLOW} correct:${GREEN} %R ${CYAN}=> ${YELLOW} %r? ${CYAN}[y,n,a,e]:${RESET} "
+#    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
+#        PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
+#    ;;
+#esac
+#
+#
