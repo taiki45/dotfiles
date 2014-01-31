@@ -16,3 +16,6 @@
 [submodule "git"]
 	path = git
 	url = git@github.com:git/git.git
+[submodule "pure"]
+	path = pure
+	url = git@github.com:sindresorhus/pure.git
