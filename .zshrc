@@ -68,8 +68,8 @@ fi
 
 ## History
 HISTFILE=~/.zsh_histor
-HISTSIZE=1000000
-SAVEHIST=1000000
+HISTSIZE=10000000
+SAVEHIST=10000000
 setopt hist_ignore_dups
 setopt hist_reduce_blanks
 setopt share_history
@@ -85,6 +85,10 @@ setopt extended_history
 
 autoload history-search-end
 
+
+## notification
+source ~/.zsh/zsh-notify/notify.plugin.zsh
+export NOTIFY_COMMAND_COMPLETE_TIMEOUT=10
 
 
 # === PROMPT
