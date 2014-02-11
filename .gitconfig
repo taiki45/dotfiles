@@ -8,25 +8,21 @@
     interactive = auto
     grep = auto
 [alias]
-    st = status
+    st = status --short
     co = checkout
+    f = fetch -p
     b = branch
-    ba = branch -a
-    vcommit = commit -v
     com = commit -v
     acommit = commit -av
-    up = pull --rebase
-    diffcolor = diff --color-words
     diffadded = diff --cached
-    diffcached = diff --cached
     graph = log --oneline --decorate --graph --all
     lgraph = log --oneline --decorate --graph
     dgraph = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s'
     logall = log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d%Creset'
     logdiff = log -p
-    difflog = log -p
     logstat = log --stat
     logpretty = log --pretty=\"format:%ad %h (%an): %s\" --date=short
+    logfull = log --pretty=fuller
     oneline = log --pretty=oneline
     branchdiff = "!f() { git cherry -v "$@" | awk '{ if($1 == \"+\"){ color = \"green\" } if($1 == \"-\"){ color = \"red\" } cmd = \"git show --date=short --no-notes --pretty=format:\\047%C\" color $1 \" %h %Cgreen%cd %Cblue%cn%x09%Creset%s\\047 --summary \" $2; cmd | getline t; close(cmd); print t }' ;}; f"
     diffnospace = diff --ignore-space-change
