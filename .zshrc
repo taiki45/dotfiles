@@ -88,7 +88,7 @@ autoload history-search-end
 
 ## notification
 source ~/.zsh/zsh-notify/notify.plugin.zsh
-export NOTIFY_COMMAND_COMPLETE_TIMEOUT=10
+export NOTIFY_COMMAND_COMPLETE_TIMEOUT=30
 
 
 # === PROMPT
