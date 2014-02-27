@@ -74,6 +74,9 @@ setopt hist_ignore_dups
 setopt hist_reduce_blanks
 setopt share_history
 
+# ignore history started with space
+setopt hist_ignore_space
+
 # Add history when command executed
 setopt inc_append_history
 
@@ -82,6 +85,8 @@ setopt hist_no_store
 
 # Add zsh start and end in history
 setopt extended_history
+
+setopt no_flow_control
 
 autoload history-search-end
 
@@ -113,7 +118,10 @@ rbenv_version() {
         echo "$VERSION$NOTFOUND"
     fi
 }
+
 RPROMPT='%F{red}❤%f %F{cyan}$(rbenv_version)%f'
+# Delete RPROMPT for copy-and-paste
+setopt transient_rprompt
 
 ## Color
 # Coloring errors and normal message
