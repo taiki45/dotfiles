@@ -18,17 +18,31 @@ setopt list_packed
 # Show file kind like `ls -F`
 setopt list_types
 
-# Select completions via emacs key-binds
-#zstyle ':completion:*:default' menu select=1
-
 # Show list when same suggestion exists
 setopt auto_list
 
 # Grouping completion list
 #   %B...%b: make bold '...'
 #   %d: label
-zstyle ':completion:*' format '%B%d%b'
-zstyle ':completion:*' group-name ''
+#zstyle ':completion:*' format '%B%d%b'
+#zstyle ':completion:*' group-name ''
+
+# Cache completion list
+zstyle ':completion:*' use-cache yes
+
+# Smart completion
+#   m:{a-z}={A-Z}: ignore case
+#   r:|[._-]=*: Put wildcard before `.`, `_`, `-`
+#zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z} r:|[._-]=*'
+
+# _oldlist 
+# _complete
+# _match: don't expand glob
+# _history: use history
+# _ignored: Show ignored ones
+# _approximate: Show same ones
+# _prefix
+zstyle ':completion:*' completer _oldlist _complete _match _history _approximate _prefix
 
 # Auto completion
 if [ -d "$HOME/.zsh/auto-fu" ]; then
@@ -165,7 +179,6 @@ select-word-style default
 zstyle ':zle:*' word-chars " _-./;@"
 zstyle ':zle:*' word-style unspecified
 
-
 ## Options
 #
 # Press only directory auto cd
@@ -206,6 +219,8 @@ autoload zed
 
 # Show background changes
 setopt notify
+
+REPORTTIME=3
 
 # AutoJump setting
 #export FPATH="$FPATH:/opt/local/share/zsh/site-functions/"
