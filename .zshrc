@@ -24,6 +24,12 @@ setopt list_types
 # Show list when same suggestion exists
 setopt auto_list
 
+# Grouping completion list
+#   %B...%b: make bold '...'
+#   %d: label
+zstyle ':completion:*' format '%B%d%b'
+zstyle ':completion:*' group-name ''
+
 # Auto completion
 if [ -d "$HOME/.zsh/auto-fu" ]; then
   source "$HOME/.zsh/auto-fu/auto-fu.zsh"
