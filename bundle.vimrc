@@ -180,6 +180,13 @@ call unite#custom_default_action('haddock', 'browse_remote')
 noremap :hoogle :Unite hoogle
 noremap :haddock :Unite haddock
 
+NeoBundle 'gcmt/wildfire.vim'
+" This selects the next closest text object.
+let g:wildfire_fuel_map = "<ENTER>"
+" This selects the previous closest text object.
+"let g:wildfire_water_map = "<S-Enter>"
+let g:wildfire_objects = ["i'", 'i"', 'i)', 'i]', 'i}', 'ip', 'it', 'i>']
+
 
 
 " =================================================
