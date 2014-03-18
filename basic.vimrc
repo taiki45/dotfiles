@@ -107,11 +107,23 @@ set showmode
 
 "highlight Zenkaku space
 if &background ==# 'dark'
-  hi WideSpace ctermbg=DarkCyan
+    hi WideSpace ctermbg=DarkCyan
 else
-  hi WideSpace ctermbg=Cyan
+    hi WideSpace ctermbg=Cyan
 endif
 match WideSpace /　/
+
+
+function! StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfunction
+augroup AutoStripTrailingWhitespaces
+    autocmd!
+    autocmd BufWritePre * :call StripTrailingWhitespaces()
+augroup END
 
 "set search highlight
 set hlsearch
