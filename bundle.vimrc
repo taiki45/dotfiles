@@ -33,6 +33,7 @@ NeoBundle 'rails.vim'
 "NeoBundle 'git://github.com/Shougo/echodoc.git'
 NeoBundle 'git://github.com/Shougo/neocomplcache.git'
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 
 NeoBundle 'git://github.com/Shougo/unite.vim.git'
 "show recent open files
