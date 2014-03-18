@@ -11,7 +11,7 @@ elif [ -f /usr/local/bin/zsh ]; then
     export SHELL=/usr/local/bin/zsh
     source ~/.bash_profile
 else
-    export SHELL=/usr/bin/zsh
+    #export SHELL=/usr/bin/zsh
 fi
 
 #export NODEBREW_ROOT=$HOME:.nodebrew
