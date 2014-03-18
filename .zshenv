@@ -9,6 +9,7 @@ if [ -d /opt/local ]; then
     export SHELL=/opt/local/bin/zsh
 elif [ -f /usr/local/bin/zsh ]; then
     export SHELL=/usr/local/bin/zsh
+    source ~/.bash_profile
 else
     export SHELL=/usr/bin/zsh
 fi
@@ -42,6 +43,9 @@ fi
 if [ -d ~/.rbenv ]; then
     export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
     eval "$(rbenv init -)"
+fi
+
+if [ -f ~/.rbenv/completions/rbenv.zsh ]; then
     source ~/.rbenv/completions/rbenv.zsh
 fi
 

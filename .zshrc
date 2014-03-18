@@ -132,8 +132,10 @@ rbenv_version() {
         if [ -r .ruby-version ]; then
             VERSION=`cat .ruby-version`
             ls "${RBENV_ROOT}/versions" | egrep "^$VERSION$" >/dev/null 2>&1 || NOTFOUND='{?}'
-        else
+        elif [ -f "${RBENV_ROOT}/version" ]; then
             VERSION=`cat "${RBENV_ROOT}/version"`
+        else
+            VERSION="NotFound"
         fi
         echo "$VERSION$NOTFOUND"
     fi
