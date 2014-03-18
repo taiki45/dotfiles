@@ -7,6 +7,8 @@ export LS_COLORS="di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40
 
 if [ -d /opt/local ]; then
     export SHELL=/opt/local/bin/zsh
+elif [ -f /usr/local/bin/zsh ]; then
+    export SHELL=/usr/local/bin/zsh
 else
     export SHELL=/usr/bin/zsh
 fi
@@ -14,6 +16,7 @@ fi
 #export NODEBREW_ROOT=$HOME:.nodebrew
 #export PYTHONDONTWRITEBYTECODE=1
 
+export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/.nodebrew/current/bin:$HOME/.local/bin:/opt/local/bin:/opt/local/lib/mysql55/bin:/usr/local/bin:/opt/local/sbin/:$PATH
 export PATH=$HOME/.dotfiles/git/contrib/diff-highlight:$HOME/.dotfiles/git/contrib/git-jump:$PATH
 export PATH=/Library/Haskell/bin:$PATH
