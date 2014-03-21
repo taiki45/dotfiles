@@ -47,7 +47,7 @@ fi
 if [ -d ~/.rbenv ]; then
     export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
     if [ ! -d ~/.cpad ]; then
-        eval "$(rbenv init -)"
+        eval "$(rbenv init - $SHELL)"
     fi
 fi
 
