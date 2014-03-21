@@ -12,3 +12,4 @@ install rbenv
 install --HEAD ruby-build
 
 install haskell-platform
+install tmux
