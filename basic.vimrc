@@ -125,9 +125,20 @@ augroup AutoStripTrailingWhitespaces
     autocmd BufWritePre * :call StripTrailingWhitespaces()
 augroup END
 
+
 " Add CdCurrent
 command! -nargs=0 CdCurrent cd %:p:h
 command! -nargs=0 LcdCurrent lcd %:p:h
+
+
+" Haskeltags
+function! HaskellTagGen()
+    silent !hasktags --ignore-close-implementation --ctags .; sort tags
+    redraw!
+endfunction
+command! -nargs=0 HTagsGenerate :call HaskellTagGen()
+command! -nargs=0 HTagsGenerateOut !hasktags --ignore-close-implementation --ctags .; sort tags
+
 
 "set search highlight
 set hlsearch
