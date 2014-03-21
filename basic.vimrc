@@ -125,6 +125,10 @@ augroup AutoStripTrailingWhitespaces
     autocmd BufWritePre * :call StripTrailingWhitespaces()
 augroup END
 
+" Add CdCurrent
+command! -nargs=0 CdCurrent cd %:p:h
+command! -nargs=0 LcdCurrent lcd %:p:h
+
 "set search highlight
 set hlsearch
 
