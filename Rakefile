@@ -13,7 +13,7 @@ def cabal_dev(name)
   if File.exist? File.expand_path("~/.#{name}")
     puts "arleady installed #{name}"
   else
-    sh "cabal-dev install --sandbox=~/.#{name} #{name}"
+    sh "cabal-dev install --sandbox=$HOME/.#{name} #{name}"
   end
 end
 

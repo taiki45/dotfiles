@@ -29,6 +29,7 @@ export PATH=$HOME/.pointfree/bin:$PATH
 export PATH=$HOME/.hsenv/bin:$PATH
 export PATH=$HOME/.hoogle/bin:$PATH
 export PATH=$HOME/.hlint/bin:$PATH
+export PATH=$HOME/.hasktags/bin:$PATH
 
 if [ -d ~/.rsense-0.3 ]; then
     export RSENSE_HOME=~/.rsense-0.3
