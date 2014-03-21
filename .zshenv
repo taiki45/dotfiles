@@ -18,17 +18,9 @@ if [ -d ~/.cpad ]; then
     source ~/.bash_profile
 fi
 
-#export NODEBREW_ROOT=$HOME:.nodebrew
-#export PYTHONDONTWRITEBYTECODE=1
-
 export PATH=/usr/local/bin:$PATH
-export PATH=$HOME/.nodebrew/current/bin:$HOME/.local/bin:/opt/local/bin:/opt/local/lib/mysql55/bin:/usr/local/bin:/opt/local/sbin:$PATH
+export PATH=$HOME/.nodebrew/current/bin:$HOME/.local/bin:$PATH
 export PATH=$HOME/.dotfiles/git/contrib/diff-highlight:$HOME/.dotfiles/git/contrib/git-jump:$PATH
-export PATH=/Library/Haskell/bin:$PATH
-export PATH=/Library/Frameworks/GHC.framework/Versions/7.6.3-x86_64/usr/bin:$PATH
-export PATH=$HOME/Library/Haskell/bin:$PATH
-export PATH=$HOME/.local/old-ghc/bin:$PATH
-export PATH=$HOME/.local/ghc/bin:$PATH
 export PATH=$HOME/.cabal/bin:$PATH
 
 # Hackage bins installed by cabal-dev
@@ -37,9 +29,6 @@ export PATH=$HOME/.pointfree/bin:$PATH
 export PATH=$HOME/.hsenv/bin:$PATH
 export PATH=$HOME/.hoogle/bin:$PATH
 export PATH=$HOME/.hlint/bin:$PATH
-
-export MANPATH=/opt/local/man:$MANPATH
-
 
 if [ -d ~/.rsense-0.3 ]; then
     export RSENSE_HOME=~/.rsense-0.3
@@ -56,10 +45,4 @@ if [ -f ~/.rbenv/completions/rbenv.zsh ]; then
     source ~/.rbenv/completions/rbenv.zsh
 elif [ -f /usr/local/Cellar/rbenv/0.4.0/completions/rbenv.zsh ]; then
     source /usr/local/Cellar/rbenv/0.4.0/completions/rbenv.zsh
-fi
-
-if [ -d ~/.pyenv ]; then
-    export PATH="$HOME/.pyenv/bin:$PATH"
-    eval "$(pyenv init -)"
-    source ~/.pyenv/completions/pyenv.zsh
 fi
