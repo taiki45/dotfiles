@@ -16,10 +16,10 @@ imap <C-b> <Left>
 imap <C-f> <Right>
 
 " Tab
-" prev tab
-noremap n gt
 " next tab
-noremap p gT
+noremap } gt
+" prev tab
+noremap { gT
 
 "Tags
 noremap  
