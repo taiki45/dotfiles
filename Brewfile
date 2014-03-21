@@ -4,7 +4,6 @@ upgrade
 install git
 install curl
 install wget
-install vim
 
 install openssl
 install readline
