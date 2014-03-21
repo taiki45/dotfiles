@@ -22,7 +22,7 @@ fi
 #export PYTHONDONTWRITEBYTECODE=1
 
 export PATH=/usr/local/bin:$PATH
-export PATH=$HOME/.nodebrew/current/bin:$HOME/.local/bin:/opt/local/bin:/opt/local/lib/mysql55/bin:/usr/local/bin:/opt/local/sbin/:$PATH
+export PATH=$HOME/.nodebrew/current/bin:$HOME/.local/bin:/opt/local/bin:/opt/local/lib/mysql55/bin:/usr/local/bin:/opt/local/sbin:$PATH
 export PATH=$HOME/.dotfiles/git/contrib/diff-highlight:$HOME/.dotfiles/git/contrib/git-jump:$PATH
 export PATH=/Library/Haskell/bin:$PATH
 export PATH=/Library/Frameworks/GHC.framework/Versions/7.6.3-x86_64/usr/bin:$PATH
