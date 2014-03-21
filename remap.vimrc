@@ -21,9 +21,6 @@ noremap } gt
 " prev tab
 noremap { gT
 
-"Tags
-noremap  
-
 "Reload
 noremap <C-x><C-l> :checktime<Enter>
 
