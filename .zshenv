@@ -9,9 +9,13 @@ if [ -d /opt/local ]; then
     export SHELL=/opt/local/bin/zsh
 elif [ -f /usr/local/bin/zsh ]; then
     export SHELL=/usr/local/bin/zsh
-    source ~/.bash_profile
 else
     #export SHELL=/usr/bin/zsh
+fi
+
+# cpad is setup tool ref: http://secondlife.hatenablog.jp/entry/2013/02/21/210807
+if [ -d ~/.cpad ]; then
+    source ~/.bash_profile
 fi
 
 #export NODEBREW_ROOT=$HOME:.nodebrew
@@ -42,11 +46,15 @@ fi
 
 if [ -d ~/.rbenv ]; then
     export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
-    eval "$(rbenv init -)"
+    if [ ! -d ~/.cpad ]; then
+        eval "$(rbenv init -)"
+    fi
 fi
 
 if [ -f ~/.rbenv/completions/rbenv.zsh ]; then
     source ~/.rbenv/completions/rbenv.zsh
+elif [ -f /usr/local/Cellar/rbenv/0.4.0/completions/rbenv.zsh ]; then
+    source /usr/local/Cellar/rbenv/0.4.0/completions/rbenv.zsh
 fi
 
 if [ -d ~/.pyenv ]; then
