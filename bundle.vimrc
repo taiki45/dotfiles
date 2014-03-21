@@ -188,6 +188,7 @@ let g:wildfire_fuel_map = "<ENTER>"
 "let g:wildfire_water_map = "<S-Enter>"
 let g:wildfire_objects = ["i'", 'i"', 'i)', 'i]', 'i}', 'ip', 'it', 'i>']
 
+NeoBundle 'szw/vim-tags'
 
 
 " =================================================
