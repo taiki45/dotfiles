@@ -9,8 +9,8 @@ if [ -d /opt/local ]; then
     export SHELL=/opt/local/bin/zsh
 elif [ -f /usr/local/bin/zsh ]; then
     export SHELL=/usr/local/bin/zsh
-else
-    #export SHELL=/usr/bin/zsh
+elif [ -f /bin/zsh ]; then
+    export SHELL=/bin/zsh
 fi
 
 # cpad is setup tool ref: http://secondlife.hatenablog.jp/entry/2013/02/21/210807
