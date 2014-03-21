@@ -26,4 +26,5 @@ task :hackage_bins do
   cabal_dev 'pointfree'
   cabal_dev 'hlint'
   cabal_dev 'hasktags'
+  cabal_dev 'hothasktags'
 end
