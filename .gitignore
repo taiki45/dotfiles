@@ -3,7 +3,6 @@
 .LSOverride
 Icon
 
-
 # Thumbnails
 ._*
 
@@ -12,8 +11,13 @@ Icon
 .Trashes
 
 tmp
+tags
+*.tags
 
+# for Haskell
 .cabal-sandbox
 cabal.sandbox.config
 .hsenv
+
+# for Ruby
 .bundle
