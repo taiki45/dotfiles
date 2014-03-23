@@ -21,6 +21,9 @@ noremap } gt
 " prev tab
 noremap { gT
 
+" nohl
+noremap <Space>n :nohl<CR>
+
 "Reload
 noremap <C-x><C-l> :checktime<Enter>
 
