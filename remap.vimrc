@@ -24,6 +24,14 @@ noremap { gT
 " nohl
 noremap <Space>n :nohl<CR>
 
+" tag jump
+noremap  :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+
+" Tag new
+noremap <C-N> :tab split<CR>
+noremap  :vs<CR>
+noremap  :sp<CR>
+
 "Reload
 noremap <C-x><C-l> :checktime<Enter>
 
