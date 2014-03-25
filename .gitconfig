@@ -10,7 +10,7 @@
 [alias]
     st = status --short
     co = checkout
-    f = fetch -p
+    f = fetch -p --all
     b = branch
     com = commit -v
     acommit = commit -av
