@@ -29,7 +29,9 @@ NeoBundle 'Shougo/vimproc'
 
 " My Bundles here:
 "
-NeoBundle 'rails.vim'
+NeoBundleLazy 'rails.vim', { 'autoload' : {'filetypes' : 'ruby', }}
+let g:neocomplete#force_overwrite_completefunc = 1
+
 "NeoBundle 'git://github.com/Shougo/echodoc.git'
 NeoBundle 'git://github.com/Shougo/neocomplcache.git'
 NeoBundle 'Shougo/neosnippet'
