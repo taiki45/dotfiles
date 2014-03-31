@@ -194,6 +194,8 @@ NeoBundle 'szw/vim-tags'
 
 NeoBundle 'tpope/vim-surround'
 
+NeoBundleLazy 'vim-scripts/hlint', { 'autoload' : {'filetypes' : 'haskell', }}
+
 " =================================================
 " NeoBundle setting
 
