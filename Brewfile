@@ -7,6 +7,7 @@ install wget
 install tmux
 install ctags
 install tree
+install the_silver_searcher
 
 install openssl
 install readline
