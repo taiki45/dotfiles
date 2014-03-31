@@ -6,6 +6,7 @@ install curl
 install wget
 install tmux
 install ctags
+install tree
 
 install openssl
 install readline
