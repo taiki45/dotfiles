@@ -196,6 +196,11 @@ NeoBundle 'tpope/vim-surround'
 
 NeoBundleLazy 'vim-scripts/hlint', { 'autoload' : {'filetypes' : 'haskell', }}
 
+NeoBundle 'scrooloose/syntastic'
+noremap \s :SyntasticCheck<CR>
+noremap \f :SyntasticToggleMode<CR>
+noremap \r :SyntasticReset<CR>
+
 " =================================================
 " NeoBundle setting
 
