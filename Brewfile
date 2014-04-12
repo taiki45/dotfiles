@@ -8,10 +8,9 @@ install tmux
 install ctags
 install tree
 install the_silver_searcher
+install tig
 
 install openssl
 install readline
 install rbenv
 install --HEAD ruby-build
-
-install haskell-platform
