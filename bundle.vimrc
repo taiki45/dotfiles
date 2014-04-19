@@ -30,7 +30,7 @@ NeoBundle 'Shougo/vimproc'
 " My Bundles here:
 "
 NeoBundleLazy 'rails.vim', { 'autoload' : {'filetypes' : 'ruby', }}
-let g:neocomplete#force_overwrite_completefunc = 1
+"let g:neocomplete#force_overwrite_completefunc = 1
 
 "NeoBundle 'git://github.com/Shougo/echodoc.git'
 NeoBundle 'git://github.com/Shougo/neocomplcache.git'
@@ -71,28 +71,21 @@ if executable('ag')
 endif
 
 
-NeoBundle 'thinca/vim-quickrun'
-let g:quickrun_config = {}
-let g:quickrun_config.haskell = {'command' : 'runghc'}
+"NeoBundle 'thinca/vim-quickrun'
+"let g:quickrun_config = {}
+"let g:quickrun_config.haskell = {'command' : 'runghc'}
 
-NeoBundle 'git://github.com/Shougo/vimfiler.git'
-NeoBundle 'git://github.com/Shougo/vimshell.git'
-NeoBundle 'git://github.com/Shougo/vinarise.git'
+"NeoBundle 'git://github.com/Shougo/vimfiler.git'
 NeoBundle 'git://github.com/vim-scripts/sudo.vim.git'
-NeoBundle 'vim-ruby/vim-ruby'
+"NeoBundle 'vim-ruby/vim-ruby'
 
-NeoBundle 'git://github.com/skwp/vim-rspec.git'
-"" RSpec and quickrun setting
-let g:quickrun_config = {}
-let g:quickrun_config['ruby.rspec'] = {'command': 'rspec'}
+NeoBundleLazy 'git://github.com/skwp/vim-rspec.git', { 'autoload' : {'filetypes' : 'ruby', }}
 
 augroup UjihisaRSpec
     autocmd!
     autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
 augroup END
 
-NeoBundle 'taka84u9/vim-ref-ri'
-NeoBundle 'thinca/vim-ref'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundleLazy 'kchmck/vim-coffee-script', { 'autoload' : {'filetypes' : 'coffee-script', }}
 NeoBundleLazy 'groenewege/vim-less', { 'autoload' : {'filetypes' : 'less', }}
@@ -144,20 +137,15 @@ let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
 
-
-NeoBundle 'b4winckler/vim-objc'
-NeoBundle 'vim-scripts/cocoa.vim'
 NeoBundle 'rking/ag.vim'
-NeoBundle 'guns/xterm-color-table.vim'
-NeoBundle 'ujihisa/unite-haskellimport'
-NeoBundle 'avakhov/vim-yaml'
-NeoBundle 'elzr/vim-json'
-NeoBundle 'tpope/vim-cucumber'
 
-NeoBundle 'chrisbra/csv.vim'
+NeoBundleLazy 'avakhov/vim-yaml', { 'autoload' : {'filetypes' : 'yaml', }}
+NeoBundleLazy 'tpope/vim-cucumber', { 'autoload' : {'filetypes' : 'cucumber', }}
 
-NeoBundle 'sjl/gundo.vim'
-nnoremap <C-X><C-R> :GundoToggle<CR>
+NeoBundleLazy 'chrisbra/csv.vim', { 'autoload' : {'filetypes' : 'csv', }}
+
+"NeoBundle 'sjl/gundo.vim'
+"nnoremap <C-X><C-R> :GundoToggle<CR>
 
 NeoBundle 'scrooloose/nerdtree'
 nnoremap <C-X><C-W> :NERDTreeToggle<CR>
@@ -173,10 +161,9 @@ NeoBundle 'w0ng/vim-hybrid'
 colorscheme jellybeans
 set cursorline
 
-NeoBundle 'ujihisa/unite-colorscheme'
-"NeoBundle 'lukerandall/haskellmode-vim'
-"let g:ghc="/usr/bin/ghc"
-"let g:haddock_browser="/Applications/Google\ Chrome.app"
+"NeoBundle 'ujihisa/unite-colorscheme'
+
+NeoBundle 'ujihisa/unite-haskellimport', { 'autoload' : {'filetypes' : 'haskell', }}
 
 NeoBundleLazy 'eagletmt/unite-haddock', { 'autoload' : {'filetypes' : 'haskell', }}
 call unite#custom_default_action('haddock', 'browse_remote')
@@ -191,17 +178,22 @@ let g:wildfire_fuel_map = "<ENTER>"
 let g:wildfire_objects = ["i'", 'i"', 'i)', 'i]', 'i}', 'ip', 'it', 'i>']
 
 NeoBundle 'szw/vim-tags'
-
 NeoBundle 'tpope/vim-surround'
 
 NeoBundleLazy 'vim-scripts/hlint', { 'autoload' : {'filetypes' : 'haskell', }}
 
-NeoBundle 'aklt/plantuml-syntax'
+augroup UjihisaUML
+    autocmd!
+    autocmd BufWinEnter,BufNewFile *.uml set filetype=plantuml
+augroup END
+NeoBundleLazy 'aklt/plantuml-syntax', { 'autoload' : {'filetypes' : 'plantuml', }}
 
 NeoBundle 'scrooloose/syntastic'
 noremap \s :SyntasticCheck<CR>
 noremap \f :SyntasticToggleMode<CR>
 noremap \r :SyntasticReset<CR>
+
+
 
 " =================================================
 " NeoBundle setting
