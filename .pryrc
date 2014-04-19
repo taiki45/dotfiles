@@ -1,4 +1,6 @@
-def time(repetitions = 100, &block)
+def _time(repetitions = 100, &block)
   require 'benchmark'
   Benchmark.bm{|b| b.report{repetitions.times(&block)}}
 end
+
+require 'bond'
