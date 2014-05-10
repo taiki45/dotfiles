@@ -3,4 +3,7 @@ def _time(repetitions = 100, &block)
   Benchmark.bm{|b| b.report{repetitions.times(&block)}}
 end
 
-require 'bond'
+begin
+    require 'bond'
+rescue Exception
+end
