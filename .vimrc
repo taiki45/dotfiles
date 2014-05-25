@@ -2,6 +2,7 @@
 set nocompatible
 
 set t_Co=256
+set guifont=Consolas\ for\ Powrline:h12
 
 source ~/.dotfiles/basic.vimrc
 source ~/.dotfiles/bundle.vimrc
