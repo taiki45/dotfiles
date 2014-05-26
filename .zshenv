@@ -21,6 +21,7 @@ fi
 export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/.nodebrew/current/bin:$HOME/.local/bin:$PATH
 export PATH=$HOME/.dotfiles/git/contrib/diff-highlight:$HOME/.dotfiles/git/contrib/git-jump:$PATH
+export PATH=$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH
 export PATH=$HOME/.cabal/bin:$PATH
 
 # Hackage bins installed by cabal-dev
