@@ -114,18 +114,6 @@ endif
 match WideSpace /　/
 
 
-function! StripTrailingWhitespaces()
-    let l = line(".")
-    let c = col(".")
-    %s/\s\+$//e
-    call cursor(l, c)
-endfunction
-augroup AutoStripTrailingWhitespaces
-    autocmd!
-    autocmd BufWritePre * :call StripTrailingWhitespaces()
-augroup END
-
-
 " Add CdCurrent
 command! -nargs=0 CdCurrent cd %:p:h
 command! -nargs=0 LcdCurrent lcd %:p:h
