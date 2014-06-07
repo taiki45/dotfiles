@@ -150,8 +150,6 @@ NeoBundleLazy 'chrisbra/csv.vim', { 'autoload' : {'filetypes' : 'csv', }}
 NeoBundle 'scrooloose/nerdtree'
 nnoremap <C-X><C-W> :NERDTreeToggle<CR>
 nnoremap <C-X><C-E> :NERDTreeMirror<CR>
-autocmd vimenter * if !argc() | NERDTree | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 NeoBundle 'kien/ctrlp.vim'
 nnoremap <C-X><C-P> :CtrlP<CR>
