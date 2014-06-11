@@ -87,7 +87,11 @@ augroup UjihisaRSpec
 augroup END
 
 NeoBundle 'tpope/vim-fugitive'
-NeoBundleLazy 'kchmck/vim-coffee-script', { 'autoload' : {'filetypes' : 'coffee-script', }}
+
+au BufRead,BufNewFile,BufReadPre *.coffee set filetype=coffee
+autocmd FileType coffee setlocal sw=2 sts=2 ts=2 et
+NeoBundleLazy 'kchmck/vim-coffee-script', { 'autoload' : {'filetypes' : 'coffee', }}
+
 NeoBundleLazy 'groenewege/vim-less', { 'autoload' : {'filetypes' : 'less', }}
 
 NeoBundle 'godlygeek/tabular'
