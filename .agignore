@@ -9,3 +9,6 @@ log
 
 coverage
 doc
+
+*.tags
+tags
