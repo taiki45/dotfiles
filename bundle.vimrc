@@ -209,6 +209,8 @@ nnoremap <silent> \e :<C-u>call ToggleErrors()<CR>
 
 NeoBundle 'derekwyatt/vim-scala'
 
+NeoBundle 'rodjek/vim-puppet'
+
 
 
 " =================================================
