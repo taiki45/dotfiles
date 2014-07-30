@@ -10,7 +10,8 @@
 [alias]
     st = status --short
     co = checkout
-    f = fetch -p --all
+    f = fetch -p
+    up = rebase origin/master master
     b = branch
     com = commit -v
     acommit = commit -av
