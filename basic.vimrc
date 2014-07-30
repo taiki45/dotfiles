@@ -4,7 +4,7 @@ set enc=utf8
 set termencoding=utf-8
 set fileencoding=utf-8
 
-set history=10000
+set history=1000
 
 " auto realead when changed
 set autoread
@@ -22,9 +22,6 @@ set smartcase
 "setting for crontab
 set backupskip=/tmp/*,/private/tmp/*
 
-
-"open other" auto realead when changedset autoread file if did not save current file
-set hidden
 
 "set status lines
 set laststatus=2
@@ -104,14 +101,6 @@ set showcmd
 
 "show mode
 set showmode
-
-"highlight Zenkaku space
-if &background ==# 'dark'
-    hi WideSpace ctermbg=DarkCyan
-else
-    hi WideSpace ctermbg=Cyan
-endif
-match WideSpace /　/
 
 
 " Add CdCurrent
