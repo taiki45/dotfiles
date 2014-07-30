@@ -29,9 +29,6 @@ NeoBundle 'Shougo/vimproc'
 
 " My Bundles here:
 "
-NeoBundleLazy 'rails.vim', { 'autoload' : {'filetypes' : 'ruby', }}
-"let g:neocomplete#force_overwrite_completefunc = 1
-
 "NeoBundle 'git://github.com/Shougo/echodoc.git'
 NeoBundle 'git://github.com/Shougo/neocomplcache.git'
 NeoBundle 'Shougo/neosnippet'
@@ -71,22 +68,7 @@ if executable('ag')
 endif
 
 
-"NeoBundle 'thinca/vim-quickrun'
-"let g:quickrun_config = {}
-"let g:quickrun_config.haskell = {'command' : 'runghc'}
-
-"NeoBundle 'git://github.com/Shougo/vimfiler.git'
 NeoBundle 'git://github.com/vim-scripts/sudo.vim.git'
-"NeoBundle 'vim-ruby/vim-ruby'
-
-NeoBundleLazy 'git://github.com/skwp/vim-rspec.git', { 'autoload' : {'filetypes' : 'ruby', }}
-
-augroup UjihisaRSpec
-    autocmd!
-    autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
-augroup END
-
-NeoBundle 'tpope/vim-fugitive'
 
 au BufRead,BufNewFile,BufReadPre *.coffee set filetype=coffee
 autocmd FileType coffee setlocal sw=2 sts=2 ts=2 et
@@ -147,13 +129,6 @@ NeoBundleLazy 'avakhov/vim-yaml', { 'autoload' : {'filetypes' : 'yaml', }}
 NeoBundleLazy 'tpope/vim-cucumber', { 'autoload' : {'filetypes' : 'cucumber', }}
 
 NeoBundleLazy 'chrisbra/csv.vim', { 'autoload' : {'filetypes' : 'csv', }}
-
-"NeoBundle 'sjl/gundo.vim'
-"nnoremap <C-X><C-R> :GundoToggle<CR>
-
-NeoBundle 'scrooloose/nerdtree'
-nnoremap <C-X><C-W> :NERDTreeToggle<CR>
-nnoremap <C-X><C-E> :NERDTreeMirror<CR>
 
 NeoBundle 'kien/ctrlp.vim'
 nnoremap <C-X><C-P> :CtrlP<CR>
@@ -281,16 +256,6 @@ inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
-" AutoComplPop like behavior.
-"let g:neocomplcache_enable_auto_select = 1
-
-" Shell like behavior(not recommended).
-"set completeopt+=longest
-"let g:neocomplcache_enable_auto_select = 1
-"let g:neocomplcache_disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<TAB>"
-"inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
-
 
 
 " Enable omni completion.
@@ -314,14 +279,3 @@ if !exists('g:neocomplcache_member_prefix_patterns')
   let g:neocomplcache_member_prefix_patterns = {}
 endif
 let g:neocomplcache_member_prefix_patterns['php'] = ''
-
-
-" Rsense settings
-if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns = {}
-endif
-let g:rsenseUseOmniFunc = 1
-if filereadable(expand('~/.rsense-0.3/bin/rsense'))
-  let g:rsenseHome = expand('~/.rsense-0.3')
-  let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-endif
