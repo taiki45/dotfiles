@@ -2,10 +2,4 @@ rbenv-rehash
 bundler
 pry
 pry-doc
-weather_jp
-sinatra
-thin
-shotgun
-rspec
-cucumber
-rails
+gem-src
