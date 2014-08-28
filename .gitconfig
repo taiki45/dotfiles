@@ -12,6 +12,7 @@
     co = checkout
     f = fetch -p
     up = rebase origin/master master
+    follow-up = rebase origin/master
     b = branch
     com = commit -v
     acommit = commit -av
