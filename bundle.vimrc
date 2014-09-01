@@ -30,22 +30,23 @@ NeoBundle 'Shougo/vimproc'
 " My Bundles here:
 "
 "NeoBundle 'git://github.com/Shougo/echodoc.git'
-NeoBundle 'git://github.com/Shougo/neocomplcache.git'
+NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 
-NeoBundle 'git://github.com/Shougo/unite.vim.git'
+NeoBundle 'Shougo/unite.vim'
 "show recent open files
-noremap :uh :Unite file_mru -buffer-name=file_mru
+NeoBundle 'Shougo/neomru.vim'
+noremap <silent> :uh :Unite file_mru -buffer-name=file_mru
 nnoremap <C-X><C-H> :Unite file_mru -buffer-name=file_mru<CR>
 
 "show buffer and files
-noremap :ub :Unite buffer -buffer-name=buffer
+noremap <silent> :ub :Unite buffer -buffer-name=buffer
 nnoremap <C-X><C-B> :Unite buffer -buffer-name=buffer<CR>
-noremap :uba :Unite buffer file file_mru -buffer-name=all_stuff
+noremap <silent> :uba :Unite buffer file file_mru -buffer-name=all_stuff
 
 "show current dir files
-noremap :uf :Unite file -buffer-name=file
+noremap <silent> :uf :<C-u>:Unite file -buffer-name=file<CR>
 nnoremap <C-X><C-F> :Unite file -buffer-name=file<CR>
 noremap :ufa :Unite file_rec buffer -buffer-name=file_rec
 
@@ -54,11 +55,11 @@ let g:unite_enable_ignore_case = 1
 let g:unite_enable_smart_case = 1
 
 " grep
-nnoremap <silent> ,g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+noremap <silent> :ug :Unite grep
 " grep on cursor word
-nnoremap <silent> ,cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
+noremap :ucg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
 " recall result
-nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
+nnoremap <silent> :ugr  :<C-u>UniteResume search-buffer<CR>
 
 " use ag instead of grep
 if executable('ag')
@@ -187,6 +188,10 @@ NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'rodjek/vim-puppet'
 
 NeoBundle 'sorah/unite-ghq'
+NeoBundleLazy 'sorah/unite-bundler', { 'autoload' : {'filetypes' : ['ruby', 'rake'] }}
+
+NeoBundle 'Shougo/unite-outline'
+NeoBundle 'thinca/vim-unite-history'
 
 
 " =================================================
