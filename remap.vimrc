@@ -40,3 +40,6 @@ noremap <C-h> <C-W>h
 noremap <C-j> <C-W>j
 noremap <C-k> <C-W>k
 noremap <C-l> <C-W>l
+
+"Copy current word to clipboard
+noremap @ viw"*y
