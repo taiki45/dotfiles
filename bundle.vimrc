@@ -186,6 +186,7 @@ NeoBundle 'derekwyatt/vim-scala'
 
 NeoBundle 'rodjek/vim-puppet'
 
+NeoBundle 'sorah/unite-ghq'
 
 
 " =================================================
