@@ -55,11 +55,9 @@ let g:unite_enable_ignore_case = 1
 let g:unite_enable_smart_case = 1
 
 " grep
-noremap <silent> :ug :Unite grep
-" grep on cursor word
-noremap :ucg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
+noremap <silent> :ug :Unite grep -buffer-name=search-buffer
 " recall result
-nnoremap <silent> :ugr  :<C-u>UniteResume search-buffer<CR>
+noremap <silent> :ur :UniteResume search-buffer
 
 " use ag instead of grep
 if executable('ag')
