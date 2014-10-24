@@ -13,5 +13,3 @@ install openssl
 install readline
 install rbenv
 install --HEAD ruby-build
-
-install haskell-platform
