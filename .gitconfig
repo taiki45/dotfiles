@@ -52,3 +52,7 @@
     diff = diff-highlight | less -R -+F
 [ghq]
     root = ~/.ghq
+[merge "mergepbx"]
+	name = Xcode project files merger
+	driver = mergepbx %O %A %B
+	note = auto-generated configuration by `cpad manifest ios`
