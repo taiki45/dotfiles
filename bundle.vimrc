@@ -37,6 +37,11 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/unite.vim'
 "show recent open files
 NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'sorah/unite-ghq'
+NeoBundleLazy 'sorah/unite-bundler', { 'autoload' : {'filetypes' : ['ruby', 'rake'] }}
+NeoBundle 'Shougo/unite-outline'
+NeoBundle 'thinca/vim-unite-history'
+
 noremap <silent> :uh :Unite file_mru -buffer-name=file_mru
 nnoremap <C-X><C-H> :Unite file_mru -buffer-name=file_mru
 
@@ -49,6 +54,8 @@ noremap <silent> :uba :Unite buffer file file_mru -buffer-name=all_stuff
 noremap <silent> :uf :<C-u>:Unite file -buffer-name=file
 nnoremap <C-X><C-F> :Unite file -buffer-name=file
 noremap :ufa :Unite file_rec buffer -buffer-name=file_rec
+
+noremap <silent> :gem :Unite bundler
 
 let g:unite_enable_start_insert = 1
 let g:unite_enable_ignore_case = 1
@@ -185,11 +192,7 @@ NeoBundle 'derekwyatt/vim-scala'
 
 NeoBundle 'rodjek/vim-puppet'
 
-NeoBundle 'sorah/unite-ghq'
-NeoBundleLazy 'sorah/unite-bundler', { 'autoload' : {'filetypes' : ['ruby', 'rake'] }}
-
-NeoBundle 'Shougo/unite-outline'
-NeoBundle 'thinca/vim-unite-history'
+NeoBundle 'vim-scripts/copypath.vim'
 
 
 " =================================================
