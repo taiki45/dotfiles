@@ -7,6 +7,8 @@ See https://github.com/Lokaltog/powerline-fonts
 
 Or you can try to patch your own one via https://github.com/Lokaltog/powerline
 
+## MacVim setting
+Download a fresh MacVim release, and place MacVim.app in /Application, then move `mvim` file to `~/.local/bin`.
 
 ## LICENSE
 
