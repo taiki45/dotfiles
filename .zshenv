@@ -21,6 +21,7 @@ fi
 export GOPATH=$HOME/.go
 export GOROOT=/usr/local/opt/go/libexec/
 
+export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/.nodebrew/current/bin:$HOME/.local/bin:$PATH
 export PATH=$HOME/.dotfiles/git/contrib/diff-highlight:$HOME/.dotfiles/git/contrib/git-jump:$PATH
