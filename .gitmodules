@@ -31,3 +31,6 @@
 [submodule "iTerm-2-Color-Themes"]
 	path = iTerm-2-Color-Themes
 	url = https://github.com/baskerville/iTerm-2-Color-Themes.git
+[submodule ".zsh/zsh-autosuggestions"]
+	path = .zsh/zsh-autosuggestions
+	url = git://github.com/tarruda/zsh-autosuggestions
