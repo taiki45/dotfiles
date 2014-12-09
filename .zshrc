@@ -165,3 +165,17 @@ REPORTTIME=3
 #if [ -f /opt/local/etc/profile.d/autojump.sh ]; then
 #  . /opt/local/etc/profile.d/autojump.sh
 #fi
+
+# Setup zsh-autosuggestions
+source /autosuggestions.zsh
+
+# Enable autosuggestions automatically
+zle-line-init() {
+    zle autosuggest-start
+}
+
+zle -N zle-line-init
+
+# use ctrl+t to toggle autosuggestions(hopefully this wont be needed as
+# zsh-autosuggestions is designed to be unobtrusive)
+bindkey '^T' autosuggest-toggle
