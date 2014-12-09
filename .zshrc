@@ -56,35 +56,6 @@ if [ -d "$HOME/.zsh/auto-fu" ]; then
   zstyle ':completion:*' completer _oldlist _complete
 fi
 
-# zaw, anthing like plugin
-if [ -d "$HOME/.zsh/zaw" ]; then
-  source "$HOME/.zsh/zaw/zaw.zsh"
-  zstyle ':filter-select' case-insensitive yes
-
-  # Key-map
-  bindkey -r ''
-  bindkey '' zaw
-  bindkey 'k' zaw
-
-  bindkey 'h' zaw-history
-  bindkey '' zaw-history
-  bindkey 'b' zaw-git-branches
-  bindkey '' zaw-git-branches
-  bindkey 'rb' zaw-git-recent-branches
-  bindkey '' zaw-git-recent-branches
-  bindkey 'rab' zaw-git-recent-all-branches
-  bindkey '' zaw-git-recent-all-branches
-  bindkey 's' zaw-git-status
-  bindkey 'f' zaw-git-files
-
-  # Dir setting
-  autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
-  add-zsh-hook chpwd chpwd_recent_dirs
-  zstyle ':chpwd:*' recent-dirs-max 5000
-  zstyle ':chpwd:*' recent-dirs-default yes
-  zstyle ':completion:*' recent-dirs-insert both
-fi
-
 
 ## History
 HISTFILE=~/.zsh_histor
