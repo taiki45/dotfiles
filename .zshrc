@@ -44,18 +44,6 @@ zstyle ':completion:*' use-cache yes
 # _prefix
 zstyle ':completion:*' completer _oldlist _complete _match _history _approximate _prefix
 
-# Auto completion
-if [ -d "$HOME/.zsh/auto-fu" ]; then
-  source "$HOME/.zsh/auto-fu/auto-fu.zsh"
-  zstyle ':auto-fu:var' postdisplay $'\n➥'
-  function zle-line-init ()
-  {
-    auto-fu-init
-  }
-  zle -N zle-line-init
-  zstyle ':completion:*' completer _oldlist _complete
-fi
-
 
 ## History
 HISTFILE=~/.zsh_histor
