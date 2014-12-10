@@ -54,3 +54,9 @@ if [ -f ~/.rbenv/completions/rbenv.zsh ]; then
 elif [ -f /usr/local/Cellar/rbenv/0.4.0/completions/rbenv.zsh ]; then
     source /usr/local/Cellar/rbenv/0.4.0/completions/rbenv.zsh
 fi
+
+if [ -d ~/.boot2docker ]; then
+    export DOCKER_CERT_PATH=$HOME/.boot2docker/certs/boot2docker-vm
+    export DOCKER_TLS_VERIFY=1
+    export DOCKER_HOST=tcp://192.168.59.103:2376
+fi
