@@ -21,3 +21,5 @@ cabal.sandbox.config
 
 # for Ruby
 .bundle
+
+.idea
