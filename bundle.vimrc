@@ -195,6 +195,7 @@ NeoBundle 'rodjek/vim-puppet'
 NeoBundle 'vim-scripts/copypath.vim'
 
 NeoBundleLazy 'solarnz/thrift.vim', { 'autoload' : {'filetypes' : 'thrift', }}
+NeoBundle 'ekalinin/Dockerfile.vim'
 
 
 " =================================================
