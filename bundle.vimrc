@@ -197,6 +197,8 @@ NeoBundle 'vim-scripts/copypath.vim'
 NeoBundleLazy 'solarnz/thrift.vim', { 'autoload' : {'filetypes' : 'thrift', }}
 NeoBundle 'ekalinin/Dockerfile.vim'
 
+NeoBundleLazy 'fatih/vim-go', { 'autoload' : {'filetypes' : 'go', }}
+
 
 " =================================================
 " NeoBundle setting
