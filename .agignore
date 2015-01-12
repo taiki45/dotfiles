@@ -3,12 +3,10 @@
 
 tmp
 cache
-data
 vendor
 log
 
 coverage
-doc
 
 *.tags
 tags
