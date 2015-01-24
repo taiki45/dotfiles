@@ -2,6 +2,14 @@
 # Emacs like key bind
 bindkey -e
 
+## Functions
+func gorun() {
+    local name="go-tmp-build-$RANDOM"
+    go build -o $name
+    ./$name
+    rm ./$name
+}
+
 ## Complettion
 # Set fpath
 [ -d $HOME/.zsh/zsh-completions/src ] && fpath=($HOME/.zsh/zsh-completions/src $fpath)
