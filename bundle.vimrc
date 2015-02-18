@@ -19,6 +19,8 @@ source $VIMRUNTIME/macros/matchit.vim
 autocmd FileType scheme :let is_gauche=1
 "==========
 
+"" Ruby
+au BufRead,BufNewFile,BufReadPre *.iam set filetype=ruby
 
 " Let NeoBundle manage NeoBundle
 NeoBundle 'Shougo/neobundle.vim'
