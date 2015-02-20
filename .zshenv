@@ -18,6 +18,10 @@ if [ -d ~/.cpad ]; then
     source ~/.bash_profile
 fi
 
+if [ -f ~/.local/.zshenv ]; then
+    source ~/.local/.zshenv
+fi
+
 export GOPATH=$HOME/.go
 export GOROOT=/usr/local/opt/go/libexec/
 
