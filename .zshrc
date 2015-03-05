@@ -210,3 +210,14 @@ function peco-select-history() {
 zle -N peco-select-history
 bindkey '^r' peco-select-history
 setopt hist_ignore_all_dups
+
+function git-find-pr() {
+    git show $( \
+        perl -ne 'print if ($seen{$_} .= @ARGV) =~ /10$/' \
+        <(git rev-list --ancestry-path $1..master ) \
+        <(git rev-list --first-parent $1..master ) \
+        | tail -1 \
+    ) \
+    | grep 'pull request' \
+    | ruby -ne 'id = $_.scan(/#\d+/).first.sub("#", ""); repo = `hub browse -u`.chomp; puts "#{repo}/pull/#{id}"'
+}
