@@ -13,3 +13,7 @@ alias v='mvim'
 alias ghqcd='cd $(ghq list -p | peco)'
 alias workcd='cd ~/work/$(ls ~/work/ |peco)'
 alias beshow=$'bundle show $(bundle list | peco |awk \'{ print $2 }\')'
+
+func ff() {
+    find . -name "*$1*"
+}
