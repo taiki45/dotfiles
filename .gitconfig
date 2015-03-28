@@ -50,6 +50,8 @@
     log = diff-highlight | less -R -+X -+F
     show = diff-highlight | less -R -+F
     diff = diff-highlight | less -R -+F
+#[url "git@github.com"]
+#    insteadOf = https://github.com/
 [ghq]
     root = ~/.ghq
 [merge "mergepbx"]
