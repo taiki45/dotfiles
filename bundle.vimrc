@@ -1,12 +1,10 @@
 "Neobundle setup
 "
 filetype off
-
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
-
-call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/.vim/bundle/'))
 
 
 "==========
@@ -53,7 +51,7 @@ nnoremap <C-X><C-B> :Unite buffer -buffer-name=buffer
 noremap <silent> :uba :Unite buffer file file_mru -buffer-name=all_stuff
 
 "show current dir files
-noremap <silent> :uf :<C-u>:Unite file -buffer-name=file
+noremap :uf :<C-u>:Unite file -buffer-name=file
 nnoremap <C-X><C-F> :Unite file -buffer-name=file
 noremap :ufa :Unite file_rec buffer -buffer-name=file_rec
 
@@ -146,15 +144,11 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'w0ng/vim-hybrid'
 
-colorscheme jellybeans
-set cursorline
-
 "NeoBundle 'ujihisa/unite-colorscheme'
 
 NeoBundle 'ujihisa/unite-haskellimport', { 'autoload' : {'filetypes' : 'haskell', }}
 
 NeoBundleLazy 'eagletmt/unite-haddock', { 'autoload' : {'filetypes' : 'haskell', }}
-call unite#custom_default_action('haddock', 'browse_remote')
 noremap :hoogle :Unite hoogle
 noremap :haddock :Unite haddock
 
@@ -205,17 +199,15 @@ NeoBundleLazy 'fatih/vim-go', { 'autoload' : {'filetypes' : 'go', }}
 " =================================================
 " NeoBundle setting
 
-filetype plugin on
-filetype indent on
+call neobundle#end()
 filetype plugin indent on     " Required!
-"
-" Installation check.
-if neobundle#exists_not_installed_bundles()
-  echomsg 'Not installed bundles : ' .
-        \ string(neobundle#get_not_installed_bundle_names())
-  echomsg 'Please execute ":NeoBundleInstall" command.'
-endif
+NeoBundleCheck
 
+
+" =============================================
+" Colorscheme
+colorscheme jellybeans
+set cursorline
 
 
 "================================================
