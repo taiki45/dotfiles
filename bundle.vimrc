@@ -37,6 +37,20 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/unite.vim'
 "show recent open files
 NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'Shougo/vimfiler'
+
+" Use vimfiler instead of default filer.
+let g:vimfiler_as_default_explorer = 1
+" Open filer
+noremap <silent> :tree :VimFilerBufferDir -split -simple -winwidth=45 -no-quit
+noremap <C-X><C-T> :VimFilerBufferDir -split -simple -winwidth=45 -no-quit<ENTER>
+" Don't let <CR> enter the directory but let it open the directory
+autocmd FileType vimfiler nmap <buffer> <CR> <Plug>(vimfiler_expand_or_edit)
+" Automatically open vimfiler on start
+"autocmd VimEnter * VimFilerExplorer
+" If no files are specified, open vimfiler
+autocmd VimEnter * if !argc() | VimFiler | endif
+
 NeoBundle 'sorah/unite-ghq'
 NeoBundleLazy 'sorah/unite-bundler', { 'autoload' : {'filetypes' : ['ruby', 'rake'] }}
 NeoBundle 'Shougo/unite-outline'
@@ -51,9 +65,8 @@ nnoremap <C-X><C-B> :Unite buffer -buffer-name=buffer
 noremap <silent> :uba :Unite buffer file file_mru -buffer-name=all_stuff
 
 "show current dir files
-noremap :uf :<C-u>:Unite file -buffer-name=file
-nnoremap <C-X><C-F> :Unite file -buffer-name=file
-noremap :ufa :Unite file_rec buffer -buffer-name=file_rec
+noremap :uf :VimFilerBufferDir
+nnoremap <C-X><C-F> :VimFilerBufferDir<ENTER>
 
 noremap <silent> :gem :Unite bundler
 
