@@ -46,6 +46,8 @@ noremap <silent> :tree :VimFilerBufferDir -split -simple -winwidth=45 -no-quit
 noremap <C-X><C-T> :VimFilerBufferDir -split -simple -winwidth=45 -no-quit<ENTER>
 " Don't let <CR> enter the directory but let it open the directory
 autocmd FileType vimfiler nmap <buffer> <CR> <Plug>(vimfiler_expand_or_edit)
+autocmd FileType vimfiler nmap <buffer> <C-N> <Plug>(vimfiler_loop_cursor_down)
+autocmd FileType vimfiler nmap <buffer> <C-P> <Plug>(vimfiler_loop_cursor_up)
 " Automatically open vimfiler on start
 "autocmd VimEnter * VimFilerExplorer
 " If no files are specified, open vimfiler
