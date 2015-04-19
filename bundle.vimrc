@@ -67,8 +67,9 @@ nnoremap <C-X><C-B> :Unite buffer -buffer-name=buffer
 noremap <silent> :uba :Unite buffer file file_mru -buffer-name=all_stuff
 
 "show current dir files
-noremap :uf :VimFilerBufferDir
-nnoremap <C-X><C-F> :VimFilerBufferDir<ENTER>
+noremap :uf :<C-u>:Unite file -buffer-name=file
+nnoremap <C-X><C-F> :Unite file -buffer-name=file
+noremap :ufa :Unite file_rec buffer -buffer-name=file_rec
 
 noremap <silent> :gem :Unite bundler
 
@@ -209,6 +210,15 @@ NeoBundleLazy 'solarnz/thrift.vim', { 'autoload' : {'filetypes' : 'thrift', }}
 NeoBundle 'ekalinin/Dockerfile.vim'
 
 NeoBundleLazy 'fatih/vim-go', { 'autoload' : {'filetypes' : 'go', }}
+
+NeoBundle 'rhysd/committia.vim'
+let g:committia_hooks = {}
+function! g:committia_hooks.edit_open(info)
+    " Additional settings
+    setlocal spell
+endfunction
+
+NeoBundle 'tpope/vim-fugitive'
 
 
 " =================================================
