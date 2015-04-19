@@ -10,6 +10,17 @@ func gorun() {
     rm ./$name
 }
 
+function git-find-pr() {
+    git show $( \
+        perl -ne 'print if ($seen{$_} .= @ARGV) =~ /10$/' \
+        <(git rev-list --ancestry-path $1..master ) \
+        <(git rev-list --first-parent $1..master ) \
+        | tail -1 \
+    ) \
+    | grep 'pull request' \
+    | ruby -ne 'id = $_.scan(/#\d+/).first.sub("#", ""); repo = `hub browse -u`.chomp; puts "#{repo}/pull/#{id}"'
+}
+
 ## Complettion
 # Set fpath
 [ -d $HOME/.zsh/zsh-completions/src ] && fpath=($HOME/.zsh/zsh-completions/src $fpath)
@@ -29,21 +40,25 @@ setopt list_types
 # Show list when same suggestion exists
 setopt auto_list
 
+# case insentive completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z} r:|[-_.]=**'
+
+# Setting for option completion
+zstyle ':completion:*' list-separator '-->'
+zstyle ':completion:*:manuals' separate-sections true
+
 # Grouping completion list
 #   %B...%b: make bold '...'
 #   %d: label
-#zstyle ':completion:*' format '%B%d%b'
-#zstyle ':completion:*' group-name ''
+zstyle ':completion:*' format '%B%d%b'
+zstyle ':completion:*' group-name ''
 
 # Cache completion list
 zstyle ':completion:*' use-cache yes
 
-# Smart completion
-#   m:{a-z}={A-Z}: ignore case
-#   r:|[._-]=*: Put wildcard before `.`, `_`, `-`
-#zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z} r:|[._-]=*'
+zstyle ':completion:*' verbose yes
 
-# _oldlist 
+# _oldlist
 # _complete
 # _match: don't expand glob
 # _history: use history
@@ -76,11 +91,6 @@ setopt extended_history
 setopt no_flow_control
 
 autoload history-search-end
-
-
-## notification
-#source ~/.zsh/zsh-notify/notify.plugin.zsh
-#export NOTIFY_COMMAND_COMPLETE_TIMEOUT=30
 
 
 # === PROMPT
@@ -176,11 +186,6 @@ zmodload -a autocomplete
 zmodload -a complist
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
-# syntax hilighting
-if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-    source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
-
 
 ## Ailias
 source ~/.dotfiles/alias.sh
@@ -244,12 +249,9 @@ REPORTTIME=3
 
 # Setup zsh-autosuggestions
 source ~/.dotfiles/.zsh/zsh-autosuggestions/autosuggestions.zsh
-
-# Enable autosuggestions automatically
 zle-line-init() {
     zle autosuggest-start
 }
-
 zle -N zle-line-init
 
 # use ctrl+t to toggle autosuggestions(hopefully this wont be needed as
@@ -279,13 +281,3 @@ zle -N peco-select-history
 bindkey '^r' peco-select-history
 setopt hist_ignore_all_dups
 
-function git-find-pr() {
-    git show $( \
-        perl -ne 'print if ($seen{$_} .= @ARGV) =~ /10$/' \
-        <(git rev-list --ancestry-path $1..master ) \
-        <(git rev-list --first-parent $1..master ) \
-        | tail -1 \
-    ) \
-    | grep 'pull request' \
-    | ruby -ne 'id = $_.scan(/#\d+/).first.sub("#", ""); repo = `hub browse -u`.chomp; puts "#{repo}/pull/#{id}"'
-}
