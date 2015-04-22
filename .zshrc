@@ -38,10 +38,7 @@ setopt list_packed
 setopt list_types
 
 # Show list when same suggestion exists
-setopt auto_list
-
-# case insentive completion
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z} r:|[-_.]=**'
+#setopt auto_list
 
 # Setting for option completion
 zstyle ':completion:*' list-separator '-->'
@@ -50,13 +47,11 @@ zstyle ':completion:*:manuals' separate-sections true
 # Grouping completion list
 #   %B...%b: make bold '...'
 #   %d: label
-zstyle ':completion:*' format '%B%d%b'
-zstyle ':completion:*' group-name ''
+#zstyle ':completion:*' format '%B%d%b'
+#zstyle ':completion:*' group-name ''
 
 # Cache completion list
 zstyle ':completion:*' use-cache yes
-
-zstyle ':completion:*' verbose yes
 
 # _oldlist
 # _complete
