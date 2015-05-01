@@ -96,8 +96,7 @@ colors
 autoload -Uz vcs_info
 
 zstyle ':vcs_info:*' enable git svn hg bzr
-#zstyle ':vcs_info:*' formats '(%s)-[%b]'
-zstyle ':vcs_info:*' formats '(%b)'
+zstyle ':vcs_info:*' formats '(%b %s)'
 zstyle ':vcs_info:*' actionformats '(%b|%a)'
 zstyle ':vcs_info:(svn|bzr):*' branchformat '%b:r%r'
 zstyle ':vcs_info:bzr:*' use-simple true
@@ -105,19 +104,21 @@ zstyle ':vcs_info:bzr:*' use-simple true
 autoload -Uz is-at-least
 if is-at-least 4.3.10; then
   zstyle ':vcs_info:git:*' check-for-changes true
-  zstyle ':vcs_info:git:*' stagedstr "+"
-  zstyle ':vcs_info:git:*' unstagedstr "-"
-  #zstyle ':vcs_info:git:*' formats '(%s)-[%b] %c%u'
-  zstyle ':vcs_info:git:*' formats '%b'
-  zstyle ':vcs_info:git:*' actionformats '%b %a'
+  zstyle ':vcs_info:git:*' stagedstr '%F{2}M%f'
+  zstyle ':vcs_info:git:*' unstagedstr '%F{3}M%f'
+  zstyle ':vcs_info:git:*' formats '%F{6}%b %c%u'
+  zstyle ':vcs_info:git:*' actionformats '%F{2}%b%F{3}|%F{1}%a%f '
+  zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
 fi
 
-function _update_vcs_info_msg() {
-    psvar=()
-    LANG=ja_JP.UTF-8 vcs_info
-    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
++vi-git-untracked() {
+    if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
+        [[ $(git ls-files --other --directory --exclude-standard | sed q | wc -l | tr -d ' ') == 1 ]] ; then
+        hook_com[unstaged]+='%F{1}??%f'
+    fi
 }
-add-zsh-hook precmd _update_vcs_info_msg
+
+precmd () { vcs_info }
 
 ## Set prompt
 setopt prompt_subst
@@ -154,7 +155,7 @@ case ${UID} in
     WHITE="%{${fg[white]}%}"
 
     PROMPT='
-${BLUE}%(10~,%-2~/.../%2~,%~)${RESET} ${CYAN}%1(v|%1v|)${RESET}
+${BLUE}%(10~,%-2~/.../%2~,%~)${RESET} ${vcs_info_msg_0_}${RESET}
 %(?,${GREEN}✔,${RED}✗) ${RESET}'
     PROMPT2="${CYAN}[%_%%]${RESET} > "
     SPROMPT="${CYAN}correct: ${RED}%R ${CYAN}=> ${GREEN}%r ${CYAN}? [y,n,a,e]${RESET} > "
