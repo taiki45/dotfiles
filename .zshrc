@@ -113,7 +113,7 @@ fi
 
 +vi-git-untracked() {
     if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
-        [[ $(git ls-files --other --directory --exclude-standard | sed q | wc -l | tr -d ' ') == 1 ]] ; then
+        [[ $(git ls-files --other --exclude-standard | sed q | wc -l | tr -d ' ') == 1 ]] ; then
         hook_com[unstaged]+='%F{1}??%f'
     fi
 }
