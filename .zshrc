@@ -162,6 +162,11 @@ ${BLUE}%(10~,%-2~/.../%2~,%~)${RESET} ${vcs_info_msg_0_}${RESET}
     [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && PROMPT="${CYAN}${HOST%%.*}${RESET} ${PROMPT}"
 esac
 
+function prompt_cmd() {
+    echo -ne "\e]1;$(pwd | sed -e "s,^$HOME,~,")\a"
+}
+add-zsh-hook chpwd prompt_cmd
+
 
 ## Color
 # Coloring errors and normal message
