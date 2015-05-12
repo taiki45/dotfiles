@@ -21,6 +21,10 @@ function git-find-pr() {
     | ruby -ne 'id = $_.scan(/#\d+/).first.sub("#", ""); repo = `hub browse -u`.chomp; puts "#{repo}/pull/#{id}"'
 }
 
+function ghqcd() {
+    cd $(ghq list -p | peco --query=$@)
+}
+
 ## Complettion
 # Set fpath
 [ -d $HOME/.zsh/zsh-completions/src ] && fpath=($HOME/.zsh/zsh-completions/src $fpath)
