@@ -43,3 +43,5 @@ noremap <C-l> <C-W>l
 
 "Copy current word to clipboard
 noremap @ viw"*y
+
+nmap / /\v
