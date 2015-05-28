@@ -16,6 +16,9 @@
     b = branch
     com = commit -v
     acommit = commit -av
+    d = diff
+    di = diff
+    dif = diff
     diffadded = diff --cached
     graph = log --oneline --decorate --graph --all
     lgraph = log --oneline --decorate --graph
