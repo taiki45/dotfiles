@@ -43,6 +43,17 @@ setopt list_types
 
 # Show list when same suggestion exists
 #setopt auto_list
+# Enable Tab tapping complettion
+setopt auto_menu
+
+# Complemet parentheses
+setopt auto_param_keys
+
+# 語の途中でもカーソル位置で補完
+setopt complete_in_word
+
+# カーソル位置は保持したままファイル名一覧を順次その場で表示
+setopt always_last_prompt
 
 # Setting for option completion
 zstyle ':completion:*' list-separator '-->'
@@ -52,7 +63,7 @@ zstyle ':completion:*:manuals' separate-sections true
 #   %B...%b: make bold '...'
 #   %d: label
 #zstyle ':completion:*' format '%B%d%b'
-#zstyle ':completion:*' group-name ''
+zstyle ':completion:*' group-name ''
 
 # Cache completion list
 zstyle ':completion:*' use-cache yes
@@ -64,7 +75,20 @@ zstyle ':completion:*' use-cache yes
 # _ignored: Show ignored ones
 # _approximate: Show same ones
 # _prefix
-zstyle ':completion:*' completer _oldlist _complete _match _history _approximate _prefix
+zstyle ':completion:*' completer _complete _match _prefix
+
+zstyle ':completion:*' verbose yes
+
+# Select by <-, ->
+#zstyle ':completion:*:default' menu select=2
+zstyle ':completion:*' menu select interactive
+setopt menu_complete
+
+zstyle ':completion:*:messages' format $YELLOW'%d'$DEFAULT
+zstyle ':completion:*:warnings' format $RED'No matches for:'$YELLOW' %d'$DEFAULT
+#zstyle ':completion:*:descriptions' format $YELLOW'completing %B%d%b'$DEFAULT
+zstyle ':completion:*:corrections' format $YELLOW'%B%d '$RED'(errors: %e)%b'$DEFAULT
+#zstyle ':completion:*:options' description 'yes'
 
 
 ## History
@@ -90,6 +114,9 @@ setopt extended_history
 setopt no_flow_control
 
 autoload history-search-end
+
+# ヒストリを呼び出してから実行する間に一旦編集可能
+setopt hist_verify
 
 
 # === PROMPT
@@ -208,6 +235,9 @@ zstyle ':zle:*' word-style unspecified
 # Press only directory auto cd
 setopt auto_cd
 
+# `#` as comment
+setopt interactive_comments
+
 # Dir list complettion
 setopt auto_pushd
 
@@ -220,14 +250,8 @@ setopt correct
 # Complemet after '='
 setopt magic_equal_subst
 
-# Complemet parentheses
-setopt auto_param_keys
-
 # Enable expantion
-setopt brace_ccl
-
-# Enable Tab tapping complettion
-setopt auto_menu
+#setopt brace_ccl
 
 # Auto cat, tee when multi redirect or pipe
 setopt multios
@@ -257,11 +281,11 @@ source ~/.dotfiles/.zsh/zsh-autosuggestions/autosuggestions.zsh
 zle-line-init() {
     zle autosuggest-start
 }
-zle -N zle-line-init
+#zle -N zle-line-init
 
 # use ctrl+t to toggle autosuggestions(hopefully this wont be needed as
 # zsh-autosuggestions is designed to be unobtrusive)
-bindkey '^C' autosuggest-toggle
+#bindkey '^C' autosuggest-toggle
 
 autoload -U history-search-end
 zle -N history-beginning-search-backward-end history-search-end
