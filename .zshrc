@@ -196,7 +196,7 @@ esac
 function prompt_cmd() {
     echo -ne "\e]1;$(pwd | sed -e "s,^$HOME,~,")\a"
 }
-add-zsh-hook chpwd prompt_cmd
+add-zsh-hook precmd prompt_cmd
 
 
 ## Color
