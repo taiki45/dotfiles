@@ -58,29 +58,36 @@ NeoBundleLazy 'sorah/unite-bundler', { 'autoload' : {'filetypes' : ['ruby', 'rak
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'thinca/vim-unite-history'
 
-noremap <silent> :uh :Unite file_mru -buffer-name=file_mru
-nnoremap <C-X><C-H> :Unite file_mru -buffer-name=file_mru
+noremap <silent> :uh :<C-u>Unite file_mru -buffer-name=file_mru -no-split
+nnoremap <C-X><C-H> :<C-u>Unite file_mru -buffer-name=file_mru -no-split
 
 "show buffer and files
-noremap <silent> :ub :Unite buffer -buffer-name=buffer
-nnoremap <C-X><C-B> :Unite buffer -buffer-name=buffer
-noremap <silent> :uba :Unite buffer file_mru -buffer-name=all_stuff
+noremap <silent> :ub :<C-u>Unite buffer -buffer-name=buffer -no-split
+nnoremap <C-X><C-B> :<C-u>Unite buffer -buffer-name=buffer -no-split
+noremap <silent> :uba :<C-u>Unite buffer file_mru -buffer-name=all_stuff -no-split
 
 "show current dir files
-noremap :uf :<C-u>:Unite file -buffer-name=file
-nnoremap <C-X><C-F> :Unite file -buffer-name=file
-noremap :ufa :Unite file_rec buffer -buffer-name=file_rec
+noremap <silent> :uf :<C-u>Unite file -buffer-name=file -no-split
+nnoremap <C-X><C-F> :<C-u>Unite file -buffer-name=file -no-split
+"noremap :ufa :Unite file_rec buffer -buffer-name=file_rec
+noremap <silent> :ufa :<C-u>Unite file_rec/git:--cached:--others:--exclude-standard -buffer-name=file_rec -no-split
 
-noremap <silent> :gem :Unite bundler
+noremap <silent> :gem :<C-u>Unite bundler
+
+"call unite#custom#source('file,file/new,buffer,file_rec', 'matchers', 'matcher_fuzzy')
 
 let g:unite_enable_start_insert = 1
 let g:unite_enable_ignore_case = 1
 let g:unite_enable_smart_case = 1
 
+let g:unite_source_history_yank_enable = 1
+nnoremap :uy :<C-u>Unite history/yank
+
+
 " grep
-noremap <silent> :ug :Unite grep -buffer-name=search-buffer
+noremap <silent> :ug :Unite grep -buffer-name=search-buffer -no-split
 " recall result
-noremap <silent> :ur :UniteResume search-buffer
+noremap <silent> :ur :UniteResume search-buffer -no-split
 
 " use ag instead of grep
 if executable('ag')
@@ -177,8 +184,8 @@ NeoBundleLazy 'tpope/vim-cucumber', { 'autoload' : {'filetypes' : 'cucumber', }}
 
 NeoBundleLazy 'chrisbra/csv.vim', { 'autoload' : {'filetypes' : 'csv', }}
 
-NeoBundle 'kien/ctrlp.vim'
-nnoremap <C-X><C-P> :CtrlP<CR>
+"NeoBundle 'kien/ctrlp.vim'
+"nnoremap <C-X><C-P> :CtrlP<CR>
 
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'altercation/vim-colors-solarized'
