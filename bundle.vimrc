@@ -64,7 +64,7 @@ nnoremap <C-X><C-H> :Unite file_mru -buffer-name=file_mru
 "show buffer and files
 noremap <silent> :ub :Unite buffer -buffer-name=buffer
 nnoremap <C-X><C-B> :Unite buffer -buffer-name=buffer
-noremap <silent> :uba :Unite buffer file file_mru -buffer-name=all_stuff
+noremap <silent> :uba :Unite buffer file_mru -buffer-name=all_stuff
 
 "show current dir files
 noremap :uf :<C-u>:Unite file -buffer-name=file
