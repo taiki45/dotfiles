@@ -58,21 +58,22 @@ NeoBundleLazy 'sorah/unite-bundler', { 'autoload' : {'filetypes' : ['ruby', 'rak
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'thinca/vim-unite-history'
 
-noremap <silent> :uh :<C-u>Unite file_mru -buffer-name=file_mru -no-split
-nnoremap <C-X><C-H> :<C-u>Unite file_mru -buffer-name=file_mru -no-split
+command! Uh Unite file_mru -buffer-name=file_mru -no-split
+"noremap <silent> :uh :<C-u>Unite file_mru -buffer-name=file_mru -no-split
+nnoremap <C-X><C-H> :<C-u>Unite file_mru -buffer-name=file_mru -no-split<CR>
 
 "show buffer and files
-noremap <silent> :ub :<C-u>Unite buffer -buffer-name=buffer -no-split
-nnoremap <C-X><C-B> :<C-u>Unite buffer -buffer-name=buffer -no-split
-noremap <silent> :uba :<C-u>Unite buffer file_mru -buffer-name=all_stuff -no-split
+command! Ub :Unite buffer -buffer-name=buffer -no-split
+nnoremap <C-X><C-B> :<C-u>Unite buffer -buffer-name=buffer -no-split<CR>
 
 "show current dir files
-noremap <silent> :uf :<C-u>Unite file -buffer-name=file -no-split
-nnoremap <C-X><C-F> :<C-u>Unite file -buffer-name=file -no-split
+command! Uf :Unite file -buffer-name=file -no-split
+nnoremap <C-X><C-F> :<C-u>Unite file -buffer-name=file -no-split<CR>
 "noremap :ufa :Unite file_rec buffer -buffer-name=file_rec
-noremap <silent> :ufa :<C-u>Unite file_rec/git:--cached:--others:--exclude-standard -buffer-name=file_rec -no-split
+command! Ufa :Unite file_rec/git:--cached:--others:--exclude-standard -buffer-name=file_rec -no-split
+nnoremap <C-X><C-A> :<C-u>Unite file_rec/git:--cached:--others:--exclude-standard -buffer-name=file_rec -no-split<CR>
 
-noremap <silent> :gem :<C-u>Unite bundler
+command! Gem :Unite bundler
 
 "call unite#custom#source('file,file/new,buffer,file_rec', 'matchers', 'matcher_fuzzy')
 
@@ -81,13 +82,15 @@ let g:unite_enable_ignore_case = 1
 let g:unite_enable_smart_case = 1
 
 let g:unite_source_history_yank_enable = 1
-nnoremap :uy :<C-u>Unite history/yank
+command! Uy :Unite history/yank
 
 
 " grep
-noremap <silent> :ug :Unite grep -buffer-name=search-buffer -no-split
+command! Ug :Unite grep -buffer-name=search-buffer -no-split
+nnoremap <C-X><C-G> :Unite grep -buffer-name=search-buffer -no-split<CR>
 " recall result
-noremap <silent> :ur :UniteResume search-buffer -no-split
+command! Ur :UniteResume search-buffer -no-split
+nnoremap <C-X><C-R> :UniteResume search-buffer -no-split<CR>
 
 " use ag instead of grep
 if executable('ag')
@@ -100,7 +103,7 @@ endif
 " https://github.com/tacroe/unite-mark
 " http://d.hatena.ne.jp/tacroe/20101119/1290115586
 NeoBundle 'tacroe/unite-mark'
-nnoremap <silent> m, :Unite mark<CR>
+nnoremap <silent> ,m :Unite mark<CR>
 " mark auto reg
 " http://saihoooooooo.hatenablog.com/entry/2013/04/30/001908
 if !exists('g:markrement_char')
