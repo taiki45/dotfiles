@@ -187,8 +187,8 @@ NeoBundleLazy 'tpope/vim-cucumber', { 'autoload' : {'filetypes' : 'cucumber', }}
 
 NeoBundleLazy 'chrisbra/csv.vim', { 'autoload' : {'filetypes' : 'csv', }}
 
-"NeoBundle 'kien/ctrlp.vim'
-"nnoremap <C-X><C-P> :CtrlP<CR>
+NeoBundle 'kien/ctrlp.vim'
+nnoremap <C-X><C-P> :CtrlP<CR>
 
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'altercation/vim-colors-solarized'
