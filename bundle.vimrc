@@ -261,6 +261,13 @@ NeoBundle 'zhisheng/visualmark.vim'
 
 NeoBundleLazy 'wting/rust.vim', { 'autoload' : {'filetypes' : 'rust', }}
 
+NeoBundle 'thinca/vim-quickrun'
+"let g:quickrun_config = { "_" : { "runner": "vimproc", "runner/vimproc/updatetime" : 50, "outputter/buffer/close_on_empty": 1, "outputter/buffer/split": ":botright 10sp", "outputter": "error", "outputter/error/success": "buffer", "outputter/error": "quickfix" } }
+let g:quickrun_config = { "_" : { "runner": "vimproc", "runner/vimproc/updatetime" : 50, "outputter/buffer/close_on_empty": 1, "outputter/buffer/split": ":botright 10sp", "outputter": "error", "outputter/error/success": "buffer", "outputter/error": "quickfix" } }
+noremap <leader>q :QuickRun<CR>
+nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
+
+""end_neobundle
 
 
 " =================================================
