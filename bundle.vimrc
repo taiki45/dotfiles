@@ -257,6 +257,8 @@ NeoBundle 'tpope/vim-fugitive'
 
 NeoBundle 'visualmark.vim'
 
+"NeoBundle 'phildawes/racer', { 'build' : { 'mac': 'cargo build --release', 'unix': 'cargo build --release' } }
+
 
 
 " =================================================
