@@ -10,6 +10,11 @@ func gorun() {
     rm ./$name
 }
 
+func rustr() {
+    (rustc -o temp_rust_runfile $* && ./temp_rust_runfile)
+    rm -f ./temp_rust_runfile
+}
+
 function git-find-pr() {
     git show $( \
         perl -ne 'print if ($seen{$_} .= @ARGV) =~ /10$/' \
