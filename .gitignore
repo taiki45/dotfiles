@@ -21,5 +21,6 @@ cabal.sandbox.config
 
 # for Ruby
 .bundle
+spec/examples.txt
 
 .idea
