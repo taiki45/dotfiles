@@ -267,8 +267,20 @@ let g:quickrun_config = { "_" : { "runner": "vimproc", "runner/vimproc/updatetim
 noremap <leader>q :QuickRun<CR>
 nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 
-NeoBundleLazy 'othree/yajs.vim', { 'autoload' : {'filetypes' : 'javascript', }}
-autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
+
+NeoBundleLazy 'jiangmiao/simple-javascript-indenter', {'autoload':{'filetypes':['javascript']}}
+let g:SimpleJsIndenter_BriefMode = 1
+" improve switch-case indent
+"let g:SimpleJsIndenter_CaseIndentLevel = -1
+
+NeoBundleLazy 'mattn/jscomplete-vim', {'autoload':{'filetypes':['javascript']}}
+autocmd FileType javascript :setl omnifunc=jscomplete#CompleteJS
+
+"autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+
+NeoBundleLazy 'elzr/vim-json', {'autoload':{'filetypes':['json']}}
+autocmd Filetype json setlocal ts=2 sts=2 sw=2
 
 ""endneobundle
 
