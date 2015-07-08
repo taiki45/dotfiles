@@ -267,7 +267,10 @@ let g:quickrun_config = { "_" : { "runner": "vimproc", "runner/vimproc/updatetim
 noremap <leader>q :QuickRun<CR>
 nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 
-""end_neobundle
+NeoBundleLazy 'othree/yajs.vim', { 'autoload' : {'filetypes' : 'javascript', }}
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+
+""endneobundle
 
 
 " =================================================
