@@ -1,10 +1,30 @@
 {
     "ecmaFeatures": {
+        "arrowFunctions": true,
+        "binaryLiterals": true,
         "blockBindings": true,
+        "defaultParams": true,
+        "destructuring": true,
         "forOf": true,
-        "jsx": true
+        "generators": true,
+        "modules": true,
+        "objectLiteralComputedProperties": true,
+        "objectLiteralDuplicateProperties": true,
+        "objectLiteralShorthandMethods": true,
+        "objectLiteralShorthandProperties": true,
+        "octalLiterals": true,
+        "regexUFlag": true,
+        "regexYFlag": true,
+        "restParams": true,
+        "spread": true,
+        "superInFunctions": true,
+        "templateStrings": true,
+        "unicodeCodePointEscapes": true,
+        "globalReturn": true,
+        "jsx": true,
+        "classes": true
     },
     "rules": {
-        "semi": 2
+        "no-unused-vars": [2, {"vars": "all", "args": "none"}]
     }
 }
