@@ -222,6 +222,7 @@ augroup END
 NeoBundleLazy 'aklt/plantuml-syntax', { 'autoload' : {'filetypes' : 'plantuml', }}
 
 NeoBundle 'scrooloose/syntastic'
+let g:syntastic_javascript_checkers = ['eslint']
 noremap \s :SyntasticCheck<CR>
 noremap \f :SyntasticToggleMode<CR>
 noremap \r :SyntasticReset<CR>
