@@ -283,6 +283,12 @@ autocmd FileType javascript :setl omnifunc=jscomplete#CompleteJS
 NeoBundleLazy 'elzr/vim-json', {'autoload':{'filetypes':['json']}}
 autocmd Filetype json setlocal ts=2 sts=2 sw=2
 
+NeoBundle 'junegunn/vim-easy-align'
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
 ""endneobundle
 
 
