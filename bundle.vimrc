@@ -289,6 +289,8 @@ vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
+NeoBundleLazy 'slim-template/vim-slim', {'autoload':{'filetypes':['slim']}}
+
 ""endneobundle
 
 
