@@ -291,6 +291,8 @@ nmap ga <Plug>(EasyAlign)
 
 NeoBundleLazy 'slim-template/vim-slim', {'autoload':{'filetypes':['slim']}}
 
+NeoBundleLazy 'jdevera/vim-protobuf-syntax', {'autoload':{'filetypes':['proto']}}
+
 ""endneobundle
 
 
