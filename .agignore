@@ -1,12 +1,12 @@
-.git
-.bzr
+/*/.git
+/*/.bzr
 
-tmp
-cache
-vendor
-log
+/*/vendor
+/*/log
+/*/tmp
+/*/cache
 
-coverage
+/*/coverage
 
-*.tags
-tags
+/*/*.tags
+/*/tags
