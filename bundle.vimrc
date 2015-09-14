@@ -17,9 +17,6 @@ source $VIMRUNTIME/macros/matchit.vim
 autocmd FileType scheme :let is_gauche=1
 "==========
 
-"" Ruby
-au BufRead,BufNewFile,BufReadPre *.iam set filetype=ruby
-
 " Let NeoBundle manage NeoBundle
 NeoBundle 'Shougo/neobundle.vim'
 
@@ -123,6 +120,33 @@ function! s:AutoMarkrement()
     echo 'marked' g:markrement_char[b:markrement_pos]
 endfunction
 autocmd BufReadPost * delmarks!
+
+
+"" Ruby
+au BufRead,BufNewFile,BufReadPre *.iam set filetype=ruby
+NeoBundleLazy 'vim-ruby/vim-ruby', { 'autoload' : {'filetypes' : 'ruby', }}
+autocmd FileType ruby set expandtab
+autocmd FileType ruby set tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType ruby set autoindent
+if !exists( "*RubyEndToken" )
+  function RubyEndToken()
+    let current_line = getline( '.' )
+    let braces_at_end = '{\s*\(|\(,\|\s\|\w\)*|\s*\)\?$'
+    let stuff_without_do = '^\s*\(class\|if\|unless\|begin\|case\|for\|module\|while\|until\|def\)'
+      let with_do = 'do\s*\(|\(,\|\s\|\w\)*|\s*\)\?$'
+
+      if match(current_line, braces_at_end) >= 0
+        return "\<CR>}\<C-O>"
+      elseif match(current_line, stuff_without_do) >= 0
+        return "\<CR>end\<C-O>"
+      elseif match(current_line, with_do) >= 0
+        return "\<CR>end\<C-O>"
+      else
+        return "\<CR>"
+      endif
+    endfunction
+endif
+"autocmd FileType ruby imap <S-CR> <ESC>:execute RubyEndToken()<CR>O
 
 
 NeoBundle 'git://github.com/vim-scripts/sudo.vim.git'
