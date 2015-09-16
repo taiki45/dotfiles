@@ -3,8 +3,10 @@
 
 /*/vendor
 /*/log
+*.log
 /*/tmp
 /*/cache
+/*/images
 
 /*/coverage
 
