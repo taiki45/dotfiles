@@ -1,6 +1,7 @@
 alias ls='ls -G'
 alias l='ls -G'
 alias 'cd..'='cd ..'
+alias b='bundle'
 alias be='bundle exec'
 alias bi='bundle install'
 alias biwp='bundle install --without production'
