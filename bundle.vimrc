@@ -123,7 +123,7 @@ autocmd BufReadPost * delmarks!
 
 
 "" Ruby
-au BufRead,BufNewFile,BufReadPre *.iam set filetype=ruby
+"au BufRead,BufNewFile,BufReadPre *.iam set filetype=ruby
 NeoBundleLazy 'vim-ruby/vim-ruby', { 'autoload' : {'filetypes' : 'ruby', }}
 autocmd FileType ruby set expandtab
 autocmd FileType ruby set tabstop=2 shiftwidth=2 softtabstop=2
