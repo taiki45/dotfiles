@@ -13,11 +13,6 @@ elif [ -f /bin/zsh ]; then
     export SHELL=/bin/zsh
 fi
 
-# cpad is setup tool ref: http://secondlife.hatenablog.jp/entry/2013/02/21/210807
-if [ -d ~/.cpad ]; then
-    source ~/.bash_profile
-fi
-
 if [ -f ~/.local/.zshenv ]; then
     source ~/.local/.zshenv
 fi

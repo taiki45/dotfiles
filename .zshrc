@@ -1,6 +1,12 @@
+# cpad is setup tool ref: http://secondlife.hatenablog.jp/entry/2013/02/21/210807
+if [ -d ~/.cpad ]; then
+    eval "$(~/.cpad/bin/cpad init)"
+fi
+
 ## General
 # Emacs like key bind
 bindkey -e
+
 
 ## Functions
 func gorun() {
