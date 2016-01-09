@@ -1,1 +1,3 @@
 gemsrc_use_ghq: true
+install: --no-document
+update: --no-document
