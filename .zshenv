@@ -59,5 +59,8 @@ if [ -d ~/.boot2docker ]; then
     export DOCKER_TLS_VERIFY=1
     export DOCKER_HOST=tcp://192.168.59.103:2376
 fi
+if [ -d ~/.docker ]; then
+    eval "$(docker-machine env default)"
+fi
 
 export NO_REUSE_QUERY_RESULTS=1
