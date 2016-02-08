@@ -17,7 +17,6 @@
     com = commit -v
     acommit = commit -av
     amend = commit -a --amend --no-edit
-    fixup = commit -a --fixup=HEAD
     d = diff
     di = diff
     dif = diff
