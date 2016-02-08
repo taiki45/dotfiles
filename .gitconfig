@@ -16,6 +16,7 @@
     b = branch
     com = commit -v
     acommit = commit -av
+    fixup = commit -a --fixup=HEAD
     d = diff
     di = diff
     dif = diff
