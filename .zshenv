@@ -13,10 +13,6 @@ elif [ -f /bin/zsh ]; then
     export SHELL=/bin/zsh
 fi
 
-if [ -f ~/.local/.zshenv ]; then
-    source ~/.local/.zshenv
-fi
-
 export GOPATH=$HOME/.go
 export GOROOT=/usr/local/opt/go/libexec/
 
@@ -64,3 +60,7 @@ fi
 #fi
 
 export NO_REUSE_QUERY_RESULTS=1
+
+if [ -f ~/.local/.zshenv ]; then
+    source ~/.local/.zshenv
+fi
