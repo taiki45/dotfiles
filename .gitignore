@@ -24,3 +24,5 @@ cabal.sandbox.config
 spec/examples.txt
 
 .idea
+
+examples.txt
