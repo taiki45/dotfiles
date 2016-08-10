@@ -67,7 +67,7 @@ nnoremap <C-X><C-B> :<C-u>Unite buffer -buffer-name=buffer -no-split<CR>
 command! Uf :Unite file -buffer-name=file -no-split
 nnoremap <C-X><C-F> :<C-u>Unite file -buffer-name=file -no-split<CR>
 "noremap :ufa :Unite file_rec buffer -buffer-name=file_rec
-command! Ufa :Unite file_rec/git:--cached:--others:--exclude-standard -buffer-name=file_rec -no-split
+noremap <C-X><C-K> :<C-u>Unite file_rec/git:--cached:--others:--exclude-standard -buffer-name=file_rec -no-split<CR>
 nnoremap <C-X><C-A> :<C-u>Unite file_rec/git:--cached:--others:--exclude-standard -buffer-name=file_rec -no-split<CR>
 
 command! Gem :Unite bundler
