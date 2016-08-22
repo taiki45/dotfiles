@@ -128,6 +128,7 @@ NeoBundleLazy 'vim-ruby/vim-ruby', { 'autoload' : {'filetypes' : 'ruby', }}
 autocmd FileType ruby set expandtab
 autocmd FileType ruby set tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType ruby set autoindent
+autocmd FileType eruby set tabstop=2 shiftwidth=2 softtabstop=2
 if !exists( "*RubyEndToken" )
   function RubyEndToken()
     let current_line = getline( '.' )
