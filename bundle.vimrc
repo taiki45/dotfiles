@@ -129,26 +129,6 @@ autocmd FileType ruby set expandtab
 autocmd FileType ruby set tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType ruby set autoindent
 autocmd FileType eruby set tabstop=2 shiftwidth=2 softtabstop=2
-if !exists( "*RubyEndToken" )
-  function RubyEndToken()
-    let current_line = getline( '.' )
-    let braces_at_end = '{\s*\(|\(,\|\s\|\w\)*|\s*\)\?$'
-    let stuff_without_do = '^\s*\(class\|if\|unless\|begin\|case\|for\|module\|while\|until\|def\)'
-      let with_do = 'do\s*\(|\(,\|\s\|\w\)*|\s*\)\?$'
-
-      if match(current_line, braces_at_end) >= 0
-        return "\<CR>}\<C-O>"
-      elseif match(current_line, stuff_without_do) >= 0
-        return "\<CR>end\<C-O>"
-      elseif match(current_line, with_do) >= 0
-        return "\<CR>end\<C-O>"
-      else
-        return "\<CR>"
-      endif
-    endfunction
-endif
-"autocmd FileType ruby imap <S-CR> <ESC>:execute RubyEndToken()<CR>O
-
 
 NeoBundle 'git://github.com/vim-scripts/sudo.vim.git'
 
@@ -180,31 +160,6 @@ noremap \l :GhcModLintAsync<CR>
 noremap \? :GhcModInfo<CR>
 let g:ghcmod_type_highlight = 'DiffAdd'
 
-NeoBundle 'nathanaelkane/vim-indent-guides'
-let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
-let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'haskell']
-
-let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * : highlight IndentGuidesOdd  ctermbg=236
-autocmd VimEnter,Colorscheme * : highlight IndentGuidesEven ctermbg=234
-
-NeoBundle 'bling/vim-airline'
-let g:airline_theme= "jellybeans"
-let g:airline_powerline_fonts = 1
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-" old vim-powerline symbols
-let g:airline_left_sep = '⮀'
-let g:airline_left_alt_sep = '⮁'
-let g:airline_right_sep = '⮂'
-let g:airline_right_alt_sep = '⮃'
-let g:airline_symbols.branch = '⭠'
-let g:airline_symbols.readonly = '⭤'
-let g:airline_symbols.linenr = '⭡'
-
 NeoBundle 'rking/ag.vim'
 
 NeoBundleLazy 'avakhov/vim-yaml', { 'autoload' : {'filetypes' : 'yaml', }}
@@ -212,17 +167,12 @@ NeoBundleLazy 'tpope/vim-cucumber', { 'autoload' : {'filetypes' : 'cucumber', }}
 
 NeoBundleLazy 'chrisbra/csv.vim', { 'autoload' : {'filetypes' : 'csv', }}
 
-NeoBundle 'kien/ctrlp.vim'
-nnoremap <C-X><C-P> :CtrlP<CR>
-
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'w0ng/vim-hybrid'
 
-"NeoBundle 'ujihisa/unite-colorscheme'
-
-NeoBundle 'ujihisa/unite-haskellimport', { 'autoload' : {'filetypes' : 'haskell', }}
+NeoBundleLazy 'ujihisa/unite-haskellimport', { 'autoload' : {'filetypes' : 'haskell', }}
 
 NeoBundleLazy 'eagletmt/unite-haddock', { 'autoload' : {'filetypes' : 'haskell', }}
 noremap :hoogle :Unite hoogle
@@ -318,6 +268,16 @@ NeoBundleLazy 'slim-template/vim-slim', {'autoload':{'filetypes':['slim']}}
 
 NeoBundleLazy 'jdevera/vim-protobuf-syntax', {'autoload':{'filetypes':['proto']}}
 
+"NeoBundle 'nathanaelkane/vim-indent-guides'
+"let g:indent_guides_enable_on_vim_startup=1
+"let g:indent_guides_start_level = 2
+"let g:indent_guides_guide_size = 1
+"let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'haskell']
+"
+"let g:indent_guides_auto_colors = 0
+"autocmd VimEnter,Colorscheme * : highlight IndentGuidesOdd  ctermbg=236
+"autocmd VimEnter,Colorscheme * : highlight IndentGuidesEven ctermbg=234
+
 ""endneobundle
 
 
@@ -332,7 +292,7 @@ NeoBundleCheck
 " =============================================
 " Colorscheme
 colorscheme jellybeans
-set cursorline
+"set cursorline
 
 
 "================================================
