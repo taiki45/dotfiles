@@ -11,8 +11,7 @@
     st = status --short
     co = checkout
     f = fetch -p
-    up = rebase origin/master master
-    follow-up = rebase origin/master
+    up = rebase --autostash origin/master master
     b = branch
     com = commit -v
     acommit = commit -av
