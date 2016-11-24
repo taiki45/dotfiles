@@ -48,6 +48,9 @@
     default = tracking
 [pull]
     rebase = true
+[rebase]
+    autostash = true
+    autosquash = true
 [pager]
     log = diff-highlight | less -R -+X -+F
     show = diff-highlight | less -R -+F

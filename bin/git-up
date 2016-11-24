@@ -1,9 +1,6 @@
 #!/bin/bash
 set -e
 
-git stash -u && \
-    git checkout master && \
-    git fetch --all && \
-    git rebase origin/master master && \
-    git branch --merged |grep -v 'master' |xargs git branch -d && \
-    git stash pop
+git fetch --all && \
+    git rebase --autostash origin/master master && \
+    git branch --merged |grep -v 'master' |xargs git branch -d
