@@ -20,6 +20,7 @@ export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/.nodebrew/current/bin:$HOME/.local/bin:$PATH
 export PATH=$HOME/.dotfiles/git/contrib/diff-highlight:$HOME/.dotfiles/git/contrib/git-jump:$PATH
+export PATH=$HOME/.dotfiles/bin:$PATH
 export PATH=$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 export PATH=$HOME/.cabal/bin:$PATH
