@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
 
-git fetch --all && \
+git fetch --prune --all && \
     git rebase --autostash origin/master master && \
     git branch --merged |grep -v 'master' |xargs git branch -d
