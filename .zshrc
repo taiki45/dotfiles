@@ -1,6 +1,6 @@
 # cpad is setup tool ref: http://secondlife.hatenablog.jp/entry/2013/02/21/210807
-if [ -d ~/.cpad ]; then
-    eval "$(~/.cpad/bin/cpad init)"
+if [ -d ~/.cpad2 ]; then
+    source /Users/taiki-ono/.cpad2/profile
 fi
 
 ## General
