@@ -8,6 +8,7 @@
     interactive = auto
     grep = auto
 [alias]
+    cloen = clone
     st = status --short
     co = checkout
     f = fetch -p
