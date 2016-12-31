@@ -24,6 +24,7 @@ export PATH=$HOME/.dotfiles/bin:$PATH
 export PATH=$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 export PATH=$HOME/.cabal/bin:$PATH
+export PATH=$HOME/.cargo/bin:$PATH
 
 # Hackage bins installed by cabal-dev
 export PATH=$HOME/.yesod/bin:$PATH
