@@ -197,7 +197,15 @@ augroup END
 NeoBundleLazy 'aklt/plantuml-syntax', { 'autoload' : {'filetypes' : 'plantuml', }}
 
 NeoBundle 'scrooloose/syntastic'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 let g:syntastic_javascript_checkers = ['eslint']
+
 noremap \s :SyntasticCheck<CR>
 noremap \f :SyntasticToggleMode<CR>
 noremap \r :SyntasticReset<CR>
