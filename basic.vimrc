@@ -4,6 +4,9 @@ set enc=utf8
 set termencoding=utf-8
 set fileencoding=utf-8
 
+"Don't parse all charactors at long line
+set synmaxcol=200
+
 set history=1000
 
 " auto realead when changed
