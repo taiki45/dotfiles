@@ -13,11 +13,17 @@ elif [ -f /bin/zsh ]; then
     export SHELL=/bin/zsh
 fi
 
+export PATH=/usr/local/sbin:$PATH
+export PATH=/usr/local/bin:$PATH
+
+# cpad is setup tool ref: http://secondlife.hatenablog.jp/entry/2013/02/21/210807
+if [ -d ~/.cpad2 ]; then
+    source /Users/taiki-ono/.cpad2/profile
+fi
+
 export GOPATH=$HOME/.go
 export GOROOT=/usr/local/opt/go/libexec/
 
-export PATH=/usr/local/sbin:$PATH
-export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/.nodebrew/current/bin:$HOME/.local/bin:$PATH
 export PATH=$HOME/.dotfiles/git/contrib/diff-highlight:$HOME/.dotfiles/git/contrib/git-jump:$PATH
 export PATH=$HOME/.dotfiles/bin:$PATH
