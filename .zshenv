@@ -22,7 +22,7 @@ if [ -d ~/.cpad2 ]; then
 fi
 
 export GOPATH=$HOME/.go
-export GOROOT=/usr/local/opt/go/libexec/
+export GOROOT=`brew --prefix go`/libexec/
 
 export PATH=$HOME/.nodebrew/current/bin:$HOME/.local/bin:$PATH
 export PATH=$HOME/.dotfiles/git/contrib/diff-highlight:$HOME/.dotfiles/git/contrib/git-jump:$PATH
