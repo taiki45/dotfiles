@@ -247,6 +247,7 @@ NeoBundle 'zhisheng/visualmark.vim'
 NeoBundleLazy 'rust-lang/rust.vim', { 'autoload' : {'filetypes' : 'rust', }}
 let g:rustfmt_autosave = 1
 NeoBundleLazy 'racer-rust/vim-racer', { 'autoload' : {'filetypes' : 'rust', }}
+NeoBundleLazy 'cespare/vim-toml', { 'autoload' : {'filetypes' : 'toml', }}
 
 NeoBundle 'thinca/vim-quickrun'
 "let g:quickrun_config = { "_" : { "runner": "vimproc", "runner/vimproc/updatetime" : 50, "outputter/buffer/close_on_empty": 1, "outputter/buffer/split": ":botright 10sp", "outputter": "error", "outputter/error/success": "buffer", "outputter/error": "quickfix" } }
