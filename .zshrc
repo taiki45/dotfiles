@@ -272,7 +272,12 @@ REPORTTIME=3
 #fi
 
 # Setup zsh-autosuggestions
-source ~/.dotfiles/.zsh/zsh-autosuggestions/autosuggestions.zsh
+if [ -f ~/.dotfiles/.zsh/zsh-autosuggestions/autosuggestions.zsh ]; then
+    source ~/.dotfiles/.zsh/zsh-autosuggestions/autosuggestions.zsh
+fi
+if [ -f ~/.dotfiles/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+    source ~/.dotfiles/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
 zle-line-init() {
     zle autosuggest-start
 }
