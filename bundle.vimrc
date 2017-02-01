@@ -280,6 +280,8 @@ NeoBundleLazy 'slim-template/vim-slim', {'autoload':{'filetypes':['slim']}}
 
 NeoBundleLazy 'jdevera/vim-protobuf-syntax', {'autoload':{'filetypes':['proto']}}
 
+NeoBundleLazy 'vim-scripts/dbext.vim', {'autoload':{'filetypes':['sql']}}
+
 "NeoBundle 'nathanaelkane/vim-indent-guides'
 "let g:indent_guides_enable_on_vim_startup=1
 "let g:indent_guides_start_level = 2
