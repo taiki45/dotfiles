@@ -63,4 +63,4 @@
 [merge "mergepbx"]
   name = Xcode project files merger
   driver = mergepbx %O %A %B
-  note = auto-generated configuration by `cpad2 upgrade`
+	note = auto-generated configuration by cpad2 upgrade
