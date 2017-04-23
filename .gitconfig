@@ -34,7 +34,6 @@
     diffword = diff --word-diff
     logworddiff = log -p --word-diff
 [core]
-    pager = lv -c
     excludesfile = ~/.gitignore
     autocrlf = input
 [tig "bind"]
