@@ -89,12 +89,14 @@ nnoremap <C-X><C-G> :Unite grep -buffer-name=search-buffer -no-split<CR>
 command! Ur :UniteResume search-buffer -no-split
 nnoremap <C-X><C-R> :UniteResume search-buffer -no-split<CR>
 
+"let g:unite_source_grep_default_opts = '-E'
+
 " use ag instead of grep
-"if executable('ag')
-"    let g:unite_source_grep_command = 'ag'
-"    let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
-"    let g:unite_source_grep_recursive_opt = ''
-"endif
+if executable('ag')
+    let g:unite_source_grep_command = 'ag'
+    let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+    let g:unite_source_grep_recursive_opt = ''
+endif
 
 " unite mark
 " https://github.com/tacroe/unite-mark
