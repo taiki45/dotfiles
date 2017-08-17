@@ -41,6 +41,8 @@ export PATH=$HOME/.hlint/bin:$PATH
 export PATH=$HOME/.hasktags/bin:$PATH
 export PATH=$HOME/.hothasktags/bin:$PATH
 
+export XDG_CONFIG_HOME=~/.config
+
 if [ -d ~/.rsense-0.3 ]; then
     export RSENSE_HOME=~/.rsense-0.3
 fi
