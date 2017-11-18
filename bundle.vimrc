@@ -202,28 +202,49 @@ augroup UjihisaUML
 augroup END
 NeoBundleLazy 'aklt/plantuml-syntax', { 'autoload' : {'filetypes' : 'plantuml', }}
 
-NeoBundle 'scrooloose/syntastic'
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-"let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_error_symbol = "!>"
+"NeoBundle 'scrooloose/syntastic'
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+""let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_error_symbol = "!>"
+"
+"let g:syntastic_javascript_checkers = ['eslint']
+"
+"noremap \s :SyntasticCheck<CR>
+"noremap \f :SyntasticToggleMode<CR>
+"noremap \r :SyntasticReset<CR>
+"function! ToggleErrors()
+"    if empty(filter(tabpagebuflist(), 'getbufvar(v:val, "&buftype") is# "quickfix"'))
+"        " No location/quickfix list shown, open syntastic error location panel
+"        Errors
+"    else
+"        lclose
+"    endif
+"endfunction
+"nnoremap <silent> \e :<C-u>call ToggleErrors()<CR>
+NeoBundle 'w0rp/ale'
+let g:ale_sign_column_always = 0
+let g:ale_fix_on_save = 0
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_save = 1
+"let g:ale_maximum_file_size = 0
+nmap <silent> <C-x><C-p> <Plug>(ale_previous_wrap)
+nmap <silent> <C-x><C-n> <Plug>(ale_next_wrap)
+let g:ale_linters = {
+\ 'javascript': ['eslint'],
+\ 'ruby': ['ruby'],
+\}
+let g:ale_fixers = {
+\ 'javascript': ['eslint'],
+\ 'cpp': ['clang-format'],
+\ 'ruby': ['rubocop'],
+\ 'rust': ['rustfmt'],
+\}
 
-let g:syntastic_javascript_checkers = ['eslint']
-
-noremap \s :SyntasticCheck<CR>
-noremap \f :SyntasticToggleMode<CR>
-noremap \r :SyntasticReset<CR>
-function! ToggleErrors()
-    if empty(filter(tabpagebuflist(), 'getbufvar(v:val, "&buftype") is# "quickfix"'))
-        " No location/quickfix list shown, open syntastic error location panel
-        Errors
-    else
-        lclose
-    endif
-endfunction
-nnoremap <silent> \e :<C-u>call ToggleErrors()<CR>
 
 NeoBundle 'derekwyatt/vim-scala'
 
