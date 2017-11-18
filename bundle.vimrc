@@ -292,6 +292,8 @@ NeoBundleLazy 'vim-scripts/dbext.vim', {'autoload':{'filetypes':['sql']}}
 NeoBundle 'hashivim/vim-terraform' ", {'autoload':{'filetypes':['terraform', 'tf']}}
 let g:terraform_fmt_on_save = 1
 
+NeoBundle 'bazelbuild/vim-ft-bzl', {'autoload':{'filetypes':['sql']}}
+
 "NeoBundle 'nathanaelkane/vim-indent-guides'
 "let g:indent_guides_enable_on_vim_startup=1
 "let g:indent_guides_start_level = 2
