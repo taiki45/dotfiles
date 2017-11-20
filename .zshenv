@@ -18,7 +18,12 @@ export PATH=/usr/local/bin:$PATH
 
 # cpad is setup tool ref: http://secondlife.hatenablog.jp/entry/2013/02/21/210807
 if [ -d ~/.cpad2 ]; then
-    source /Users/taiki-ono/.cpad2/profile
+  source /Users/taiki-ono/.cpad2/profile
+fi
+
+if which brew > /dev/null && brew --prefix coreutils > /dev/null; then
+  export PATH="`brew --prefix coreutils`/libexec/gnubin:$PATH"
+  export MANPATH="`brew --prefix coreutils`/libexec/gnuman:$MANPATH"
 fi
 
 export GOPATH=$HOME/.go
