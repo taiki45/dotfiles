@@ -21,10 +21,10 @@ if [ -d ~/.cpad2 ]; then
   source /Users/taiki-ono/.cpad2/profile
 fi
 
-if which brew > /dev/null && brew --prefix coreutils > /dev/null; then
-  export PATH="`brew --prefix coreutils`/libexec/gnubin:$PATH"
-  export MANPATH="`brew --prefix coreutils`/libexec/gnuman:$MANPATH"
-fi
+#if which brew > /dev/null && brew --prefix coreutils > /dev/null; then
+#  export PATH="`brew --prefix coreutils`/libexec/gnubin:$PATH"
+#  export MANPATH="`brew --prefix coreutils`/libexec/gnuman:$MANPATH"
+#fi
 
 export GOPATH=$HOME/.go
 export GOROOT=`brew --prefix go`/libexec/
