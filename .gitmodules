@@ -1,18 +1,18 @@
 [submodule ".vim/bundle/neobundle.vim"]
 	path = .vim/bundle/neobundle.vim
-	url = git://github.com/Shougo/neobundle.vim.git
+	url = git@github.com:Shougo/neobundle.vim.git
 [submodule ".zsh/zsh-syntax-highlighting"]
 	path = .zsh/zsh-syntax-highlighting
-	url = git://github.com/zsh-users/zsh-syntax-highlighting.git
+	url = git@github.com:zsh-users/zsh-syntax-highlighting.git
 [submodule ".zsh/auto-fu"]
 	path = .zsh/auto-fu
-	url = git://github.com/hchbaw/auto-fu.zsh.git
+	url = git@github.com:hchbaw/auto-fu.zsh.git
 [submodule ".zsh/zsh-completions"]
 	path = .zsh/zsh-completions
-	url = git://github.com/zsh-users/zsh-completions.git
+	url = git@github.com:zsh-users/zsh-completions.git
 [submodule ".zsh/zaw"]
 	path = .zsh/zaw
-	url = git://github.com/zsh-users/zaw.git
+	url = git@github.com:zsh-users/zaw.git
 [submodule "git"]
 	path = git
 	url = git@github.com:git/git.git
@@ -25,15 +25,9 @@
 [submodule ".zsh/zsh-notify"]
 	path = .zsh/zsh-notify
 	url = git@github.com:marzocchi/zsh-notify.git
-[submodule "iTerm2-Color-Schemes"]
-	path = iTerm2-Color-Schemes
-	url = https://github.com/mbadolato/iTerm2-Color-Schemes.git
-[submodule "iTerm-2-Color-Themes"]
-	path = iTerm-2-Color-Themes
-	url = https://github.com/baskerville/iTerm-2-Color-Themes.git
 [submodule ".zsh/zsh-autosuggestions"]
 	path = .zsh/zsh-autosuggestions
-	url = git://github.com/tarruda/zsh-autosuggestions
+	url = git@github.com:tarruda/zsh-autosuggestions
 [submodule ".zsh/zsh-history-substring-search"]
 	path = .zsh/zsh-history-substring-search
-	url = git://github.com/zsh-users/zsh-history-substring-search
+	url = git@github.com:zsh-users/zsh-history-substring-search
