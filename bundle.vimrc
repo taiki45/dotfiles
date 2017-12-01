@@ -231,6 +231,7 @@ let g:ale_lint_on_enter = 0
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_save = 1
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 "let g:ale_maximum_file_size = 0
 nmap <silent> <C-x><C-p> <Plug>(ale_previous_wrap)
 nmap <silent> <C-x><C-n> <Plug>(ale_next_wrap)
