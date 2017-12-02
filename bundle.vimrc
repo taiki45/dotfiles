@@ -316,6 +316,8 @@ let g:terraform_fmt_on_save = 1
 
 NeoBundle 'bazelbuild/vim-ft-bzl', {'autoload':{'filetypes':['bzl', 'bazel']}}
 
+NeoBundleLazy 'vim-scripts/a.vim', {'autoload':{'filetypes':['cpp', 'c']}}
+
 ""endneobundle
 
 
