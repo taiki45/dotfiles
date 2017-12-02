@@ -317,6 +317,13 @@ let g:terraform_fmt_on_save = 1
 NeoBundle 'bazelbuild/vim-ft-bzl', {'autoload':{'filetypes':['bzl', 'bazel']}}
 
 NeoBundleLazy 'vim-scripts/a.vim', {'autoload':{'filetypes':['cpp', 'c']}}
+NeoBundleLazy 'vim-jp/vim-cpp', {'autoload':{'filetypes':['cpp', 'c']}}
+NeoBundleLazy 'octol/vim-cpp-enhanced-highlight', {'autoload':{'filetypes':['cpp']}}
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_concepts_highlight = 1
+"let g:cpp_no_function_highlight = 1
+let g:cpp_class_scope_highlight = 1
 
 ""endneobundle
 
