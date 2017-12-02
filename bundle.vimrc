@@ -50,8 +50,6 @@ autocmd FileType vimfiler nmap <buffer> <C-P> <Plug>(vimfiler_loop_cursor_up)
 " If no files are specified, open vimfiler
 autocmd VimEnter * if !argc() | VimFiler | endif
 
-NeoBundle 'sorah/unite-ghq'
-NeoBundleLazy 'sorah/unite-bundler', { 'autoload' : {'filetypes' : ['ruby', 'rake'] }}
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'thinca/vim-unite-history'
 
@@ -136,8 +134,6 @@ autocmd FileType ruby set tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType ruby set autoindent
 autocmd FileType eruby set tabstop=2 shiftwidth=2 softtabstop=2
 
-NeoBundle 'git://github.com/vim-scripts/sudo.vim.git'
-
 au BufRead,BufNewFile,BufReadPre *.coffee set filetype=coffee
 autocmd FileType coffee setlocal sw=2 sts=2 ts=2 et
 NeoBundleLazy 'kchmck/vim-coffee-script', { 'autoload' : {'filetypes' : 'coffee', }}
@@ -146,7 +142,7 @@ NeoBundleLazy 'groenewege/vim-less', { 'autoload' : {'filetypes' : 'less', }}
 
 NeoBundle 'godlygeek/tabular'
 
-NeoBundle 'dag/vim2hs'
+NeoBundleLazy 'dag/vim2hs', { 'autoload' : {'filetypes' : 'haskell', }}
 let g:haskell_conceal_wide = 0
 let g:haskell_conceal = 0
 let g:haskell_conceal_enumerations = 0
@@ -253,9 +249,7 @@ let g:ale_fixers = {
 \}
 
 
-NeoBundle 'derekwyatt/vim-scala'
-
-NeoBundle 'rodjek/vim-puppet'
+"NeoBundle 'rodjek/vim-puppet'
 
 NeoBundle 'vim-scripts/copypath.vim'
 
@@ -283,11 +277,11 @@ let g:rustfmt_autosave = 1
 NeoBundleLazy 'racer-rust/vim-racer', { 'autoload' : {'filetypes' : 'rust', }}
 NeoBundleLazy 'cespare/vim-toml', { 'autoload' : {'filetypes' : 'toml', }}
 
-NeoBundle 'thinca/vim-quickrun'
+"NeoBundle 'thinca/vim-quickrun'
+""let g:quickrun_config = { "_" : { "runner": "vimproc", "runner/vimproc/updatetime" : 50, "outputter/buffer/close_on_empty": 1, "outputter/buffer/split": ":botright 10sp", "outputter": "error", "outputter/error/success": "buffer", "outputter/error": "quickfix" } }
 "let g:quickrun_config = { "_" : { "runner": "vimproc", "runner/vimproc/updatetime" : 50, "outputter/buffer/close_on_empty": 1, "outputter/buffer/split": ":botright 10sp", "outputter": "error", "outputter/error/success": "buffer", "outputter/error": "quickfix" } }
-let g:quickrun_config = { "_" : { "runner": "vimproc", "runner/vimproc/updatetime" : 50, "outputter/buffer/close_on_empty": 1, "outputter/buffer/split": ":botright 10sp", "outputter": "error", "outputter/error/success": "buffer", "outputter/error": "quickfix" } }
-noremap <leader>q :QuickRun<CR>
-nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
+"noremap <leader>q :QuickRun<CR>
+"nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
 
@@ -317,20 +311,10 @@ NeoBundleLazy 'jdevera/vim-protobuf-syntax', {'autoload':{'filetypes':['proto']}
 
 NeoBundleLazy 'vim-scripts/dbext.vim', {'autoload':{'filetypes':['sql']}}
 
-NeoBundle 'hashivim/vim-terraform' ", {'autoload':{'filetypes':['terraform', 'tf']}}
+NeoBundleLazy 'hashivim/vim-terraform' , {'autoload':{'filetypes':['terraform', 'tf']}}
 let g:terraform_fmt_on_save = 1
 
-NeoBundle 'bazelbuild/vim-ft-bzl', {'autoload':{'filetypes':['sql']}}
-
-"NeoBundle 'nathanaelkane/vim-indent-guides'
-"let g:indent_guides_enable_on_vim_startup=1
-"let g:indent_guides_start_level = 2
-"let g:indent_guides_guide_size = 1
-"let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'haskell']
-"
-"let g:indent_guides_auto_colors = 0
-"autocmd VimEnter,Colorscheme * : highlight IndentGuidesOdd  ctermbg=236
-"autocmd VimEnter,Colorscheme * : highlight IndentGuidesEven ctermbg=234
+NeoBundle 'bazelbuild/vim-ft-bzl', {'autoload':{'filetypes':['bzl', 'bazel']}}
 
 ""endneobundle
 
