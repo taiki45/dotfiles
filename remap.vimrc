@@ -10,7 +10,6 @@ nmap G Gzz
 " Normal function
 noremap <Space>h ^
 noremap <Space>l $
-nnoremap <Space>/ *
 
 imap <C-b> <Left>
 imap <C-f> <Right>
