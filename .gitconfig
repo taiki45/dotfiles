@@ -63,3 +63,5 @@
   name = Xcode project files merger
   driver = mergepbx %O %A %B
 	note = auto-generated configuration by cpad2 upgrade
+[commit]
+	gpgsign = true
