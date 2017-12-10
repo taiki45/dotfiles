@@ -26,3 +26,5 @@ spec/examples.txt
 .idea
 
 examples.txt
+.python-version
+.ruby-version
