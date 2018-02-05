@@ -345,6 +345,8 @@ let g:cpp_concepts_highlight = 1
 "let g:cpp_no_function_highlight = 1
 let g:cpp_class_scope_highlight = 1
 
+NeoBundleLazy 'google/vim-jsonnet', {'autoload':{'filetypes':['jsonnet']}}
+
 ""endneobundle
 
 
