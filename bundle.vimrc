@@ -332,7 +332,7 @@ NeoBundleLazy 'jdevera/vim-protobuf-syntax', {'autoload':{'filetypes':['proto']}
 NeoBundleLazy 'vim-scripts/dbext.vim', {'autoload':{'filetypes':['sql']}}
 
 NeoBundleLazy 'hashivim/vim-terraform' , {'autoload':{'filetypes':['terraform', 'tf']}}
-let g:terraform_fmt_on_save = 1
+let g:terraform_fmt_on_save = 0
 
 NeoBundle 'bazelbuild/vim-ft-bzl', {'autoload':{'filetypes':['bzl', 'bazel']}}
 
