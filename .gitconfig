@@ -12,7 +12,6 @@
     st = status --short
     co = checkout
     f = fetch -p
-    b = branch
     com = commit -v
     acommit = commit -av
     amend = commit -a --amend --no-edit
@@ -33,6 +32,7 @@
     diffnospace = diff --ignore-space-change
     diffword = diff --word-diff
     logworddiff = log -p --word-diff
+    b = branch --sort=-authordate
 [core]
     excludesfile = ~/.gitignore
     autocrlf = input
