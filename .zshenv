@@ -14,8 +14,7 @@ elif [ -f /bin/zsh ]; then
     export SHELL=/bin/zsh
 fi
 
-export PATH=/usr/local/sbin:$PATH
-export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/sbin:/usr/sbin:/usr/local/bin:$PATH
 
 # cpad is setup tool ref: http://secondlife.hatenablog.jp/entry/2013/02/21/210807
 if [ -d ~/.cpad2 ]; then
