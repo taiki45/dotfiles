@@ -37,15 +37,6 @@ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 export PATH=$HOME/.cabal/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 
-# Hackage bins installed by cabal-dev
-export PATH=$HOME/.yesod/bin:$PATH
-export PATH=$HOME/.pointfree/bin:$PATH
-export PATH=$HOME/.hsenv/bin:$PATH
-export PATH=$HOME/.hoogle/bin:$PATH
-export PATH=$HOME/.hlint/bin:$PATH
-export PATH=$HOME/.hasktags/bin:$PATH
-export PATH=$HOME/.hothasktags/bin:$PATH
-
 export XDG_CONFIG_HOME=~/.config
 
 if [ -d ~/.rsense-0.3 ]; then
