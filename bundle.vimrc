@@ -198,6 +198,12 @@ augroup UjihisaUML
 augroup END
 NeoBundleLazy 'aklt/plantuml-syntax', { 'autoload' : {'filetypes' : 'plantuml', }}
 
+" set filetypes as typescript.jsx
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.jsx
+"NeoBundle 'pangloss/vim-javascript' ", { 'autoload' : {'filetypes' : 'typescript.jx'} }
+NeoBundle 'leafgarland/typescript-vim' ", { 'autoload' : {'filetypes' : 'typescript.jx'} }
+NeoBundle 'maxmellon/vim-jsx-pretty' ", { 'autoload' : {'filetypes' : 'typescript.jx'} }
+
 "NeoBundle 'scrooloose/syntastic'
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
