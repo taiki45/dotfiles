@@ -298,9 +298,11 @@ NeoBundle 'zhisheng/visualmark.vim'
 "NeoBundle 'phildawes/racer', { 'build' : { 'mac': 'cargo build --release', 'unix': 'cargo build --release' } }
 
 "NeoBundleLazy 'wting/rust.vim', { 'autoload' : {'filetypes' : 'rust', }}
-NeoBundleLazy 'rust-lang/rust.vim', { 'autoload' : {'filetypes' : 'rust', }}
+"NeoBundleLazy 'rust-lang/rust.vim', { 'autoload' : {'filetypes' : 'rust', }}
+NeoBundle 'rust-lang/rust.vim'
 let g:rustfmt_autosave = 1
-NeoBundleLazy 'racer-rust/vim-racer', { 'autoload' : {'filetypes' : 'rust', }}
+let g:rustfmt_fail_silently = 1
+NeoBundleLazy 'racer-rust/vim-racer', { 'autoload' : {'filetypes' : 'ust', }}
 NeoBundleLazy 'cespare/vim-toml', { 'autoload' : {'filetypes' : 'toml', }}
 
 "NeoBundle 'thinca/vim-quickrun'
