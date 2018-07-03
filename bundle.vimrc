@@ -355,6 +355,8 @@ let g:cpp_class_scope_highlight = 1
 
 NeoBundleLazy 'google/vim-jsonnet', {'autoload':{'filetypes':['jsonnet']}}
 
+NeoBundle 'k0kubun/vim-open-github'
+
 ""endneobundle
 
 
