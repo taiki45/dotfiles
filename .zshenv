@@ -18,6 +18,8 @@ export PATH=/usr/local/sbin:/usr/sbin:/usr/local/bin:$PATH
 
 case "$(uname)" in
   "Linux")
+    export GPG_TTY=$(tty)
+    eval $(ssh-agent) > /dev/null
     ;;
   "Darwin")
     # cpad is setup tool ref: http://secondlife.hatenablog.jp/entry/2013/02/21/210807
