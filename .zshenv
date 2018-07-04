@@ -16,10 +16,19 @@ fi
 
 export PATH=/usr/local/sbin:/usr/sbin:/usr/local/bin:$PATH
 
-# cpad is setup tool ref: http://secondlife.hatenablog.jp/entry/2013/02/21/210807
-if [ -d ~/.cpad2 ]; then
-  source /Users/taiki-ono/.cpad2/profile
-fi
+case "$(uname)" in
+  "Linux")
+    ;;
+  "Darwin")
+    # cpad is setup tool ref: http://secondlife.hatenablog.jp/entry/2013/02/21/210807
+    if [ -d ~/.cpad2 ]; then
+      source /Users/taiki-ono/.cpad2/profile
+    fi
+    if [ -d /opt/brew ]; then
+      export GOROOT=`brew --prefix go`/libexec/
+    fi
+    ;;
+esac
 
 #if which brew > /dev/null && brew --prefix coreutils > /dev/null; then
 #  export PATH="`brew --prefix coreutils`/libexec/gnubin:$PATH"
@@ -27,7 +36,6 @@ fi
 #fi
 
 export GOPATH=$HOME/.go
-export GOROOT=`brew --prefix go`/libexec/
 
 export PATH=$HOME/.nodebrew/current/bin:$HOME/.local/bin:$PATH
 export PATH=$HOME/.dotfiles/git/contrib/diff-highlight:$HOME/.dotfiles/git/contrib/git-jump:$PATH
