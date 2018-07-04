@@ -17,8 +17,10 @@ imap <C-f> <Right>
 " Tab
 " next tab
 noremap ) gt
+noremap } gt
 " prev tab
 noremap ( gT
+noremap { gT
 
 " nohl
 noremap <Space>n :nohl<CR>
