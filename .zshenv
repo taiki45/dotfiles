@@ -19,6 +19,7 @@ export PATH=/usr/local/sbin:/usr/sbin:/usr/local/bin:$PATH
 case "$(uname)" in
   "Linux")
     export GPG_TTY=$(tty)
+    export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
     ;;
   "Darwin")
     # cpad is setup tool ref: http://secondlife.hatenablog.jp/entry/2013/02/21/210807
