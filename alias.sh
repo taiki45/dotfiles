@@ -1,5 +1,4 @@
-alias ls='ls -G'
-alias l='ls -G'
+alias ll='ls -l'
 alias 'cd..'='cd ..'
 alias b='bundle'
 alias be='bundle exec'

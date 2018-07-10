@@ -4,8 +4,6 @@ export LESSCHARSET=utf-8
 
 export EDITOR=vim
 
-export LS_COLORS="di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32";
-
 if [ -d /opt/local ]; then
     export SHELL=/opt/local/bin/zsh
 elif [ -f /usr/local/bin/zsh ]; then
@@ -22,13 +20,14 @@ case "$(uname)" in
     export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
     ;;
   "Darwin")
-    # cpad is setup tool ref: http://secondlife.hatenablog.jp/entry/2013/02/21/210807
-    if [ -d ~/.cpad2 ]; then
-      source /Users/taiki-ono/.cpad2/profile
-    fi
     if [ -d /opt/brew ]; then
       export GOROOT=`brew --prefix go`/libexec/
     fi
+    # cpad is setup tool ref: http://secondlife.hatenablog.jp/entry/2013/02/21/210807
+    if [ -d ~/.cpad2 ]; then
+      source "${HOME}/.cpad2/profile"
+    fi
+    export LS_COLORS="di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32";
     ;;
 esac
 
