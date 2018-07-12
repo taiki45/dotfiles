@@ -19,4 +19,5 @@ window class_only: 'chromium' do
 
   remap 'C-d', to: 'Delete'
   remap 'M-d', to: 'Ctrl-Delete'
+  remap 'C-h', to: 'BackSpace'
 end
