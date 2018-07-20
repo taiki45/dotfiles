@@ -1,5 +1,5 @@
 window class_only: 'chromium' do
-  %w[f l w t n y c v r equal minus 0].each do |key|
+  %w[f l w t n y c v r equal minus 0 a x].each do |key|
     remap "Super-#{key}", to: "C-#{key}"
   end
 
