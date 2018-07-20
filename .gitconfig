@@ -10,7 +10,7 @@
 [alias]
     cloen = clone
     st = status --short
-    co = checkout
+    co = checkout --recurse-submodules
     f = fetch -p
     com = commit -v
     acommit = commit -av
