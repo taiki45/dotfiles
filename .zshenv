@@ -18,6 +18,7 @@ case "$(uname)" in
   "Linux")
     export GPG_TTY=$(tty)
     export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
+    alias ls='ls --color=auto'
     ;;
   "Darwin")
     if [ -d /opt/brew ]; then
