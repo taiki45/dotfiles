@@ -1,0 +1,4 @@
+(if
+ (matches (application_name) "Terminal")
+ (opacity 90)
+ )
