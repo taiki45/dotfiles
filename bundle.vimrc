@@ -246,6 +246,7 @@ call SetupCommandAlias('af','ALEFix')
 let g:ale_linters = {
 \ 'javascript': ['eslint'],
 \ 'ruby': ['ruby'],
+\ 'go': [],
 \}
 let g:ale_fixers = {
 \ 'javascript': ['eslint'],
