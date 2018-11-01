@@ -246,8 +246,8 @@ call SetupCommandAlias('af','ALEFix')
 let g:ale_linters = {
 \ 'javascript': ['eslint'],
 \ 'ruby': ['ruby'],
-\ 'go': [],
 \}
+" 'go': ['gofmt', 'goimports', 'go mod', 'golint', 'gotype', 'gometalinter', 'go build', 'gosimple', 'staticcheck', 'golangserver', 'golangci-lint'],
 let g:ale_fixers = {
 \ 'javascript': ['eslint'],
 \ 'cpp': ['clang-format'],
