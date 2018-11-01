@@ -9,11 +9,11 @@
     grep = auto
 [alias]
     cloen = clone
-    st = status --short
+    st = status --short -b
     co = checkout --recurse-submodules
     f = fetch -p
-    com = commit -v
-    acommit = commit -av
+    com = commit -sv
+    acommit = commit -asv
     amend = commit -a --amend --no-edit
     d = diff
     di = diff
