@@ -22,6 +22,7 @@ case "$(uname)" in
     ;;
   "Darwin")
     if [ -d /opt/brew ]; then
+      export PATH=/opt/brew/bin:$PATH
       export GOROOT=`brew --prefix go`/libexec/
     fi
     # cpad is setup tool ref: http://secondlife.hatenablog.jp/entry/2013/02/21/210807
@@ -63,7 +64,7 @@ fi
 if [ -d ~/.pyenv ]; then
     export PATH="$HOME/.pyenv/bin:$PATH"
     eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
+    #eval "$(pyenv virtualenv-init -)"
 fi
 
 if [ -f ~/.rbenv/completions/rbenv.zsh ]; then
