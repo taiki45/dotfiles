@@ -1,4 +1,4 @@
-window class_only: 'chromium' do
+window class_only: 'chromium-browser' do
   %w[f l w t n y c v r equal minus 0 a x z].each do |key|
     remap "Super-#{key}", to: "C-#{key}"
   end
