@@ -25,10 +25,16 @@ case "$(uname)" in
       export PATH=/opt/brew/bin:$PATH
       export GOROOT=`brew --prefix go`/libexec/
     fi
+    if [ -d "${HOME}/brew" ]; then
+      export PATH="${HOME}/brew/bin:${PATH}"
+      export GOROOT=`brew --prefix go`/libexec/
+    fi
+    export PATH="/sbin:${PATH}"
     # cpad is setup tool ref: http://secondlife.hatenablog.jp/entry/2013/02/21/210807
     if [ -d ~/.cpad2 ]; then
       source "${HOME}/.cpad2/profile"
     fi
+    export PATH="${HOME}/Library/Python/3.7/bin:${PATH}"
     export LS_COLORS="di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32";
     ;;
 esac
@@ -77,8 +83,12 @@ if [ -f ~/.local/.zshenv ]; then
     source ~/.local/.zshenv
 fi
 
+if [ -f ~/.getenvoy/bin/getenvoy ]; then
+    export PATH="${HOME}/.getenvoy/bin:${PATH}"
+fi
+
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/taiki-ono/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/taiki-ono/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f "${HOME}/.local/google-cloud-sdk/path.zsh.inc" ]; then . "${HOME}/.local/google-cloud-sdk/path.zsh.inc"; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/taiki-ono/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/taiki-ono/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f "${HOME}/.local/google-cloud-sdk/completion.zsh.inc" ]; then . "${HOME}/.local/google-cloud-sdk/completion.zsh.inc"; fi
