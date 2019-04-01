@@ -58,9 +58,6 @@ set smarttab "Indent instead of tab at start of line
 set shiftround "Round spaces to nearest shiftwidth multiple
 set nojoinspaces "Don't convert spaces to tabs
 
-" Text wrap width
-set tw=120
-
 "auto indent
 "set autoindent
 
