@@ -1,0 +1,9 @@
+[Unit]
+Description=SSH authentication agent
+
+[Service]
+ExecStart=/usr/bin/ssh-agent -a %t/ssh-agent.socket -D
+Type=simple
+
+[Install]
+WantedBy=default.target
