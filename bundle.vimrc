@@ -246,7 +246,7 @@ call SetupCommandAlias('af','ALEFix')
 let g:ale_linters = {
 \ 'javascript': ['eslint'],
 \ 'ruby': ['ruby'],
-\ 'go': ['gosimple', 'golangserver'],
+\ 'go': ['gosimple', 'golangserver', 'go build', 'gotype', 'gofmt', 'staticcheck', 'goimports', 'golint'],
 \}
 " 'go': ['gofmt', 'goimports', 'go mod', 'golint', 'gotype', 'gometalinter', 'go build', 'gosimple', 'staticcheck', 'golangserver', 'golangci-lint'],
 let g:ale_fixers = {
@@ -266,6 +266,7 @@ NeoBundle 'ekalinin/Dockerfile.vim'
 
 "NeoBundleLazy 'vim-jp/vim-go-extra', { 'autoload' : {'filetypes' : 'go', }}
 NeoBundle 'fatih/vim-go' ", { 'autoload' : {'filetypes' : 'go', }}
+au FileType go setlocal sw=4 ts=4 sts=4 noet
 "au FileType go nmap <C-T> <C-O>
 "au FileType go nmap <C-]> gd
 let g:go_highlight_types = 1
