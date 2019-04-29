@@ -23,6 +23,9 @@ cabal.sandbox.config
 .bundle
 spec/examples.txt
 
+# for Python
+*.pyc
+
 .idea
 
 examples.txt
