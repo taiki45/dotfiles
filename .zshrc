@@ -2,7 +2,6 @@
 # Emacs like key bind
 bindkey -e
 
-
 ## Functions
 func gorun() {
     local name="go-tmp-build-$RANDOM"
