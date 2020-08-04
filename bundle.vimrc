@@ -255,6 +255,9 @@ let g:ale_fixers = {
 \ 'ruby': ['rubocop'],
 \ 'rust': ['rustfmt'],
 \}
+let g:ale_pattern_options = {
+\   '.*git-rebase-todo$': {'ale_enabled': 0},
+\}
 
 
 "NeoBundle 'rodjek/vim-puppet'
