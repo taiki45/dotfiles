@@ -86,7 +86,7 @@ zstyle ':completion:*:corrections' format $YELLOW'%B%d '$RED'(errors: %e)%b'$DEF
 
 
 ## History
-HISTFILE=~/.zsh_histor
+HISTFILE=~/.zsh_history
 HISTSIZE=10000000
 SAVEHIST=10000000
 setopt hist_ignore_dups
