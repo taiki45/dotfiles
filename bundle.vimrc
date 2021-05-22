@@ -86,32 +86,7 @@ autocmd FileType ruby set tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType ruby set autoindent
 autocmd FileType eruby set tabstop=2 shiftwidth=2 softtabstop=2
 
-NeoBundleLazy 'dag/vim2hs', { 'autoload' : {'filetypes' : 'haskell', }}
-let g:haskell_conceal_wide = 0
-let g:haskell_conceal = 0
-let g:haskell_conceal_enumerations = 0
-autocmd FileType haskell
-    \ vnoremap <buffer> <silent> \pf
-    \ :PointFree!<CR>
-
-NeoBundleLazy 'ujihisa/neco-ghc', { 'autoload' : {'filetypes' : 'haskell', }}
-let g:necoghc_enable_detailed_browse = 1
-NeoBundleLazy 'kana/vim-filetype-haskell', { 'autoload' : {'filetypes' : 'haskell', }}
-NeoBundleLazy 'eagletmt/ghcmod-vim', { 'autoload' : {'filetypes' : 'haskell', }}
-noremap \t :GhcModType<CR>
-noremap \c :GhcModTypeClear<CR>
-noremap \i :GhcModTypeInsert<CR>
-noremap \g :GhcModCheckAsync<CR>
-noremap \l :GhcModLintAsync<CR>
-noremap \? :GhcModInfo<CR>
-let g:ghcmod_type_highlight = 'DiffAdd'
-
 NeoBundle 'nanotech/jellybeans.vim'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'tomasr/molokai'
-NeoBundle 'w0ng/vim-hybrid'
-
-NeoBundleLazy 'vim-scripts/hlint', { 'autoload' : {'filetypes' : 'haskell', }}
 
 NeoBundle 'w0rp/ale'
 let g:ale_sign_column_always = 0
@@ -131,16 +106,10 @@ fun! SetupCommandAlias(from, to)
 endfun
 call SetupCommandAlias('af','ALEFix')
 let g:ale_linters = {
-\ 'javascript': ['eslint'],
 \ 'ruby': ['ruby'],
-\ 'go': ['gosimple', 'golangserver', 'go build', 'gotype', 'gofmt', 'staticcheck', 'goimports', 'golint'],
 \}
-" 'go': ['gofmt', 'goimports', 'go mod', 'golint', 'gotype', 'gometalinter', 'go build', 'gosimple', 'staticcheck', 'golangserver', 'golangci-lint'],
 let g:ale_fixers = {
-\ 'javascript': ['eslint'],
-\ 'cpp': ['clang-format'],
 \ 'ruby': ['rubocop'],
-\ 'rust': ['rustfmt'],
 \}
 let g:ale_pattern_options = {
 \   '.*git-rebase-todo$': {'ale_enabled': 0},
@@ -149,46 +118,12 @@ let g:ale_pattern_options = {
 
 NeoBundle 'vim-scripts/copypath.vim'
 
-"NeoBundleLazy 'vim-jp/vim-go-extra', { 'autoload' : {'filetypes' : 'go', }}
-NeoBundle 'fatih/vim-go' ", { 'autoload' : {'filetypes' : 'go', }}
-au FileType go setlocal sw=4 ts=4 sts=4 noet
-"au FileType go nmap <C-T> <C-O>
-"au FileType go nmap <C-]> gd
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_generate_tags = 1
-"autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
-let g:go_metalinter_enabled = ['golint', 'errcheck']
-let g:go_metalinter_disabled = ['vet']
-let g:go_metalinter_autosave = 1
-let g:go_metalinter_autosave_enabled = ['golint', 'errcheck']
-let g:go_metalinter_deadline = "5s"
-"autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
-"autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
-"autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
-"autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
-
 NeoBundle 'rhysd/committia.vim'
 let g:committia_hooks = {}
 function! g:committia_hooks.edit_open(info)
     " Additional settings
     setlocal spell
 endfunction
-
-NeoBundle 'tpope/vim-fugitive'
-
-NeoBundle 'zhisheng/visualmark.vim'
-
-NeoBundle 'rust-lang/rust.vim'
-let g:rustfmt_autosave = 1
-let g:rustfmt_fail_silently = 1
-NeoBundleLazy 'racer-rust/vim-racer', { 'autoload' : {'filetypes' : 'ust', }}
-NeoBundleLazy 'cespare/vim-toml', { 'autoload' : {'filetypes' : 'toml', }}
 
 NeoBundleLazy 'jdevera/vim-protobuf-syntax', {'autoload':{'filetypes':['proto']}}
 
@@ -197,18 +132,15 @@ let g:terraform_fmt_on_save = 0
 
 NeoBundle 'bazelbuild/vim-ft-bzl', {'autoload':{'filetypes':['bzl', 'bazel']}}
 
-NeoBundleLazy 'vim-scripts/a.vim', {'autoload':{'filetypes':['cpp', 'c']}}
-NeoBundleLazy 'vim-jp/vim-cpp', {'autoload':{'filetypes':['cpp', 'c']}}
-NeoBundleLazy 'octol/vim-cpp-enhanced-highlight', {'autoload':{'filetypes':['cpp']}}
-let g:cpp_member_variable_highlight = 1
-let g:cpp_class_decl_highlight = 1
-let g:cpp_concepts_highlight = 1
-"let g:cpp_no_function_highlight = 1
-let g:cpp_class_scope_highlight = 1
+"NeoBundleLazy 'vim-scripts/a.vim', {'autoload':{'filetypes':['cpp', 'c']}}
+"NeoBundleLazy 'vim-jp/vim-cpp', {'autoload':{'filetypes':['cpp', 'c']}}
+"NeoBundleLazy 'octol/vim-cpp-enhanced-highlight', {'autoload':{'filetypes':['cpp']}}
+"let g:cpp_member_variable_highlight = 1
+"let g:cpp_class_decl_highlight = 1
+"let g:cpp_concepts_highlight = 1
+"let g:cpp_class_scope_highlight = 1
 
 NeoBundleLazy 'google/vim-jsonnet', {'autoload':{'filetypes':['jsonnet']}}
-
-"NeoBundle 'k0kubun/vim-open-github'
 
 ""endneobundle
 
@@ -224,7 +156,6 @@ NeoBundleCheck
 " =============================================
 " Colorscheme
 colorscheme jellybeans
-"set cursorline
 
 
 "================================================
@@ -250,7 +181,6 @@ set completeopt=menuone
 let g:neocomplcache_dictionary_filetype_lists = {
       \ 'default' : '',
       \ 'vimshell' : $HOME.'/.vimshell_hist',
-      \ 'scheme' : $HOME.'/.gosh_completions'
       \ }
 
 " Define keyword.
