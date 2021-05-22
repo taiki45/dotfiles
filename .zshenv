@@ -36,7 +36,6 @@ esac
 
 export GOPATH=$HOME/.go
 
-export PATH=$HOME/.dotfiles/git/contrib/diff-highlight:$HOME/.dotfiles/git/contrib/git-jump:$PATH
 export PATH=$HOME/.dotfiles/bin:$PATH
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 export PATH=$HOME/.cabal/bin:$PATH
