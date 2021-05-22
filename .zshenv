@@ -40,7 +40,9 @@ export PATH=$HOME/.dotfiles/git/contrib/diff-highlight:$HOME/.dotfiles/git/contr
 export PATH=$HOME/.dotfiles/bin:$PATH
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 export PATH=$HOME/.cabal/bin:$PATH
-source $HOME/.cargo/env
+if [ -f $HOME/.cargo/env ]; then
+    source $HOME/.cargo/env
+fi
 
 export XDG_CONFIG_HOME=~/.config
 

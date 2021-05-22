@@ -1,5 +1,3 @@
-[include]
-    path = ~/.gitconfig.local
 [color]
     status = auto
     diff = auto
@@ -65,3 +63,5 @@
 	note = auto-generated configuration by cpad2 upgrade
 [commit]
 	gpgsign = true
+[include]
+    path = ~/.gitconfig.local
