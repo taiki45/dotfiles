@@ -243,12 +243,12 @@ case ${UID} in
     RED="%{${fg[red]}%}"
     YELLOW="%{${fg[yellow]}%}"
     CYAN="%{${fg[cyan]}%}"
-    MAGENTA="%{$fg[magenta]%}"
+    MAGENTA="%{${fg[magenta]}%}"
     WHITE="%{${fg[white]}%}"
 
     PROMPT='
 ${BLUE}%(10~,%-2~/.../%2~,%~)${RESET} ${vcs_info_msg_0_}${RESET}
-%(?,${GREEN}$,${RED}$) ${RESET}'
+%(?,${GREEN}$,${RED}$)${RESET} '
     PROMPT2="${CYAN}[%_%%]${RESET} > "
     SPROMPT="${CYAN}correct: ${RED}%R ${CYAN}=> ${GREEN}%r ${CYAN}? [y,n,a,e]${RESET} > "
     [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && PROMPT="${CYAN}${HOST%%.*}${RESET} ${PROMPT}"
