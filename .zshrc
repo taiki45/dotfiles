@@ -11,7 +11,7 @@ if [ -d /opt/local ]; then
     export SHELL=/opt/local/bin/zsh
 elif [ -f /opt/homebrew/bin/zsh ]; then
     export SHELL=/opt/homebrew/bin/zsh
-    export PATH=/opt/homebrew/bin:$PATH
+    export PATH=/opt/homebrew/bin:$HOME/.rd/bin:$PATH
 elif [ -f /usr/local/bin/zsh ]; then
     export SHELL=/usr/local/bin/zsh
 elif [ -f /bin/zsh ]; then
