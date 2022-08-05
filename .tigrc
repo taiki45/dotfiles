@@ -1,0 +1,19 @@
+set main-view = id date author:email-user commit-title:graph=yes,refs=yes
+
+# Show line numbers on pager views, set interval=1 (default: line-number:no,interval=5)
+set blame-view  = date:default author:email-user id:yes,color line-number:yes,interval=1 text
+set pager-view  = line-number:yes,interval=1 text
+set stage-view  = line-number:yes,interval=1 text
+set log-view    = line-number:yes,interval=1 text
+set blob-view   = line-number:yes,interval=1 text
+set diff-view   = line-number:yes,interval=1 text:yes,commit-title-overflow=no
+
+# To switch behavior, press `W` in diff view.
+set ignore-space = all
+# Use diff-highlight, may overwrite ignore-space config.
+set diff-highlight = true
+
+set ignore-case = true
+
+# Show merge diffs
+set diff-options = -m --first-parent
