@@ -96,6 +96,11 @@ function ghqcd() {
     cd $(ghq list -p | peco --query=$@)
 }
 
+function ghb() {
+    value=$(echo "${PWD}" | sed -e "s#/#\\\/#g")
+    gh browse $(echo $@ | sed "s/${value}\///")
+}
+
 ## Complettion
 # Set fpath
 [ -d $HOME/.zsh/zsh-completions/src ] && fpath=($HOME/.zsh/zsh-completions/src $fpath)
