@@ -115,9 +115,11 @@ endfun
 call SetupCommandAlias('af','ALEFix')
 let g:ale_linters = {
 \ 'ruby': ['ruby'],
+\ 'go': ['golint'],
 \}
 let g:ale_fixers = {
 \ 'ruby': ['rubocop'],
+\ 'go': ['gofmt'],
 \}
 let g:ale_pattern_options = {
 \   '.*git-rebase-todo$': {'ale_enabled': 0},
