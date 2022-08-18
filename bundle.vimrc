@@ -115,12 +115,11 @@ endfun
 call SetupCommandAlias('af','ALEFix')
 let g:ale_linters = {
 \ 'ruby': ['ruby'],
-\ 'go': ['golint'],
 \}
 let g:ale_fixers = {
 \ 'ruby': ['rubocop'],
-\ 'go': ['gofmt'],
 \}
+"\ 'go': ['gofmt'],
 let g:ale_pattern_options = {
 \   '.*git-rebase-todo$': {'ale_enabled': 0},
 \}
@@ -151,6 +150,8 @@ NeoBundle 'bazelbuild/vim-ft-bzl', {'autoload':{'filetypes':['bzl', 'bazel']}}
 "let g:cpp_class_scope_highlight = 1
 
 NeoBundleLazy 'google/vim-jsonnet', {'autoload':{'filetypes':['jsonnet']}}
+
+NeoBundleLazy 'fatih/vim-go', {'autoload':{'filetypes':['go']}}
 
 ""endneobundle
 
