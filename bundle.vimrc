@@ -153,6 +153,8 @@ NeoBundleLazy 'google/vim-jsonnet', {'autoload':{'filetypes':['jsonnet']}}
 
 NeoBundleLazy 'fatih/vim-go', {'autoload':{'filetypes':['go']}}
 
+NeoBundle 'AndrewRadev/splitjoin.vim'
+
 ""endneobundle
 
 
