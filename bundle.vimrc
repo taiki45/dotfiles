@@ -118,10 +118,11 @@ let g:ale_linters = {
 \}
 let g:ale_fixers = {
 \ 'ruby': ['rubocop'],
+\ 'go': ['gofmt'],
 \}
-"\ 'go': ['gofmt'],
 let g:ale_pattern_options = {
 \   '.*git-rebase-todo$': {'ale_enabled': 0},
+\   '*.go': {'ale_enabled': 0},
 \}
 
 
@@ -152,6 +153,11 @@ NeoBundle 'bazelbuild/vim-ft-bzl', {'autoload':{'filetypes':['bzl', 'bazel']}}
 NeoBundleLazy 'google/vim-jsonnet', {'autoload':{'filetypes':['jsonnet']}}
 
 NeoBundleLazy 'fatih/vim-go', {'autoload':{'filetypes':['go']}}
+let g:go_fmt_autosave = 0
+let g:go_metalinter_autosave = 1
+"let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+let g:go_auto_type_info = 1
+"let g:go_auto_sameids = 1
 
 NeoBundle 'AndrewRadev/splitjoin.vim'
 
