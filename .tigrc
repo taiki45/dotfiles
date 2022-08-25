@@ -1,4 +1,4 @@
-set main-view = id date author:email-user commit-title:graph=yes,refs=yes
+set main-view = id date author commit-title:graph=yes,refs=yes
 
 # Show line numbers on pager views, set interval=1 (default: line-number:no,interval=5)
 set blame-view  = date:default author:email-user id:yes,color line-number:yes,interval=1 text
