@@ -112,19 +112,18 @@ fun! SetupCommandAlias(from, to)
         \ .' ((getcmdtype() is# ":" && getcmdline() is# "'.a:from.'")'
         \ .'? ("'.a:to.'") : ("'.a:from.'"))'
 endfun
-call SetupCommandAlias('af','ALEFix')
 let g:ale_linters = {
 \ 'ruby': ['ruby'],
 \}
 let g:ale_fixers = {
 \ 'ruby': ['rubocop'],
-\ 'go': ['gofmt'],
 \}
 let g:ale_pattern_options = {
 \   '.*git-rebase-todo$': {'ale_enabled': 0},
 \   '*.go': {'ale_enabled': 0},
 \}
 
+"\ 'go': ['gofmt'],
 
 NeoBundle 'vim-scripts/copypath.vim'
 
@@ -153,11 +152,13 @@ NeoBundle 'bazelbuild/vim-ft-bzl', {'autoload':{'filetypes':['bzl', 'bazel']}}
 NeoBundleLazy 'google/vim-jsonnet', {'autoload':{'filetypes':['jsonnet']}}
 
 NeoBundleLazy 'fatih/vim-go', {'autoload':{'filetypes':['go']}}
-let g:go_fmt_autosave = 0
+let g:go_fmt_autosave = 1
 let g:go_metalinter_autosave = 1
 "let g:go_metalinter_autosave_enabled = ['vet', 'golint']
-let g:go_auto_type_info = 1
+let g:go_auto_type_info = 0
 "let g:go_auto_sameids = 1
+let g:go_fmt_command = "goimports"
+call SetupCommandAlias('af','GoFmt')
 
 NeoBundle 'AndrewRadev/splitjoin.vim'
 
