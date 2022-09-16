@@ -1,9 +1,11 @@
 #!/bin/bash
 set -e
 
+main_branch="$(git branch -l master main | perl -pe 's/^\*?\s+//')"
+
 git fetch --prune --all
-git rebase --autostash origin/master master
-bs=$(git branch --merged |grep -v 'master' || true)
+git rebase --autostash "origin/${main_branch}" "${main_branch}"
+bs=$(git branch --merged |grep -v "${main_branch}" || true)
 if [ ! "${bs}" = "" ]; then
   git branch -d $bs
 fi
