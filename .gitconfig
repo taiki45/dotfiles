@@ -49,6 +49,7 @@
 [rebase]
     autostash = true
     autosquash = true
+	updateRefs = true
 [pager]
     log = diff-highlight | less -R -+X -+F
     show = diff-highlight | less -R -+F
