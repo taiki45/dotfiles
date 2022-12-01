@@ -31,3 +31,4 @@ spec/examples.txt
 examples.txt
 .python-version
 .ruby-version
+.env
