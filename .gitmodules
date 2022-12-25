@@ -16,9 +16,6 @@
 [submodule "pure"]
 	path = pure
 	url = git@github.com:sindresorhus/pure.git
-[submodule "tomorrow-theme"]
-	path = tomorrow-theme
-	url = git@github.com:chriskempson/tomorrow-theme.git
 [submodule ".zsh/zsh-notify"]
 	path = .zsh/zsh-notify
 	url = git@github.com:marzocchi/zsh-notify.git
