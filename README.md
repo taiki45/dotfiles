@@ -1,14 +1,6 @@
 # Dotfiles
 
-![screen shot 2015-04-21](https://cloud.githubusercontent.com/assets/1460043/7251897/774a1964-e86a-11e4-9eac-3cd9cce841be.png)
-
-## How to get powerline patched fonts easily?
-See https://github.com/Lokaltog/powerline-fonts
-
-Or you can try to patch your own one via https://github.com/Lokaltog/powerline
-
-## MacVim setting
-Download a fresh MacVim release, and place MacVim.app in /Application, then move `mvim` file to `~/.local/bin`.
+terminal color scheme: Dracula
 
 ## LICENSE
 
