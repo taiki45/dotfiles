@@ -32,3 +32,5 @@ examples.txt
 .python-version
 .ruby-version
 .env
+
+.vscode

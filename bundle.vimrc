@@ -96,14 +96,14 @@ autocmd FileType eruby set tabstop=2 shiftwidth=2 softtabstop=2
 
 NeoBundle 'nanotech/jellybeans.vim'
 
-NeoBundle 'w0rp/ale'
+NeoBundleLazy 'w0rp/ale', {'autoload':{'filetypes':['ruby']}}
 let g:ale_sign_column_always = 0
 let g:ale_fix_on_save = 0
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_save = 1
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_echo_msg_format = 'ale [%linter%] %s [%severity%]'
 "let g:ale_maximum_file_size = 0
 nmap <silent> <C-x><C-p> <Plug>(ale_previous_wrap)
 nmap <silent> <C-x><C-n> <Plug>(ale_next_wrap)
@@ -114,6 +114,7 @@ fun! SetupCommandAlias(from, to)
 endfun
 let g:ale_linters = {
 \ 'ruby': ['ruby'],
+\ 'go': ['golangci-lint'],
 \}
 let g:ale_fixers = {
 \ 'ruby': ['rubocop'],
@@ -153,6 +154,7 @@ NeoBundleLazy 'google/vim-jsonnet', {'autoload':{'filetypes':['jsonnet']}}
 
 NeoBundleLazy 'fatih/vim-go', {'autoload':{'filetypes':['go']}}
 let g:go_fmt_autosave = 1
+let g:go_metalinter_command='golangci-lint'
 let g:go_metalinter_autosave = 1
 "let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 let g:go_auto_type_info = 0
