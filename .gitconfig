@@ -1,6 +1,7 @@
 [core]
     excludesfile = ~/.gitignore
     autocrlf = input
+    pager = delta
 [include]
     path = ~/.gitconfig.local
 [url "git@github.com:"]
@@ -11,6 +12,7 @@
 	gpgsign = true
 [diff]
     algorithm = histogram
+    colorMoved = default
 [branch]
     autosetupmerge = true
     autosetuprebase = always
@@ -22,6 +24,10 @@
     autostash = true
     autosquash = true
 	updateRefs = true
+[merge]
+    conflictstyle = diff3
+[interactive]
+    diffFilter = delta --color-only
 [color]
     status = auto
     diff = auto
@@ -56,3 +62,5 @@
     generic = G move-last-line
 [ghq]
     root = ~/.ghq
+[delta]
+    navigate = true
