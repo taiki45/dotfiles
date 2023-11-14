@@ -1,3 +1,27 @@
+[core]
+    excludesfile = ~/.gitignore
+    autocrlf = input
+[include]
+    path = ~/.gitconfig.local
+[url "git@github.com:"]
+    insteadOf = https://github.com/
+[init]
+	defaultBranch = main
+[commit]
+	gpgsign = true
+[diff]
+    algorithm = histogram
+[branch]
+    autosetupmerge = true
+    autosetuprebase = always
+[push]
+    default = tracking
+[pull]
+    rebase = true
+[rebase]
+    autostash = true
+    autosquash = true
+	updateRefs = true
 [color]
     status = auto
     diff = auto
@@ -31,32 +55,8 @@
     diffword = diff --word-diff
     logworddiff = log -p --word-diff
     b = branch --sort=-authordate
-[core]
-    excludesfile = ~/.gitignore
-    autocrlf = input
 [tig "bind"]
     generic = g move-first-line
     generic = G move-last-line
-[diff]
-    algorithm = histogram
-[branch]
-    autosetupmerge = true
-    autosetuprebase = always
-[push]
-    default = tracking
-[pull]
-    rebase = true
-[rebase]
-    autostash = true
-    autosquash = true
-	updateRefs = true
-[url "git@github.com:"]
-    insteadOf = https://github.com/
 [ghq]
     root = ~/.ghq
-[commit]
-	gpgsign = true
-[include]
-    path = ~/.gitconfig.local
-[init]
-	defaultBranch = main
