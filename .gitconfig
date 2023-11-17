@@ -30,13 +30,16 @@
     interactive = auto
     grep = auto
 [alias]
+    cloen = clone
     st = status --short -b
     co = checkout --recurse-submodules
-    b = branch --sort=-authordate
     f = fetch -p
     com = commit -sv
     acommit = commit -asv
     amend = commit -a --amend --no-edit
+    d = diff
+    di = diff
+    dif = diff
     diffadded = diff --cached
     graph = log --oneline --decorate --graph --all
     lgraph = log --oneline --decorate --graph
@@ -51,6 +54,7 @@
     diffnospace = diff --ignore-space-change
     diffword = diff --word-diff
     logworddiff = log -p --word-diff
+    b = branch --sort=-authordate
 [tig "bind"]
     generic = g move-first-line
     generic = G move-last-line
