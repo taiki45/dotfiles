@@ -100,6 +100,8 @@ function ghb() {
     gh browse $(echo $@ | sed "s/${value}\///")
 }
 
+export FZF_DEFAULT_OPTS='--layout=reverse'
+
 ## Complettion
 # Set fpath
 [ -d $HOME/.zsh/zsh-completions/src ] && fpath=($HOME/.zsh/zsh-completions/src $fpath)
