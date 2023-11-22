@@ -42,10 +42,7 @@ case "$(uname)" in
     ;;
 esac
 
-#if which brew > /dev/null && brew --prefix coreutils > /dev/null; then
-#  export PATH="`brew --prefix coreutils`/libexec/gnubin:$PATH"
-#  export MANPATH="`brew --prefix coreutils`/libexec/gnuman:$MANPATH"
-#fi
+export PATH="${HOME}/bin:${PATH}"
 
 export GOPATH=$HOME/.go
 
