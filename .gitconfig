@@ -10,6 +10,7 @@
     st = status --short -b
     co = checkout --recurse-submodules
     f = fetch -p
+    ac = !git add -A && aicommits -a
     com = commit -sv
     acommit = commit -asv
     amend = commit -a --amend --no-edit
