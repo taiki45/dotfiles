@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -e -o pipefail
+
+# Delete squash-merged branches
+# https://github.com/not-an-aardvark/git-delete-squashed
+
+target_branch="$(git branch -l master main | perl -pe 's/^\*?\s+//')"
+
+git checkout -q "${target_branch}"
+for branch in $(git for-each-ref refs/heads/ '--format=%(refname:short)'); do
+  merge_base="$(git merge-base "${target_branch}" "${branch}")"
+  branch_tree="$(git rev-parse "${branch}^{tree}")"
+  message='_'
+  commit="$(git commit-tree "${branch_tree}" -p "${merge_base}" -m "${message}")"
+
+  if [[ "$(git cherry "${target_branch}" "${commit}")" == "-"* ]]; then
+    git branch -D "${branch}"
+  fi
+done
