@@ -13,9 +13,9 @@ git fetch --prune --all
 git rebase --autostash "${default_remote}/${main_branch}" "${main_branch}"
 
 # Delete merged branches
-bs=$(git branch --merged |grep -v "${main_branch}" || true)
-if [ ! "${bs}" = "" ]; then
-  git branch -d "${bs}"
+read -ra bs <<<"$(git branch --merged | grep -v "${main_branch}")"
+if [ ${#bs[@]} -ne 0 ]; then
+  git branch -d "${bs[@]}"
 fi
 
 # Delete squash-merged branches
