@@ -49,15 +49,15 @@ export GOPATH=$HOME/.go
 export PATH=$HOME/.dotfiles/bin:$PATH
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 export PATH=$HOME/.cabal/bin:$PATH
-if [ -f $HOME/.cargo/env ]; then
-    source $HOME/.cargo/env
-fi
-
 export XDG_CONFIG_HOME=~/.config
 
 if [ -d ~/.rbenv ]; then
     export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
     eval "$(rbenv init - $SHELL)"
+fi
+
+if [ -f $HOME/.cargo/env ]; then
+    source $HOME/.cargo/env
 fi
 
 if [ -f ~/.local/.zshenv ]; then

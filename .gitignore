@@ -32,6 +32,7 @@ examples.txt
 .python-version
 .ruby-version
 .env
+.env*
 *.pem
 
 .vscode

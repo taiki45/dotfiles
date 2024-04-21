@@ -10,7 +10,7 @@
     st = status --short -b
     co = checkout --recurse-submodules
     f = fetch -p
-    ac = !git add -A && aicommits -a
+    ac = commit -asv --fixup=HEAD
     com = commit -sv
     acommit = commit -asv
     amend = commit -a --amend --no-edit
@@ -34,7 +34,9 @@
     b = branch --sort=-authordate
 [core]
     excludesfile = ~/.gitignore
-    autocrlf = input
+  autocrlf = input
+[fetch]
+  parallel = 0
 [tig "bind"]
     generic = g move-first-line
     generic = G move-last-line
