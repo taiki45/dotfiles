@@ -39,6 +39,8 @@ case "$(uname)" in
         eval "$(ssh-agent -s -a ${SSH_AUTH_SOCK})"
       fi
     fi
+
+    eval "$(atuin init zsh --disable-up-arrow)"
     ;;
 esac
 
@@ -377,7 +379,7 @@ function peco-select-history() {
     zle clear-screen
 }
 zle -N peco-select-history
-bindkey '^r' peco-select-history
+#bindkey '^r' peco-select-history
 setopt hist_ignore_all_dups
 
 #function peco-find-file() {
