@@ -9,6 +9,7 @@
     cloen = clone
     st = status --short -b
     co = checkout --recurse-submodules
+    sw = switch --recurse-submodules
     f = fetch -p
     ac = commit -asv --fixup=HEAD
     com = commit -sv
