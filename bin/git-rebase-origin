@@ -1,0 +1,4 @@
+#!/bin/bash
+
+main_branch="$(git branch -l main master | perl -pe 's/^\*?\s+//')"
+git rebase -i --autosquash "origin/${main_branch}"
