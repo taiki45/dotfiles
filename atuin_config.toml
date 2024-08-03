@@ -23,7 +23,7 @@
 # timezone = "local"
 
 ## enable or disable automatic sync
-# auto_sync = true
+auto_sync = false
 
 ## enable or disable automatic update checks
 # update_check = true
@@ -38,7 +38,7 @@
 
 ## which search mode to use
 ## possible values: prefix, fulltext, fuzzy, skim
-# search_mode = "fuzzy"
+search_mode = "fulltext"
 
 ## which filter mode to use
 ## possible values: global, host, session, directory
@@ -71,7 +71,7 @@ invert = true
 
 ## enable or disable showing a preview of the selected command
 ## useful when the command is longer than the terminal width and is cut off
-# show_preview = false
+show_preview = true
 
 ## what to do when the escape key is pressed when searching
 ## possible values: return-original, return-query
@@ -115,7 +115,7 @@ invert = true
 ## Configure the maximum height of the preview to show.
 ## Useful when you have long scripts in your history that you want to distinguish
 ## by more than the first few lines.
-# max_preview_height = 4
+max_preview_height = 4
 
 ## Configure whether or not to show the help row, which includes the current Atuin
 ## version (and whether an update is available), a keymap hint, and the total
@@ -135,7 +135,7 @@ show_help = true
 
 ## Defaults to true. If enabled, upon hitting enter Atuin will immediately execute the command. Press tab to return to the shell and edit.
 # This applies for new installs. Old installs will keep the old behaviour unless configured otherwise.
-enter_accept = true
+enter_accept = false
 
 ## Defaults to "emacs".  This specifies the keymap on the startup of `atuin
 ## search`.  If this is set to "auto", the startup keymap mode in the Atuin

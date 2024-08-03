@@ -27,7 +27,7 @@ case "$(uname)" in
   "Darwin")
     export PATH="/sbin:${PATH}"
 
-    export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+    export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
     export PATH="${HOME}/Library/Python/3.7/bin:${PATH}"
     export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:${PATH}"
     export LS_COLORS="di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32";
@@ -81,18 +81,6 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 bindkey -e
 
 ## Functions
-func gorun() {
-    local name="go-tmp-build-$RANDOM"
-    go build -o $name
-    ./$name
-    rm ./$name
-}
-
-func rustr() {
-    (rustc -o temp_rust_runfile $* && ./temp_rust_runfile)
-    rm -f ./temp_rust_runfile
-}
-
 function ghqcd() {
     cd $(ghq list -p | peco --query=$@)
 }
@@ -403,7 +391,3 @@ function peco-buffer() {
 }
 zle -N peco-buffer
 bindkey "^q" peco-buffer
-
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/taiki/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
