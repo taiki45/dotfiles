@@ -6,10 +6,10 @@ alias gt='git'
 alias gcd='cd `git rev-parse --show-toplevel`'
 alias jqc='jq -C . |less -R'
 
-if [[ "$(command -v exa)" ]]; then
-  alias ls='exa'
-  alias la='exa -a'
-  alias ll='exa -aal'
-  alias lt='exa -T -L 3 -a -I "node_modules|.git|.cache"'
-  alias lta='exa -T -a -I "node_modules|.git|.cache" --color=always | less -r'
+if [[ "$(command -v eza)" ]]; then
+  alias ls='eza'
+  alias la='eza -a'
+  alias ll='eza -aal'
+  alias lt='eza -T -L 3 -a -I "node_modules|.git|.cache"'
+  alias lta='eza -T -a -I "node_modules|.git|.cache" --color=always | less -r'
 fi
