@@ -3,7 +3,7 @@ set -e -o pipefail
 
 git stash -u
 
-main_branch="$(git branch -l master main | perl -pe 's/^\*?\s+//')"
+main_branch="$(git branch -l master main develop devel release | perl -pe 's/^\*?\s+//')"
 default_remote='origin'
 
 git checkout -q "${main_branch}"
