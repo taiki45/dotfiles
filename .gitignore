@@ -13,6 +13,7 @@ Icon
 tmp
 tags
 *.tags
+memo.md
 
 # for Haskell
 .cabal-sandbox
