@@ -61,7 +61,7 @@
 [url "git@github.com:"]
     insteadOf = https://github.com/
 [ghq]
-    root = ~/.ghq
+    root = ~/src
 [merge "mergepbx"]
   name = Xcode project files merger
   driver = mergepbx %O %A %B
