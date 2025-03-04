@@ -1,3 +1,51 @@
+[core]
+    excludesfile = ~/.gitignore
+    autocrlf = input
+[url "git@github.com:"]
+    insteadOf = https://github.com/
+[include]
+    path = ~/.gitconfig.local
+[init]
+	defaultBranch = main
+[advice]
+	skippedCherryPicks = false
+
+[branch]
+    autosetupmerge = true
+    autosetuprebase = always
+	sort = -committerdate
+[commit]
+	gpgsign = true
+    verbose = true
+[diff]
+    algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
+[fetch]
+    parallel = 0
+	prune = true
+	pruneTags = true
+[help]
+	autocorrect = prompt
+[merge]
+	conflictstyle = zdiff3
+[pull]
+    rebase = true
+[push]
+    default = tracking
+	autoSetupRemote = true
+	followTags = true
+[rebase]
+    autostash = true
+    autosquash = true
+	updateRefs = true
+[rerere]
+	enabled = true
+	autoupdate = true
+[tag]
+	sort = version:refname
+
 [color]
     status = auto
     diff = auto
@@ -5,6 +53,13 @@
     ui = auto
     interactive = auto
     grep = auto
+[column]
+	ui = auto
+[pager]
+    log = diff-highlight | less -R -+X -+F
+    show = diff-highlight | less -R -+F
+    diff = diff-highlight | less -R -+F
+
 [alias]
     cloen = clone
     st = status --short -b
@@ -33,44 +88,9 @@
     diffword = diff --word-diff
     logworddiff = log -p --word-diff
     b = branch --sort=-authordate
-[core]
-    excludesfile = ~/.gitignore
-  autocrlf = input
-[fetch]
-  parallel = 0
+
 [tig "bind"]
     generic = g move-first-line
     generic = G move-last-line
-[diff]
-    algorithm = histogram
-[branch]
-    autosetupmerge = true
-    autosetuprebase = always
-[push]
-    default = tracking
-[pull]
-    rebase = true
-[rebase]
-    autostash = true
-    autosquash = true
-	updateRefs = true
-[pager]
-    log = diff-highlight | less -R -+X -+F
-    show = diff-highlight | less -R -+F
-    diff = diff-highlight | less -R -+F
-[url "git@github.com:"]
-    insteadOf = https://github.com/
 [ghq]
     root = ~/src
-[merge "mergepbx"]
-  name = Xcode project files merger
-  driver = mergepbx %O %A %B
-	note = auto-generated configuration by cpad2 upgrade
-[commit]
-	gpgsign = true
-[include]
-    path = ~/.gitconfig.local
-[init]
-	defaultBranch = main
-[advice]
-	skippedCherryPicks = false
