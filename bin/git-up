@@ -1,20 +1,47 @@
 #!/bin/bash
 set -e -o pipefail
 
-git stash -u
+# Check if in detached HEAD state
+if ! git symbolic-ref -q HEAD >/dev/null; then
+  echo "Error: Repository is in detached HEAD state. Please checkout a branch first." >&2
+  exit 1
+fi
 
-main_branch="$(git branch -l develop development devel release master main | head -n 1 | perl -pe 's/^\*?\s+//')"
+# Save current branch
+current_branch="$(git symbolic-ref --short HEAD)"
+
 default_remote='origin'
 
-git checkout -q "${main_branch}"
+# Try to get default branch from remote HEAD first (most reliable)
+remote_head="$(git symbolic-ref refs/remotes/${default_remote}/HEAD 2>/dev/null || echo "")"
+if [[ -n "${remote_head}" ]]; then
+  main_branch="$(echo "${remote_head}" | sed "s/refs\/remotes\/${default_remote}\///")"
+else
+  # Try to get default branch from git remote show command
+  main_branch="$(git remote show "${default_remote}" 2>/dev/null | grep "HEAD branch" | sed "s/.*: //")"
+
+  # If still no main branch found, fall back to checking common branch names
+  if [[ -z "${main_branch}" ]]; then
+    main_branch="$(git branch -l develop development devel release master main | head -n 1 | perl -pe 's/^\*?\s+//')"
+  fi
+fi
+
+# If still no main branch found, exit with error
+if [[ -z "${main_branch}" ]]; then
+  echo "Error: Could not determine default branch" >&2
+  exit 1
+fi
+
+echo "Using default branch: ${main_branch}"
 
 # Update main branch
+echo "Fetching..."
 git fetch --prune --all
 git rebase --autostash "${default_remote}/${main_branch}" "${main_branch}"
 
 # Delete merged branches
 read -ra bs <<<"$(git branch --merged | grep -v "${main_branch}")"
-if [ ${#bs[@]} -ne 0 ]; then
+if [[ "${#bs[@]}" -ne 0 ]]; then
   git branch -d "${bs[@]}"
 fi
 
@@ -30,3 +57,9 @@ for branch in $(git for-each-ref refs/heads/ '--format=%(refname:short)'); do
     git branch -D "${branch}"
   fi
 done
+
+# Rebase current branch onto main branch if they are different
+if [[ "${current_branch}" != "${main_branch}" ]]; then
+  echo "Rebasing ${current_branch} onto ${main_branch}"
+  git rebase --autostash "${main_branch}" "${current_branch}"
+fi
