@@ -58,8 +58,10 @@ for branch in $(git for-each-ref refs/heads/ '--format=%(refname:short)'); do
   fi
 done
 
-# Rebase current branch onto main branch if they are different
-if [[ "${current_branch}" != "${main_branch}" ]]; then
+# Rebase current branch onto main branch if they are different and still exists
+if [[ "${current_branch}" != "${main_branch}" ]] && git show-ref --verify --quiet "refs/heads/${current_branch}"; then
   echo "Rebasing ${current_branch} onto ${main_branch}"
   git rebase --autostash "${main_branch}" "${current_branch}"
+elif [[ "${current_branch}" != "${main_branch}" ]]; then
+  echo "Current branch ${current_branch} no longer exists, staying on ${main_branch}"
 fi
