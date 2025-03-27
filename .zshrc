@@ -11,7 +11,7 @@ if [ -d /opt/local ]; then
     export SHELL=/opt/local/bin/zsh
 elif [ -f /opt/homebrew/bin/zsh ]; then
     export SHELL=/opt/homebrew/bin/zsh
-    export PATH=/opt/homebrew/bin:$HOME/.rd/bin:$PATH
+    export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
 elif [ -f /usr/local/bin/zsh ]; then
     export SHELL=/usr/local/bin/zsh
 elif [ -f /bin/zsh ]; then
@@ -238,7 +238,7 @@ case ${UID} in
     PROMPT="%B%{[31m%}%/#%{[m%}%b "
     PROMPT2="%B%{[31m%}%_#%{[m%}%b "
     SPROMPT="${YELLOW} correct:${GREEN} %R ${CYAN}=> ${YELLOW} %r? ${CYAN}[y,n,a,e]:${RESET} "
-    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
+    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
         PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
     ;;
 *)
