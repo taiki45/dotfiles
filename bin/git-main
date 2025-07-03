@@ -1,0 +1,28 @@
+#!/bin/bash
+set -e -o pipefail
+
+# Output remote default branch name
+
+default_remote='origin'
+
+# Try to get default branch from remote HEAD first (most reliable)
+remote_head="$(git symbolic-ref refs/remotes/${default_remote}/HEAD 2>/dev/null || echo "")"
+if [[ -n "${remote_head}" ]]; then
+  main_branch="$(echo "${remote_head}" | sed "s/refs\/remotes\/${default_remote}\///")"
+else
+  # Try to get default branch from git remote show command
+  main_branch="$(git remote show "${default_remote}" 2>/dev/null | grep "HEAD branch" | sed "s/.*: //")"
+
+  # If still no main branch found, fall back to checking common branch names
+  if [[ -z "${main_branch}" ]]; then
+    main_branch="$(git branch -l develop development devel release master main | head -n 1 | perl -pe 's/^\*?\s+//')"
+  fi
+fi
+
+# If still no main branch found, exit with error
+if [[ -z "${main_branch}" ]]; then
+  echo "Error: Could not determine default branch" >&2
+  exit 1
+fi
+
+echo "${main_branch}"
