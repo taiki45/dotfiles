@@ -41,6 +41,8 @@ case "$(uname)" in
     fi
 
     eval "$(atuin init zsh --disable-up-arrow)"
+
+    export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
     ;;
 esac
 
@@ -412,3 +414,5 @@ function peco-cdr() {
 }
 zle -N peco-cdr
 bindkey "^o" peco-cdr
+
+alias claude="/Users/taiki/.claude/local/claude"
