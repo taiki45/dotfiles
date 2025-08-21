@@ -47,6 +47,7 @@ case "$(uname)" in
 esac
 
 export PATH="${HOME}/bin:${PATH}"
+export PATH="${HOME}/.local/bin:${PATH}"
 
 export GOPATH=$HOME/.go
 
@@ -81,6 +82,9 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 ## General
 # Emacs like key bind
 bindkey -e
+
+# Don't match globs
+setopt no_nomatch
 
 ## Functions
 function ghqcd() {
@@ -414,5 +418,3 @@ function peco-cdr() {
 }
 zle -N peco-cdr
 bindkey "^o" peco-cdr
-
-alias claude="/Users/taiki/.claude/local/claude"
