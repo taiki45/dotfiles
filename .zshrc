@@ -77,6 +77,8 @@ if [ -f "${HOME}/.local/google-cloud-sdk/completion.zsh.inc" ]; then . "${HOME}/
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
+export PATH="${HOME}/.claude/local:${PATH}"
+
 ## .zshrc
 
 ## General
