@@ -69,12 +69,6 @@ if [ -f ~/.local/.zshenv ]; then
     source ~/.local/.zshenv
 fi
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f "${HOME}/.local/google-cloud-sdk/path.zsh.inc" ]; then . "${HOME}/.local/google-cloud-sdk/path.zsh.inc"; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f "${HOME}/.local/google-cloud-sdk/completion.zsh.inc" ]; then . "${HOME}/.local/google-cloud-sdk/completion.zsh.inc"; fi
-
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 export PATH="${HOME}/.claude/local:${PATH}"
@@ -420,3 +414,9 @@ function peco-cdr() {
 }
 zle -N peco-cdr
 bindkey "^o" peco-cdr
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/onotaiki/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/onotaiki/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/onotaiki/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/onotaiki/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
