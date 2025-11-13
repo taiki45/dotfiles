@@ -4,8 +4,11 @@ alias g='git'
 alias gti='git'
 alias gt='git'
 alias gcd='cd `git rev-parse --show-toplevel`'
-alias ghqget='ghq get --shallow'
+alias ghqget='ghq get --shallow --no-recursive'
 alias jqc='jq -C . |less -R'
+alias k='kubectl'
+alias kc='kubectx'
+alias kn='kubens'
 
 if [[ "$(command -v eza)" ]]; then
   alias ls='eza'

@@ -1,4 +1,0 @@
-:set prompt "\ESC[33m%s > \ESC[m"
-#{--:set prompt "\ESC[0;30;42m%s \ESC[0;32;40m⮀\ESC[m "--}
-#{--:set prompt "\ESC[0;30;43m%s \ESC[0;33;40m⮀\ESC[m "--}
-#{--:set prompt "\ESC[38;5;58m\ESC[48;05;178m λ \ESC[38;05;178m\ESC[48;05;101m⮀\ESC[38;05;101m\ESC[48;05;240m⮀\ESC[38;05;240m\ESC[48;05;0m⮀\ESC[m "--}
