@@ -25,3 +25,6 @@
 [submodule ".zsh/zsh-history-substring-search"]
 	path = .zsh/zsh-history-substring-search
 	url = git@github.com:zsh-users/zsh-history-substring-search
+[submodule ".zsh/zsh-kubectl-prompt"]
+	path = .zsh/zsh-kubectl-prompt
+	url = git@github.com:superbrothers/zsh-kubectl-prompt.git

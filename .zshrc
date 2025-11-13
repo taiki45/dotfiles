@@ -220,6 +220,8 @@ fi
 
 precmd () { vcs_info }
 
+source ~/.dotfiles/.zsh/zsh-kubectl-prompt/kubectl.zsh
+
 ## Set prompt
 setopt prompt_subst
 autoload -Uz colors
@@ -255,7 +257,7 @@ case ${UID} in
     WHITE="%{${fg[white]}%}"
 
     PROMPT='
-${BLUE}%(10~,%-2~/.../%2~,%~) ${BLUE}[%*] ${vcs_info_msg_0_} ${MAGENTA}${AWS_VAULT}
+${BLUE}%(10~,%-2~/.../%2~,%~) ${BLUE}[%*] ${vcs_info_msg_0_} ${MAGENTA}${ZSH_KUBECTL_PROMPT}
 %(?,${GREEN}$,${RED}$)${RESET} '
     PROMPT2="${CYAN}[%_%%]${RESET} > "
     SPROMPT="${CYAN}correct: ${RED}%R ${CYAN}=> ${GREEN}%r ${CYAN}? [y,n,a,e]${RESET} > "
