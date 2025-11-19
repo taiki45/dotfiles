@@ -257,7 +257,7 @@ case ${UID} in
     WHITE="%{${fg[white]}%}"
 
     PROMPT='
-${BLUE}%(10~,%-2~/.../%2~,%~) ${BLUE}[%*] ${vcs_info_msg_0_}${MAGENTA}${ZSH_KUBECTL_PROMPT}${RESET}
+${BLUE}%(10~,%-2~/.../%2~,%~) ${BLUE}[%*] ${vcs_info_msg_0_} ${MAGENTA}${ZSH_KUBECTL_PROMPT}${RESET}
 %(?,${GREEN}$,${RED}$)${RESET} '
     PROMPT2="${CYAN}[%_%%]${RESET} > "
     SPROMPT="${CYAN}correct: ${RED}%R ${CYAN}=> ${GREEN}%r ${CYAN}? [y,n,a,e]${RESET} > "
@@ -417,8 +417,9 @@ function peco-cdr() {
 zle -N peco-cdr
 bindkey "^o" peco-cdr
 
+
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/onotaiki/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/onotaiki/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/onotaiki/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/onotaiki/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/onotaiki/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/onotaiki/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/Users/onotaiki/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/onotaiki/google-cloud-sdk/completion.zsh.inc'; fi
