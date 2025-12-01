@@ -9,6 +9,7 @@ alias jqc='jq -C . |less -R'
 alias k='kubectl'
 alias kc='kubectx'
 alias kn='kubens'
+alias kd='kubectl describe'
 
 if [[ "$(command -v eza)" ]]; then
   alias ls='eza'
