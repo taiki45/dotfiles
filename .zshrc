@@ -423,3 +423,6 @@ if [ -f '/Users/onotaiki/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/onotai
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/onotaiki/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/onotaiki/google-cloud-sdk/completion.zsh.inc'; fi
+
+# For VPN environment
+export ARGOCD_GRPC_WEB=true
