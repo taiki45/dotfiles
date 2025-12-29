@@ -5,6 +5,8 @@
     insteadOf = https://github.com/
 [include]
     path = ~/.gitconfig.local
+[includeIf "gitdir:~/src/github.com/taiki45/"]
+    path = ~/.gitconfig.taiki45
 [init]
 	defaultBranch = main
 [advice]
