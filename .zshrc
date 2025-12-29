@@ -256,8 +256,13 @@ case ${UID} in
     MAGENTA="%{${fg[magenta]}%}"
     WHITE="%{${fg[white]}%}"
 
+    # Only show k8s context in work directory to avoid leaking cluster names in public recordings
+    # Set K8S_PROMPT_WORK_DIR in ~/.local/.zshenv (e.g. K8S_PROMPT_WORK_DIR="$HOME/src/github.com/mycompany")
+    function _k8s_prompt() {
+        [[ -n "$K8S_PROMPT_WORK_DIR" && "$PWD" == "$K8S_PROMPT_WORK_DIR"* ]] && echo "$ZSH_KUBECTL_PROMPT"
+    }
     PROMPT='
-${BLUE}%(10~,%-2~/.../%2~,%~) ${BLUE}[%*] ${vcs_info_msg_0_} ${MAGENTA}${ZSH_KUBECTL_PROMPT}${RESET}
+${BLUE}%(10~,%-2~/.../%2~,%~) ${BLUE}[%*] ${vcs_info_msg_0_} ${MAGENTA}$(_k8s_prompt)${RESET}
 %(?,${GREEN}$,${RED}$)${RESET} '
     PROMPT2="${CYAN}[%_%%]${RESET} > "
     SPROMPT="${CYAN}correct: ${RED}%R ${CYAN}=> ${GREEN}%r ${CYAN}? [y,n,a,e]${RESET} > "
