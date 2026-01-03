@@ -41,7 +41,7 @@ examples.txt
 
 .claude
 CLAUDE.local.md
-kube-context
+.kube-context
 
 # Added by cargo
 
