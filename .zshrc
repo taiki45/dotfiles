@@ -259,8 +259,11 @@ case ${UID} in
 
     # Only show k8s context in work directory to avoid leaking cluster names in public recordings
     # Set K8S_PROMPT_WORK_DIR in ~/.local/.zshenv (e.g. K8S_PROMPT_WORK_DIR="$HOME/src/github.com/mycompany")
+    # Also show if kube-context file exists in current directory
     function _k8s_prompt() {
-        [[ -n "$K8S_PROMPT_WORK_DIR" && "$PWD" == "$K8S_PROMPT_WORK_DIR"* ]] && echo "$ZSH_KUBECTL_PROMPT"
+        if [[ -n "$K8S_PROMPT_WORK_DIR" && "$PWD" == "$K8S_PROMPT_WORK_DIR"* ]] || [[ -f "$PWD/kube-context" ]]; then
+            echo "$ZSH_KUBECTL_PROMPT"
+        fi
     }
     PROMPT='
 ${BLUE}%(10~,%-2~/.../%2~,%~) ${BLUE}[%*] ${vcs_info_msg_0_} ${MAGENTA}$(_k8s_prompt)${RESET}
