@@ -96,6 +96,7 @@ export FZF_DEFAULT_OPTS='--layout=reverse'
 
 ## Complettion
 # Set fpath
+[ -d /opt/homebrew/share/zsh/site-functions ] && fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
 [ -d $HOME/.zsh/zsh-completions/src ] && fpath=($HOME/.zsh/zsh-completions/src $fpath)
 
 # Enable completions
