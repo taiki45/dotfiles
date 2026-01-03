@@ -7,6 +7,8 @@
     path = ~/.gitconfig.local
 [includeIf "gitdir:~/src/github.com/taiki45/"]
     path = ~/.gitconfig.taiki45
+[includeIf "gitdir:~/tmp/"]
+    path = ~/.gitconfig.taiki45
 [init]
 	defaultBranch = main
 [advice]
