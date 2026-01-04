@@ -13,7 +13,7 @@ customCommands:
         title: "commit message prompt"
         key: "Draft"
     command: |
-      claude -p "Generate a commit message based on the draft and diff below. Rules: Write in English. Focus on WHY not WHAT (the diff shows what changed). Prioritize product context over code-level details. No conventional commit prefixes (fix:, feat:, etc.). No 'Generated with' footer or Co-Authored-By. Output only the message.\n\nDraft: {{.Form.Draft}}\n\nDiff:\n$(git diff --staged)" > /tmp/commit_msg && git commit -e -S -s -F /tmp/commit_msg
+      claude -p "Generate a commit message based on the draft and diff below. Rules: Write in English. Subject line max 50 chars, no period at end. If body needed, separate with blank line and wrap at 72 chars. Focus on WHY not WHAT. No conventional commit prefixes (fix:, feat:, etc.). No footer or Co-Authored-By. Output only the message.\n\nDraft: {{.Form.Draft}}\n\nDiff:\n$(git diff --staged)" > /tmp/commit_msg && git commit -e -S -s -F /tmp/commit_msg
     output: terminal
 gui:
   scrollHeight: 30
