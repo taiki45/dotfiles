@@ -1,0 +1,29 @@
+#!/bin/bash
+
+set -euo pipefail
+
+# Check if there are staged changes
+if git diff --staged --quiet; then
+    echo "No staged changes. Stage some changes first with 'git add'." >&2
+    exit 1
+fi
+
+# Get draft message from argument or prompt
+draft="${1:-}"
+if [[ -z "$draft" ]]; then
+    read -rp "Prompt for commit message draft: " draft
+fi
+
+# Generate commit message using Claude
+commit_msg=$(claude -p "Generate a commit message based on the draft and diff below. Rules: Write in English. Subject line max 50 chars, no period at end. If body needed, separate with blank line and wrap at 72 chars. Focus on WHY not WHAT. No conventional commit prefixes (fix:, feat:, etc.). No footer or Co-Authored-By. Output only the message.
+
+Draft: ${draft}
+
+Diff:
+$(git diff --staged)")
+
+# Write to temp file with automatic cleanup and open editor for final review
+tmpfile=$(mktemp)
+trap 'rm -f "$tmpfile"' EXIT
+echo "$commit_msg" > "$tmpfile"
+git commit -e -S -s -F "$tmpfile"
