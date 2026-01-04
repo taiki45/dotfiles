@@ -3,6 +3,8 @@ keybinding:
     focusMainView: '<tab>'
     nextBlock-alt2: <disabled>
 promptToReturnFromSubprocess: false
+git:
+  overrideGpg: true
 customCommands:
   - key: "<c-a>"
     context: "files"
