@@ -4,23 +4,20 @@ keybinding:
     nextBlock-alt2: <disabled>
 promptToReturnFromSubprocess: false
 customCommands:
-  - key: "A"
+  - key: "<c-a>"
     context: "files"
     description: "AI commit with draft"
-    loadingText: "Generating commit message..."
+    loadingText: "Generating message and committing..."
     prompts:
       - type: "input"
         title: "Prompt for commit message draft"
         key: "Draft"
     command: "git ai --skip-read {{.Form.Draft | quote}}"
-    output: terminal
-    showInFooter: true
   - key: "U"
     context: "localBranches"
     description: "git-up"
     loadingText: "Running git-up..."
     command: "git-up"
-    showInFooter: true
 gui:
   scrollHeight: 30
   authorColors:
