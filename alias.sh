@@ -1,3 +1,4 @@
+# shellcheck disable=SC2148
 alias ll='ls -l'
 alias be='bundle exec'
 alias g='git'
