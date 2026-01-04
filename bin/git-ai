@@ -37,8 +37,5 @@ Draft: ${draft}
 Diff:
 $(git diff --staged)")
 
-# Write to temp file with automatic cleanup and open editor for final review
-tmpfile=$(mktemp)
-trap 'rm -f "$tmpfile"' EXIT
-echo "$commit_msg" > "$tmpfile"
-git commit -e -S -s -F "$tmpfile"
+# Commit directly without opening editor (using stdin to handle multiline messages safely)
+printf '%s' "$commit_msg" | git commit -S -s -F -
