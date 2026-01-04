@@ -22,19 +22,11 @@ set backspace=indent,eol,start
 set ignorecase
 set smartcase
 
-"setting for crontab
-set backupskip=/tmp/*,/private/tmp/*
-
-
 "set status lines
 set laststatus=2
 set statusline=%<%F\ %r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%4v(ASCII=%03.3b,HEX=%02.2B)\ %l/%L(%P)%m
 "show command in status line
 set showcmd
-
-"set backup & backup dir
-set backup
-set backupdir=~/.vim/backups/
 
 "set swap file dir
 set noswapfile
@@ -125,3 +117,6 @@ set hlsearch
 
 "search when as soon as you tyoed
 set incsearch
+
+" Colorscheme
+"colorscheme jellybeans

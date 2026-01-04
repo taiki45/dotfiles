@@ -4,7 +4,7 @@ set nocompatible
 set t_Co=256
 
 source ~/.dotfiles/basic.vimrc
-source ~/.dotfiles/bundle.vimrc
+"source ~/.dotfiles/bundle.vimrc
 source ~/.dotfiles/remap.vimrc
 
 "auto reload when overwitten in other

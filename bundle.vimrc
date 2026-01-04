@@ -174,12 +174,6 @@ call neobundle#end()
 filetype plugin indent on     " Required!
 NeoBundleCheck
 
-
-" =============================================
-" Colorscheme
-colorscheme jellybeans
-
-
 "================================================
 " neocomplcache SETUP
 
