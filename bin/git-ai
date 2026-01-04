@@ -8,9 +8,24 @@ if git diff --staged --quiet; then
     exit 1
 fi
 
-# Get draft message from argument or prompt
-draft="${1:-}"
-if [[ -z "$draft" ]]; then
+# Parse arguments
+skip_read=false
+draft=""
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        --skip-read|-s)
+            skip_read=true
+            shift
+            ;;
+        *)
+            draft="$1"
+            shift
+            ;;
+    esac
+done
+
+# Get draft message from prompt if not provided and not skipping
+if [[ -z "$draft" ]] && [[ "$skip_read" == false ]]; then
     read -rp "Prompt for commit message draft: " draft
 fi
 

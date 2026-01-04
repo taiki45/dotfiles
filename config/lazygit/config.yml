@@ -12,13 +12,15 @@ customCommands:
       - type: "input"
         title: "Prompt for commit message draft"
         key: "Draft"
-    command: "git ai {{.Form.Draft | quote}}"
+    command: "git ai --skip-read {{.Form.Draft | quote}}"
     output: terminal
+    showInFooter: true
   - key: "U"
     context: "localBranches"
-    description: "git-up (fetch and rebase onto upstream)"
+    description: "git-up"
     loadingText: "Running git-up..."
     command: "git-up"
+    showInFooter: true
 gui:
   scrollHeight: 30
   authorColors:
