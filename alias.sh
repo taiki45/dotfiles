@@ -10,6 +10,7 @@ alias k='kubectl'
 alias kc='kubectx'
 alias kn='kubens'
 alias kd='kubectl describe'
+alias yless='jless --yaml'
 
 if [[ "$(command -v eza)" ]]; then
   alias ls='eza'
