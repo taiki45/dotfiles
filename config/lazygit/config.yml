@@ -33,6 +33,7 @@ keybinding:
   universal:
     focusMainView: '<tab>'
     nextBlock-alt2: <disabled>
+promptToReturnFromSubprocess: false
 customCommands:
   - key: "A"
     context: "files"
