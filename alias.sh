@@ -11,6 +11,7 @@ alias kc='kubectx'
 alias kn='kubens'
 alias kd='kubectl describe'
 alias yless='jless --yaml'
+alias lg='lazygit'
 
 if [[ "$(command -v eza)" ]]; then
   alias ls='eza'
