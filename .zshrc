@@ -204,7 +204,7 @@ if is-at-least 4.3.10; then
   zstyle ':vcs_info:git:*' check-for-changes true
   zstyle ':vcs_info:git:*' stagedstr '%F{2}M%f'
   zstyle ':vcs_info:git:*' unstagedstr '%F{3}M%f'
-  zstyle ':vcs_info:git:*' formats '%F{6}%b %c%u'
+  zstyle ':vcs_info:git:*' formats '%F{6}%b %c%u '
   zstyle ':vcs_info:git:*' actionformats '%F{2}%b%F{3}|%F{1}%a%f '
   zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
 fi
@@ -254,15 +254,37 @@ case ${UID} in
     MAGENTA="%{${fg[magenta]}%}"
     WHITE="%{${fg[white]}%}"
 
-    # Only show k8s context in work directory to avoid leaking cluster names in public recordings
+    # Only show k8s context and gcloud project in work directory to avoid leaking names in public recordings
     # Also show if .kube-context file exists in current directory
+    function _env_color() {
+        local value="$1"
+        if [[ "$value" == *prod* ]]; then
+            echo "${RED}"
+        elif [[ "$value" == *staging* ]]; then
+            echo "${YELLOW}"
+        elif [[ "$value" == *dev* ]]; then
+            echo "${GREEN}"
+        else
+            echo "${CYAN}"
+        fi
+    }
     function _k8s_prompt() {
         if [[ "$PWD" == "$HOME/src/github.com/enechain"* ]] || [[ -f "$PWD/.kube-context" ]]; then
-            echo "$ZSH_KUBECTL_PROMPT"
+            if [[ -n "$ZSH_KUBECTL_PROMPT" ]]; then
+                echo "$(_env_color "$ZSH_KUBECTL_PROMPT")$ZSH_KUBECTL_PROMPT "
+            fi
+        fi
+    }
+    function _gcloud_prompt() {
+        if [[ "$PWD" == "$HOME/src/github.com/enechain"* ]] || [[ -f "$PWD/.kube-context" ]]; then
+            local project=$(gcloud config get-value project 2>/dev/null)
+            if [[ -n "$project" ]]; then
+                echo "$(_env_color "$project")$project "
+            fi
         fi
     }
     PROMPT='
-${BLUE}%(10~,%-2~/.../%2~,%~) ${BLUE}[%*] ${vcs_info_msg_0_} ${MAGENTA}$(_k8s_prompt)${RESET}
+${BLUE}%(10~,%-2~/.../%2~,%~) ${BLUE}[%*] ${vcs_info_msg_0_}$(_k8s_prompt)$(_gcloud_prompt)${RESET}
 %(?,${GREEN}$,${RED}$)${RESET} '
     PROMPT2="${CYAN}[%_%%]${RESET} > "
     SPROMPT="${CYAN}correct: ${RED}%R ${CYAN}=> ${GREEN}%r ${CYAN}? [y,n,a,e]${RESET} > "
