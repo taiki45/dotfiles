@@ -277,10 +277,21 @@ case ${UID} in
     }
     function _gcloud_prompt() {
         if [[ "$PWD" == "$HOME/src/github.com/enechain"* ]] || [[ -f "$PWD/.kube-context" ]]; then
-            local project=$(gcloud config get-value project 2>/dev/null)
+            local project=$(_get_gcloud_project)
             if [[ -n "$project" ]]; then
                 echo "$(_env_color "$project")$project "
             fi
+        fi
+    }
+    function _get_gcloud_project() {
+        local active_config_path="$HOME/.config/gcloud/active_config"
+        local config_name="default"
+        if [[ -f "$active_config_path" ]]; then
+            config_name=$(cat "$active_config_path")
+        fi
+        local config_file="$HOME/.config/gcloud/configurations/config_$config_name"
+        if [[ -f "$config_file" ]]; then
+            sed -n 's/^project = //p' "$config_file"
         fi
     }
     PROMPT='
