@@ -81,7 +81,7 @@ setopt no_nomatch
 
 ## Functions
 function ghqcd() {
-    cd $(ghq list -p | peco --query=$@)
+    cd $({ ghq list -p; echo ~/.dotfiles } | peco --query=$@)
 }
 
 function ghb() {
@@ -464,3 +464,8 @@ if [ -f '/Users/onotaiki/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/
 
 # For VPN environment
 export ARGOCD_GRPC_WEB=true
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/onotaiki/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions

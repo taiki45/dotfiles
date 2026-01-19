@@ -21,6 +21,7 @@ customCommands:
     loadingText: "Running git-up..."
     command: "git-up"
 gui:
+  mouseEvents: false
   scrollHeight: 30
   authorColors:
     'Taiki Ono': 'red'
