@@ -43,6 +43,8 @@ examples.txt
 CLAUDE.local.md
 .kube-context
 
+charts/
+
 # Added by cargo
 
 /target
