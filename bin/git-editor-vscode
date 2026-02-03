@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Open in VS Code and wait until the file is closed
+code --wait --new-window "$@"
+
+# Return focus to iTerm2
+open -a iTerm
