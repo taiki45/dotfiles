@@ -1,17 +1,14 @@
-## .zshenv
+# Env setup here because macOS's pathhelper breaks $PATH orders in .zshenv
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export LESSCHARSET=utf-8
 
 export EDITOR="code --wait --new-window"
 
-export PATH=$PATH:/usr/local/sbin:/usr/sbin:/usr/local/bin
-
 if [ -d /opt/local ]; then
     export SHELL=/opt/local/bin/zsh
 elif [ -f /opt/homebrew/bin/zsh ]; then
     export SHELL=/opt/homebrew/bin/zsh
-    export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
 elif [ -f /usr/local/bin/zsh ]; then
     export SHELL=/usr/local/bin/zsh
 elif [ -f /bin/zsh ]; then
@@ -25,7 +22,7 @@ case "$(uname)" in
     alias ls='ls --color=auto'
     ;;
   "Darwin")
-    export PATH="/sbin:${PATH}"
+    export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
 
     export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
     export PATH="${HOME}/Library/Python/3.7/bin:${PATH}"
@@ -52,7 +49,7 @@ export PATH="${HOME}/.local/bin:${PATH}"
 export GOPATH=$HOME/.go
 
 export PATH=$HOME/.dotfiles/bin:$PATH
-export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+export PATH=$GOPATH/bin:$PATH
 export PATH=$HOME/.cabal/bin:$PATH
 export XDG_CONFIG_HOME=~/.config
 
