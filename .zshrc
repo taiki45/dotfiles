@@ -5,7 +5,7 @@ export LESSCHARSET=utf-8
 
 export EDITOR="code --wait --new-window"
 
-export PATH=/usr/local/sbin:/usr/sbin:/usr/local/bin:$PATH
+export PATH=$PATH:/usr/local/sbin:/usr/sbin:/usr/local/bin
 
 if [ -d /opt/local ]; then
     export SHELL=/opt/local/bin/zsh
