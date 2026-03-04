@@ -60,8 +60,19 @@ done
 
 # Rebase current branch onto main branch if they are different and still exists
 if [[ "${current_branch}" != "${main_branch}" ]] && git show-ref --verify --quiet "refs/heads/${current_branch}"; then
-  echo "Rebasing ${current_branch} onto ${main_branch}"
-  git rebase --autostash "${main_branch}" "${current_branch}"
+  # Check if there are commits that are already in origin/main (e.g., from a merged parent branch in stacked PRs)
+  # git cherry marks commits already in upstream with "-", new commits with "+"
+  # Note: grep returns exit 1 when no match, so we use "|| true" to avoid pipefail
+  last_merged=$(git cherry "${default_remote}/${main_branch}" HEAD 2>/dev/null | { grep '^-' || true; } | tail -1 | awk '{print $2}')
+
+  if [[ -n "$last_merged" ]]; then
+    echo "Detected already-merged commits (stacked PR parent was merged)"
+    echo "Rebasing only new commits from ${current_branch} onto ${default_remote}/${main_branch}"
+    git rebase --autostash --onto "${default_remote}/${main_branch}" "$last_merged"
+  else
+    echo "Rebasing ${current_branch} onto ${main_branch}"
+    git rebase --autostash "${main_branch}" "${current_branch}"
+  fi
 elif [[ "${current_branch}" != "${main_branch}" ]]; then
   echo "Current branch ${current_branch} no longer exists, staying on ${main_branch}"
 fi
