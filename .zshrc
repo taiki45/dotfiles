@@ -67,9 +67,8 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 export PATH="${HOME}/.claude/local:${PATH}"
 
-# Claude Code: use high effort and disable adaptive thinking for deeper reasoning
+# Claude Code: use high effort for deeper reasoning
 export CLAUDE_CODE_EFFORT_LEVEL=high
-export CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING=1
 
 ## .zshrc
 
@@ -454,7 +453,7 @@ function peco-cdr() {
     zle clear-screen
 }
 zle -N peco-cdr
-bindkey "^o" peco-cdr
+bindkey "^o" peco-ghqcd
 
 function peco-ghqcd() {
     local selected_dir=$({ echo ~/src/github.com/enechain; ghq list -p; echo ~/.dotfiles } | peco --query="$LBUFFER")
