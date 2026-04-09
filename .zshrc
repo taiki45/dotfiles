@@ -78,7 +78,7 @@ setopt no_nomatch
 
 ## Functions
 function ghqcd() {
-    cd $({ ghq list -p; echo ~/.dotfiles } | peco --query=$@)
+    cd $({ echo ~/src/github.com/enechain; ghq list -p; echo ~/.dotfiles } | peco --query=$@)
 }
 
 function ghb() {
@@ -451,6 +451,17 @@ function peco-cdr() {
 }
 zle -N peco-cdr
 bindkey "^o" peco-cdr
+
+function peco-ghqcd() {
+    local selected_dir=$({ echo ~/src/github.com/enechain; ghq list -p; echo ~/.dotfiles } | peco --query="$LBUFFER")
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N peco-ghqcd
+bindkey "^g" peco-ghqcd
 
 
 # The next line updates PATH for the Google Cloud SDK.
