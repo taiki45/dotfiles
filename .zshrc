@@ -67,9 +67,6 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 export PATH="${HOME}/.claude/local:${PATH}"
 
-# Claude Code: use high effort for deeper reasoning
-export CLAUDE_CODE_EFFORT_LEVEL=high
-
 ## .zshrc
 
 ## General
@@ -480,3 +477,4 @@ fpath=(/Users/onotaiki/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+export CLAUDE_CODE_NO_FLICKER=1
