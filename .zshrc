@@ -67,6 +67,10 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 export PATH="${HOME}/.claude/local:${PATH}"
 
+# Claude Code: use high effort and disable adaptive thinking for deeper reasoning
+export CLAUDE_CODE_EFFORT_LEVEL=high
+export CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING=1
+
 ## .zshrc
 
 ## General
