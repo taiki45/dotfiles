@@ -62,6 +62,10 @@ if [ -f $HOME/.cargo/env ]; then
     source $HOME/.cargo/env
 fi
 
+if [ -f $HOME/.local/.zshrc ]; then
+    source $HOME/.local/.zshrc
+fi
+
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
