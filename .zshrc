@@ -490,3 +490,4 @@ autoload -Uz compinit
 compinit
 # End of Docker CLI completions
 export CLAUDE_CODE_NO_FLICKER=1
+eval "$(mise activate zsh)"
