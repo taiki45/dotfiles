@@ -39,7 +39,11 @@ examples.txt
 .vscode
 /__debug_bin*
 
-.claude
+.claude/*
+!.claude/skills/
+!.claude/commands/
+!.claude/agents/
+!.claude/output-styles/
 CLAUDE.local.md
 settings.local.json
 mise.toml
