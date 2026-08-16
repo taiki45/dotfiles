@@ -46,6 +46,10 @@ export PATH="${HOME}/.local/bin:${PATH}"
 
 export GOPATH=$HOME/.go
 
+# Official Go tarball installs land in /usr/local/go. Guarded and appended, so
+# it stays a no-op where Homebrew already put go on PATH.
+[ -d /usr/local/go/bin ] && export PATH=$PATH:/usr/local/go/bin
+
 export PATH=$HOME/.dotfiles/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
 export PATH=$HOME/.cabal/bin:$PATH
