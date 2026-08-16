@@ -465,7 +465,7 @@ zle -N peco-cdr
 bindkey "^o" peco-ghqcd
 
 function peco-ghqcd() {
-    local selected_dir=$({ echo ~/src/github.com/enechain; ghq list -p; echo ~/.dotfiles } | peco --query="$LBUFFER")
+    local selected_dir=$({ [ -d ~/src/github.com/enechain ] && echo ~/src/github.com/enechain; ghq list -p; echo ~/.dotfiles } | peco --query="$LBUFFER")
     if [ -n "$selected_dir" ]; then
         BUFFER="cd ${selected_dir}"
         zle accept-line
