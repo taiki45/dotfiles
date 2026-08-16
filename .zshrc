@@ -37,8 +37,6 @@ case "$(uname)" in
       fi
     fi
 
-    eval "$(atuin init zsh --disable-up-arrow)"
-
     export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
     ;;
 esac
@@ -70,6 +68,12 @@ fi
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 export PATH="${HOME}/.claude/local:${PATH}"
+
+# Needs to come after all the PATH setup above, including $HOME/.local/.zshrc,
+# so that atuin is found regardless of where it was installed
+if command -v atuin > /dev/null 2>&1; then
+    eval "$(atuin init zsh --disable-up-arrow)"
+fi
 
 ## .zshrc
 
