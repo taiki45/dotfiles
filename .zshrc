@@ -462,7 +462,7 @@ function peco-cdr() {
     zle clear-screen
 }
 zle -N peco-cdr
-bindkey "^o" peco-ghqcd
+bindkey "^g" peco-cdr
 
 function peco-ghqcd() {
     local selected_dir=$({ [ -d ~/src/github.com/enechain ] && echo ~/src/github.com/enechain; ghq list -p; echo ~/.dotfiles } | peco --query="$LBUFFER")
@@ -473,7 +473,7 @@ function peco-ghqcd() {
     zle clear-screen
 }
 zle -N peco-ghqcd
-bindkey "^g" peco-ghqcd
+bindkey "^o" peco-ghqcd
 
 
 # The next line updates PATH for the Google Cloud SDK.
