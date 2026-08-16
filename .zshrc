@@ -485,7 +485,9 @@ if [ -f '/Users/onotaiki/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/
 # For VPN environment
 export ARGOCD_GRPC_WEB=true
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/onotaiki/.docker/completions $fpath)
+if [ -d "$HOME/.docker/completions" ]; then
+  fpath=("$HOME/.docker/completions" $fpath)
+fi
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
