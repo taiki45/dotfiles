@@ -90,7 +90,7 @@ setopt no_nomatch
 
 ## Functions
 function ghqcd() {
-    cd $({ echo ~/src/github.com/enechain; ghq list -p; echo ~/.dotfiles } | peco --query=$@)
+    cd $({ [ -d ~/src/github.com/enechain ] && echo ~/src/github.com/enechain; ghq list -p; echo ~/.dotfiles } | peco --query=$@)
 }
 
 function ghb() {
@@ -315,6 +315,15 @@ function prompt_cmd() {
     echo -ne "\e]1;$(pwd | sed -e "s,^$HOME,~,")\a"
 }
 add-zsh-hook precmd prompt_cmd
+
+# Windows Terminal inherits the cwd for duplicateTab / splitPane from OSC 9;9,
+# and only understands Windows paths, so translate before reporting.
+if [ -n "$WT_SESSION" ]; then
+    function wt_report_cwd() {
+        printf '\e]9;9;%s\e\\' "$(wslpath -w "$PWD")"
+    }
+    add-zsh-hook precmd wt_report_cwd
+fi
 
 
 ## Color
