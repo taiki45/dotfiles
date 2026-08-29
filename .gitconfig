@@ -6,7 +6,7 @@
     insteadOf = https://github.com/
 [include]
     path = ~/.gitconfig.local
-[includeIf "gitdir:~/src/github.com/enechain/"]
+[includeIf "gitdir:~/src/github.com/enechain*/"]
     path = ~/.gitconfig.enechain
 [init]
 	defaultBranch = main
