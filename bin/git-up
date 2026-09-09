@@ -49,20 +49,49 @@ worktree_for_branch() {
   '
 }
 
+lock_reason_for_worktree() {
+  local path="$1"
+  git worktree list --porcelain | awk -v target="worktree $path" '
+    $0 == target { found = 1; next }
+    !found { next }
+    /^$/ { exit }
+    /^locked/ { print substr($0, 8); exit }
+  '
+}
+
+# Claude Code locks each agent worktree with a reason naming the owning pid.
+lock_is_stale() {
+  local path="$1" reason pid
+  reason="$(lock_reason_for_worktree "$path")"
+  [[ "$reason" =~ pid\ ([0-9]+) ]] || return 1
+  pid="${BASH_REMATCH[1]}"
+  # ps rather than kill -0, which answers EPERM for a process owned by someone else.
+  ! ps -p "$pid" >/dev/null 2>&1
+}
+
 # Returns non-zero when a worktree exists but cannot be removed,
 # so the caller also skips deleting the branch (which is still checked out).
 remove_worktree_for_branch() {
   local branch="$1"
-  local wt_path
+  local wt_path err
   wt_path="$(worktree_for_branch "$branch")"
   if [[ -z "$wt_path" || "$wt_path" == "$current_worktree" ]]; then
     return 0
   fi
-  if git worktree remove "$wt_path" 2>/dev/null; then
+  if err="$(git worktree remove "$wt_path" 2>&1)"; then
     echo "Removed worktree: $wt_path (branch: $branch)"
     return 0
   fi
-  echo "Warning: could not remove worktree $wt_path for $branch (uncommitted changes?); skipping branch deletion" >&2
+  # Plain remove after the unlock, so git still refuses a dirty worktree.
+  if [[ "$err" == *"locked working tree"* ]] && lock_is_stale "$wt_path"; then
+    git worktree unlock "$wt_path"
+    if err="$(git worktree remove "$wt_path" 2>&1)"; then
+      echo "Removed worktree: $wt_path (branch: $branch, stale lock)"
+      return 0
+    fi
+  fi
+  echo "Warning: could not remove worktree $wt_path for $branch; skipping branch deletion" >&2
+  echo "  $err" >&2
   return 1
 }
 
