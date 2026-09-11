@@ -2,11 +2,15 @@ set main-view = id date author commit-title:graph=yes,refs=yes
 
 # Show line numbers on pager views, set interval=1 (default: line-number:no,interval=5)
 set blame-view  = date:default author:email-user id:yes,color line-number:yes,interval=1 text
-set pager-view  = line-number:yes,interval=1 text
-set stage-view  = line-number:yes,interval=1 text
-set log-view    = line-number:yes,interval=1 text
 set blob-view   = line-number:yes,interval=1 text
-set diff-view   = line-number:yes,interval=1 text:yes,commit-title-overflow=no
+
+# At each wrap point tig skips as many characters as the line-number column is
+# wide, so the views used to read diffs get no line-number column.
+set wrap-lines  = yes
+set pager-view  = text
+set stage-view  = text
+set log-view    = text
+set diff-view   = text:yes,commit-title-overflow=no
 
 # To switch behavior, press `W` in diff view.
 set ignore-space = all
