@@ -4,9 +4,13 @@ set main-view = id date author commit-title:graph=yes,refs=yes
 set blame-view  = date:default author:email-user id:yes,color line-number:yes,interval=1 text
 set blob-view   = line-number:yes,interval=1 text
 
-# At each wrap point tig skips as many characters as the line-number column is
-# wide, so the views used to read diffs get no line-number column.
+# Two things suppress wrap-lines in a diff, so both are off here: a line-number
+# column makes tig skip that many characters at each wrap point, and
+# diff-highlight hands tig lines carrying escapes, which it leaves unwrapped.
+# `:set diff-highlight = yes` at the prompt does not take effect until tig
+# restarts, so this is a startup choice.
 set wrap-lines  = yes
+set diff-highlight = false
 set pager-view  = text
 set stage-view  = text
 set log-view    = text
@@ -14,8 +18,6 @@ set diff-view   = text:yes,commit-title-overflow=no
 
 # To switch behavior, press `W` in diff view.
 set ignore-space = all
-# Use diff-highlight, may overwrite ignore-space config.
-set diff-highlight = true
 
 set ignore-case = true
 
