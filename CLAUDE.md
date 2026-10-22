@@ -5,6 +5,7 @@
 ### Home Directory (`~`) → `.dotfiles/`
 
 ```
+~/.zshenv        -> .dotfiles/.zshenv
 ~/.zshrc         -> .dotfiles/.zshrc
 ~/.vimrc         -> .dotfiles/.vimrc
 ~/.tigrc         -> .dotfiles/.tigrc
