@@ -90,7 +90,7 @@ setopt no_nomatch
 
 ## Functions
 function ghqcd() {
-    cd $({ [ -d ~/src/github.com/enechain ] && echo ~/src/github.com/enechain; ghq list -p; echo ~/.dotfiles } | peco --query=$@)
+    cd $({ [ -d ~/src/github.com/enechain ] && echo ~/src/github.com/enechain; ghq list -p; echo ~/.dotfiles; [ -d ~/tmp ] && echo ~/tmp } | peco --query=$@)
 }
 
 function ghb() {
@@ -468,7 +468,7 @@ zle -N peco-cdr
 bindkey "^g" peco-cdr
 
 function peco-ghqcd() {
-    local selected_dir=$({ [ -d ~/src/github.com/enechain ] && echo ~/src/github.com/enechain; ghq list -p; echo ~/.dotfiles } | peco --query="$LBUFFER")
+    local selected_dir=$({ [ -d ~/src/github.com/enechain ] && echo ~/src/github.com/enechain; ghq list -p; echo ~/.dotfiles; [ -d ~/tmp ] && echo ~/tmp } | peco --query="$LBUFFER")
     if [ -n "$selected_dir" ]; then
         BUFFER="cd ${selected_dir}"
         zle accept-line
