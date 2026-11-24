@@ -54,3 +54,5 @@ charts/
 # Added by cargo
 
 /target
+
+**/.claude/settings.local.json
