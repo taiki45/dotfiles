@@ -6,15 +6,6 @@ promptToReturnFromSubprocess: false
 git:
   overrideGpg: true
 customCommands:
-  - key: "<c-a>"
-    context: "files"
-    description: "AI commit with draft"
-    loadingText: "Generating message and committing..."
-    prompts:
-      - type: "input"
-        title: "Prompt for commit message draft"
-        key: "Draft"
-    command: "git ai --skip-read {{.Form.Draft | quote}}"
   - key: "U"
     context: "localBranches"
     description: "git-up"
