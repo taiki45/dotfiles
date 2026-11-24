@@ -95,6 +95,21 @@ remove_worktree_for_branch() {
   return 1
 }
 
+# A PR branch can gain commits on GitHub before its squash merge (a bot's commit,
+# a review suggestion), so no squash commit on main matches the local branch.
+contained_in_merged_pr() {
+  local branch="$1" pr number state head_oid
+  command -v gh >/dev/null || return 1
+  [[ "$(git for-each-ref --format='%(upstream:track)' "refs/heads/${branch}")" == "[gone]" ]] || return 1
+  pr="$(gh pr view "$branch" --json number,state,headRefOid --jq '[.number, .state, .headRefOid] | @tsv' 2>/dev/null)" || return 1
+  IFS=$'\t' read -r number state head_oid <<<"$pr"
+  [[ "$state" == "MERGED" && -n "$head_oid" ]] || return 1
+  if ! git cat-file -e "${head_oid}^{commit}" 2>/dev/null; then
+    git fetch -q --no-write-fetch-head "$default_remote" "refs/pull/${number}/head" 2>/dev/null || return 1
+  fi
+  git merge-base --is-ancestor "$branch" "$head_oid" 2>/dev/null
+}
+
 # Delete merged branches (and their worktrees)
 while IFS= read -r b; do
   [[ -z "$b" || "$b" == "$main_branch" ]] && continue
@@ -111,7 +126,7 @@ for branch in $(git for-each-ref refs/heads/ '--format=%(refname:short)'); do
   message='_'
   commit="$(git commit-tree "${branch_tree}" -p "${merge_base}" -m "${message}")"
 
-  if [[ "$(git cherry "${main_branch}" "${commit}")" == "-"* ]]; then
+  if [[ "$(git cherry "${main_branch}" "${commit}")" == "-"* ]] || contained_in_merged_pr "${branch}"; then
     if remove_worktree_for_branch "${branch}"; then
       git branch -D "${branch}"
     fi
