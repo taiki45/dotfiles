@@ -67,11 +67,10 @@ fi
 if [ -f $HOME/.local/.zshrc ]; then
     source $HOME/.local/.zshrc
 fi
+[[ -r ~/.zshrc.private ]] && source ~/.zshrc.private
 
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-
-export PATH="${HOME}/.claude/local:${PATH}"
 
 # Needs to come after all the PATH setup above, including $HOME/.local/.zshrc,
 # so that atuin is found regardless of where it was installed
@@ -89,8 +88,15 @@ bindkey -e
 setopt no_nomatch
 
 ## Functions
+function _ghqcd_candidates() {
+    print -l -- $GHQCD_EXTRA_DIRS
+    ghq list -p
+    echo ~/.dotfiles
+    [ -d ~/tmp ] && echo ~/tmp
+}
+
 function ghqcd() {
-    cd $({ [ -d ~/src/github.com/enechain ] && echo ~/src/github.com/enechain; ghq list -p; echo ~/.dotfiles; [ -d ~/tmp ] && echo ~/tmp } | peco --query=$@)
+    cd $(_ghqcd_candidates | peco --query=$@)
 }
 
 function ghb() {
@@ -263,8 +269,15 @@ case ${UID} in
     MAGENTA="%{${fg[magenta]}%}"
     WHITE="%{${fg[white]}%}"
 
-    # Only show k8s context and gcloud project in work directory to avoid leaking names in public recordings
+    # Only show k8s context and gcloud project under PROMPT_CLOUD_DIRS to avoid leaking names in public recordings
     # Also show if .kube-context file exists in current directory
+    function _in_cloud_dir() {
+        local dir
+        for dir in $PROMPT_CLOUD_DIRS; do
+            [[ "$PWD" == "$dir"* ]] && return 0
+        done
+        [[ -f "$PWD/.kube-context" ]]
+    }
     function _env_color() {
         local value="$1"
         if [[ "$value" == *prod* ]]; then
@@ -278,14 +291,14 @@ case ${UID} in
         fi
     }
     function _k8s_prompt() {
-        if [[ "$PWD" == "$HOME/src/github.com/enechain"* ]] || [[ -f "$PWD/.kube-context" ]]; then
+        if _in_cloud_dir; then
             if [[ -n "$ZSH_KUBECTL_PROMPT" ]]; then
                 echo "$(_env_color "$ZSH_KUBECTL_PROMPT")$ZSH_KUBECTL_PROMPT "
             fi
         fi
     }
     function _gcloud_prompt() {
-        if [[ "$PWD" == "$HOME/src/github.com/enechain"* ]] || [[ -f "$PWD/.kube-context" ]]; then
+        if _in_cloud_dir; then
             local project=$(_get_gcloud_project)
             if [[ -n "$project" ]]; then
                 echo "$(_env_color "$project")$project "
@@ -468,7 +481,7 @@ zle -N peco-cdr
 bindkey "^g" peco-cdr
 
 function peco-ghqcd() {
-    local selected_dir=$({ [ -d ~/src/github.com/enechain ] && echo ~/src/github.com/enechain; ghq list -p; echo ~/.dotfiles; [ -d ~/tmp ] && echo ~/tmp } | peco --query="$LBUFFER")
+    local selected_dir=$(_ghqcd_candidates | peco --query="$LBUFFER")
     if [ -n "$selected_dir" ]; then
         BUFFER="cd ${selected_dir}"
         zle accept-line
@@ -485,8 +498,6 @@ if [ -f '/Users/onotaiki/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/onotai
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/onotaiki/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/onotaiki/google-cloud-sdk/completion.zsh.inc'; fi
 
-# For VPN environment
-export ARGOCD_GRPC_WEB=true
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 if [ -d "$HOME/.docker/completions" ]; then
   fpath=("$HOME/.docker/completions" $fpath)
@@ -494,7 +505,6 @@ fi
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
-export CLAUDE_CODE_NO_FLICKER=1
 if command -v mise > /dev/null 2>&1; then
     eval "$(mise activate zsh)"
 fi
