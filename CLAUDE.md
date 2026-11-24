@@ -19,3 +19,7 @@
 ```
 ~/.config/lazygit -> .dotfiles/config/lazygit
 ```
+
+## Private Overlays
+
+This repository is public. Settings tied to work or AI agents go in `~/.zshenv.private` and `~/.zshrc.private` (and `~/.gitconfig.local` for git), which live in a private repository and are sourced here only when present.
