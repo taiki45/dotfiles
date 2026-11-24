@@ -1,4 +1,4 @@
-. "$HOME/.cargo/env"
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
 # Non-interactive shells (editors, scripts, MCP servers) read only this file,
 # so mise tools reach them through shims. Interactive shells still run

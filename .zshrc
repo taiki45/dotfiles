@@ -101,9 +101,12 @@ autoload history-search-end
 # ヒストリを呼び出してから実行する間に一旦編集可能
 setopt hist_verify
 
-autoload -U compinit && compinit
-
-[[ -r ~/.zshrc.private ]] && source ~/.zshrc.private
+# .zshrc.private extends fpath and runs compinit itself.
+if [[ -r ~/.zshrc.private ]]; then
+    source ~/.zshrc.private
+else
+    autoload -U compinit && compinit
+fi
 
 if command -v mise > /dev/null 2>&1; then
     eval "$(mise activate zsh)"
