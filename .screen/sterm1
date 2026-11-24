@@ -1,5 +1,0 @@
-source default
-
-caption always "%{= .m}taiki %-034=%{b .m} %l %{.b} %m/%d/%y %c:%s"
-
-screen screen -qUmc leaf -R taiki
