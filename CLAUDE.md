@@ -1,25 +1,15 @@
 # Dotfiles
 
-## Symlink Structure
+This repository is public and holds only what a fresh machine needs to start a working shell and git before the private dotfiles are cloned. Add every other setting to the private dotfiles, whose `~/.zshenv.private`, `~/.zshrc.private` and `~/.gitconfig.private` are read here when present.
 
-### Home Directory (`~`) → `.dotfiles/`
+## Symlink Structure
 
 ```
 ~/.zshenv        -> .dotfiles/.zshenv
 ~/.zshrc         -> .dotfiles/.zshrc
-~/.vimrc         -> .dotfiles/.vimrc
-~/.tigrc         -> .dotfiles/.tigrc
 ~/.gitconfig     -> .dotfiles/.gitconfig
 ~/.gitignore     -> .dotfiles/.gitignore
 ~/.gitattributes -> .dotfiles/.gitattributes
 ```
 
-### Config Directory (`~/.config/`) → `.dotfiles/config/`
-
-```
-~/.config/lazygit -> .dotfiles/config/lazygit
-```
-
-## Private Overlays
-
-This repository is public. Settings tied to work or AI agents go in `~/.zshenv.private` and `~/.zshrc.private` (and `~/.gitconfig.local` for git), which live in a private repository and are sourced here only when present.
+`~/.gitconfig.local` is a per-machine file holding the git identity and signing key.

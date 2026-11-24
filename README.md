@@ -1,5 +1,14 @@
 # Dotfiles
 
+The minimal shell and git setup for a fresh machine. The rest lives in a private repository, read through `~/.zshenv.private`, `~/.zshrc.private` and `~/.gitconfig.private` when present.
+
+```sh
+git clone https://github.com/taiki45/dotfiles.git ~/.dotfiles
+for f in .zshenv .zshrc .gitconfig .gitignore .gitattributes; do ln -sfn ~/.dotfiles/$f ~/$f; done
+```
+
+On Linux, `ssh-agent.service` is a systemd user unit serving the `SSH_AUTH_SOCK` that `.zshrc` sets.
+
 terminal color scheme: Dracula
 
 ## LICENSE

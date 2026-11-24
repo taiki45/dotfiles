@@ -1,102 +1,10 @@
 [core]
     excludesfile = ~/.gitignore
     autocrlf = input
-	editor = git-editor-vscode
 [url "git@github.com:"]
     insteadOf = https://github.com/
 [include]
     path = ~/.gitconfig.local
+    path = ~/.gitconfig.private
 [init]
 	defaultBranch = main
-[advice]
-	skippedCherryPicks = false
-
-[branch]
-    autosetupmerge = true
-    autosetuprebase = always
-	sort = -committerdate
-[commit]
-	gpgsign = true
-    verbose = true
-[diff]
-    algorithm = histogram
-	colorMoved = plain
-	mnemonicPrefix = true
-	renames = true
-[fetch]
-    parallel = 0
-	prune = true
-	pruneTags = true
-[help]
-	autocorrect = prompt
-[merge]
-	conflictstyle = zdiff3
-[pull]
-    rebase = true
-[push]
-	default = simple
-	autoSetupRemote = true
-	followTags = true
-[rebase]
-    autostash = true
-    autosquash = true
-	updateRefs = true
-[rerere]
-	enabled = true
-	autoupdate = true
-[tag]
-	sort = version:refname
-
-[color]
-    status = auto
-    diff = auto
-    branche = auto
-    ui = auto
-    interactive = auto
-    grep = auto
-[column]
-	ui = auto
-[pager]
-    log = diff-highlight | less -R -+X -+F
-    show = diff-highlight | less -R -+F
-    diff = diff-highlight | less -R -+F
-
-[alias]
-    cloen = clone
-    st = status --short -b
-    co = checkout --recurse-submodules
-    sw = switch --recurse-submodules
-    f = fetch -p
-    ac = commit -asv --fixup=HEAD
-    com = commit -sv
-    acommit = commit -asv
-    amend = commit -a --amend --no-edit
-    d = diff
-    di = diff
-    dif = diff
-    diffadded = diff --cached
-    graph = log --oneline --decorate --graph --all
-    lgraph = log --oneline --decorate --graph
-    dgraph = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s'
-    logall = log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d%Creset'
-    logdiff = log -p
-    logstat = log --stat
-    logpretty = log --pretty=\"format:%ad %h (%an): %s\" --date=short
-    logfull = log --pretty=fuller
-    oneline = log --pretty=oneline
-    branchdiff = "!f() { git cherry -v "$@" | awk '{ if($1 == \"+\"){ color = \"green\" } if($1 == \"-\"){ color = \"red\" } cmd = \"git show --date=short --no-notes --pretty=format:\\047%C\" color $1 \" %h %Cgreen%cd %Cblue%cn%x09%Creset%s\\047 --summary \" $2; cmd | getline t; close(cmd); print t }' ;}; f"
-    diffnospace = diff --ignore-space-change
-    diffword = diff --word-diff
-    logworddiff = log -p --word-diff
-    b = branch --sort=-authordate
-
-[tig "bind"]
-    generic = g move-first-line
-    generic = G move-last-line
-[ghq]
-    root = ~/src
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
